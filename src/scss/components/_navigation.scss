@@ -1,0 +1,15 @@
+.navigation {
+  &__link {
+    font-weight: 700;
+    font-size: var(--fz-16);
+    line-height: lh(26, 16);
+    color: var(--color-mako);
+  }
+
+  &__list {
+    &_row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

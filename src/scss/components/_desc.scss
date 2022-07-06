@@ -1,0 +1,9 @@
+.desc {
+  font-weight: 400;
+  font-size: rem(18);
+  line-height: lh(27, 18);
+
+  &_center {
+    text-align: center;
+  }
+}

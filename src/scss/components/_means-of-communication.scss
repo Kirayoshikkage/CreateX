@@ -1,0 +1,21 @@
+.means-of-communication {
+  &__icon {
+    width: rem(40);
+    height: rem(40);
+    fill: var(--color-primary);
+  }
+
+  &__text {
+    font-weight: 700;
+    font-size: rem(14);
+    line-height: lh(21, 14);
+    color: var(--color-mako);
+  }
+
+  &__contact {
+    font-weight: 400;
+    font-size: rem(18);
+    line-height: lh(27, 18);
+    color: var(--color-ebonyClay);
+  }
+}

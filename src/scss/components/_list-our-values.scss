@@ -1,0 +1,35 @@
+.list-our-values {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: rem(60) rem(187);
+
+  &__item {
+    position: relative;
+    flex: 1 1 rem(285);
+    padding-top: rem(72);
+    text-align: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: rem(48);
+      height: rem(48);
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+    }
+
+    @each $values in quality, safety, comfort {
+      &_#{$values}::before {
+        background-image: url("../img/#{$values}.svg");
+      }
+    }
+  }
+
+  .caption {
+    margin: 0 0 rem(8);
+  }
+}

@@ -1,0 +1,23 @@
+.question {
+  padding: rem(48) rem(60);
+  background-color: var(--color-white);
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: rem(24);
+
+    &__label {
+      flex: 1 1 auto;
+
+      &_message {
+        flex-grow: 2;
+      }
+
+      &__button {
+        flex-grow: 0;
+      }
+    }
+  }
+}

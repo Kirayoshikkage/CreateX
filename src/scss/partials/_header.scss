@@ -1,0 +1,47 @@
+.header {
+  padding: rem(22);
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    flex-shrink: 0;
+    margin: 0 rem(60) 0 0;
+  }
+
+  .navigation {
+    margin-right: auto;
+
+    &__list {
+      gap: rem(40);
+    }
+  }
+
+  .means-of-communication {
+    display: grid;
+    flex-shrink: 0;
+    align-items: center;
+    grid-template-areas:
+      "icon text"
+      "icon contact";
+    gap: 0 rem(12);
+
+    &__icon {
+      grid-area: icon;
+    }
+
+    &__text {
+      grid-area: text;
+    }
+
+    &__contact {
+      grid-area: contact;
+    }
+
+    &:not(:last-child) {
+      margin-right: rem(36);
+    }
+  }
+}

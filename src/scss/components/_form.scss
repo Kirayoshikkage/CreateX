@@ -1,0 +1,72 @@
+%form-text-xl {
+  font-size: rem(16);
+  line-height: lh(26, 16);
+}
+
+%form-text-l {
+  font-size: rem(14);
+  line-height: lh(21, 14);
+}
+
+%form-text-m {
+  font-size: rem(12);
+  line-height: lh(18, 12);
+}
+
+.form {
+  &__text {
+    display: block;
+    margin: 0 0 rem(8);
+    color: var(--color-mako);
+  }
+
+  &__input {
+    border: rem(1) solid var(--color-iron);
+    border-radius: rem(4);
+    width: 100%;
+    color: var(--color-ebonyClay);
+    background-color: var(--color-athensGray);
+
+    &::placeholder {
+      font-size: inherit;
+      line-height: inherit;
+      color: var(--color-manatee);
+    }
+  }
+
+  &_size-xl {
+    .form__input {
+      padding: rem(12) rem(16);
+
+      @extend %form-text-xl;
+    }
+
+    .form__text {
+      @extend %form-text-xl;
+    }
+  }
+
+  &_size-l {
+    .form__input {
+      padding: rem(10.5) rem(16);
+
+      @extend %form-text-l;
+    }
+
+    .form__text {
+      @extend %form-text-l;
+    }
+  }
+
+  &_size-m {
+    .form__input {
+      padding: rem(8) rem(12);
+
+      @extend %form-text-m;
+    }
+
+    .form__text {
+      @extend %form-text-m;
+    }
+  }
+}

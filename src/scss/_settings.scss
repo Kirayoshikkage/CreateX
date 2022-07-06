@@ -6,6 +6,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  font-family: var(--ff-ubuntu);
 }
 
 img {
@@ -72,6 +73,12 @@ a {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.container {
+  max-width: rem(1262);
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
 $transitionDuration: 0.4s;

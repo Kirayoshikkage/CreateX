@@ -1,0 +1,31 @@
+.button {
+  border-radius: rem(4);
+  font-weight: 700;
+
+  &_size-large {
+    padding: rem(18) rem(40);
+    font-size: rem(16);
+  }
+
+  &_size-regular {
+    padding: rem(14) rem(32);
+    font-size: rem(14);
+  }
+
+  &_size-small {
+    padding: rem(12) rem(24);
+    font-size: rem(12);
+  }
+
+  &_background-primary {
+    background-color: var(--color-primary);
+  }
+
+  &_border-primary {
+    border: rem(1) solid var(--color-primary);
+  }
+
+  &_color-white {
+    color: var(--color-white);
+  }
+}
