@@ -1,0 +1,40 @@
+.buttons-slider {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+
+  &__button {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 100%;
+    width: rem(48);
+    height: rem(48);
+    transition-property: background;
+    transition-duration: $transitionDuration;
+
+    &::after {
+      display: none;
+    }
+
+    &_prev {
+      transform: rotate(180deg);
+    }
+
+    &_bg-primary {
+      &:not(.swiper-button-disabled) {
+        fill: var(--color-white);
+        background-color: var(--color-primary);
+      }
+    }
+  }
+
+  &__icon {
+    width: rem(24);
+    height: rem(24);
+    transition-property: fill;
+    transition-duration: $transitionDuration;
+  }
+}

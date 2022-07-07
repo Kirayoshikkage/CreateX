@@ -32,6 +32,10 @@
       line-height: inherit;
       color: var(--color-manatee);
     }
+
+    &_textarea {
+      resize: none;
+    }
   }
 
   &_size-xl {

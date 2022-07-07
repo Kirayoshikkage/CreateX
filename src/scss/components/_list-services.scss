@@ -17,6 +17,8 @@
     gap: rem(24);
 
     &::before {
+      @include image-set("../img/service-hover");
+
       content: "";
       position: absolute;
       left: 0;
@@ -24,10 +26,11 @@
       z-index: 1;
       width: 100%;
       height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
       opacity: 0;
       transition-property: opacity;
       transition-duration: $transitionDuration;
-      @include image-set("../img/service-hover");
     }
 
     @mixin animation {

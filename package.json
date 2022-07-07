@@ -70,5 +70,8 @@
     "stylelint-order": "^5.0.0",
     "webpack": "^5.65.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "swiper": "^8.3.0"
   }
 }

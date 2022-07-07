@@ -1,9 +1,10 @@
 .button {
   border-radius: rem(4);
   font-weight: 700;
+  text-transform: uppercase;
 
   &_size-large {
-    padding: rem(18) rem(40);
+    padding: rem(17) rem(40);
     font-size: rem(16);
   }
 
@@ -27,5 +28,9 @@
 
   &_color-white {
     color: var(--color-white);
+  }
+
+  &_color-primary {
+    color: var(--color-primary);
   }
 }

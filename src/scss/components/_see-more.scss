@@ -1,0 +1,10 @@
+.see-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(40);
+
+  .button {
+    flex-shrink: 0;
+  }
+}

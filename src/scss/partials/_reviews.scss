@@ -1,0 +1,25 @@
+.reviews {
+  padding: rem(85) 0 rem(121);
+  background-color: var(--color-porcelain);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, rem(600)) minmax(0, rem(495));
+    gap: rem(60) rem(135);
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  .review__name,
+  .review__job {
+    padding-right: 5.75rem;
+  }
+
+  .buttons-slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

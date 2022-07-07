@@ -1,0 +1,23 @@
+.recent-news {
+  padding: rem(90) 0 rem(120);
+
+  &__list {
+    display: grid;
+    grid-template-columns: 57.32% 40.24%;
+    grid-template-areas:
+      "one two"
+      "one three";
+    margin-bottom: rem(80);
+    gap: rem(30);
+  }
+
+  @each $news in one, two, three {
+    &__item_#{$news} {
+      grid-area: #{$news};
+
+      .news::before {
+        @include image-set("../img/news-#{$news}__desctop");
+      }
+    }
+  }
+}
