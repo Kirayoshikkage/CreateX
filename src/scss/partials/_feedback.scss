@@ -17,6 +17,10 @@
       0 rem(26) rem(24) rem(-10) rgba(30, 33, 44, 0.1),
       0 rem(60) rem(80) rem(-20) rgba(30, 33, 44, 0.16);
     background-color: var(--color-white);
+
+    @include laptop {
+      margin: 0 auto;
+    }
   }
 
   .form {

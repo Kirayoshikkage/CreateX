@@ -85,4 +85,14 @@ a {
   margin: 0 auto;
 }
 
-$transitionDuration: 0.4s;
+@include laptop {
+  .container {
+    max-width: rem(1024);
+  }
+}
+
+@include tablet {
+  .container {
+    max-width: rem(768);
+  }
+}

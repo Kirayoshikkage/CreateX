@@ -1,16 +1,21 @@
 .services {
-  padding: rem(212) 0 rem(80);
+  padding: rem(180) 0 rem(80);
   background-color: var(--color-porcelain);
 
   .list-services {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: rem(80);
     gap: rem(30);
 
     &__item {
-      flex: 1 1 rem(285);
+      flex: 0 1 rem(285);
       min-height: rem(285);
     }
+  }
+
+  @include tablet {
+    padding: rem(120) 0 rem(80);
   }
 }

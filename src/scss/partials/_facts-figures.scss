@@ -1,0 +1,18 @@
+.facts-figures {
+  @include image-set("../img/facts-figures-bg__desctop");
+
+  padding: rem(180) 0 rem(90);
+  background-position: left top rem(-340);
+  background-repeat: no-repeat;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(48);
+  }
+
+  &__item {
+    flex: 0 1 rem(148);
+  }
+}

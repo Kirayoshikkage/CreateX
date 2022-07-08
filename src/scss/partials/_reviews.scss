@@ -6,10 +6,24 @@
     display: grid;
     grid-template-columns: minmax(0, rem(600)) minmax(0, rem(495));
     gap: rem(60) rem(135);
+
+    @include tablet {
+      grid-template-columns: 100%;
+    }
   }
 
   &__item {
     position: relative;
+
+    &_img {
+      overflow: hidden;
+      margin-bottom: rem(-180);
+      border-radius: rem(4);
+
+      @include tablet {
+        display: none;
+      }
+    }
   }
 
   .review__name,
@@ -21,5 +35,9 @@
     position: absolute;
     right: 0;
     bottom: 0;
+  }
+
+  &__img {
+    height: 100%;
   }
 }

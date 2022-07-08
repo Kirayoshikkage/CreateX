@@ -14,9 +14,26 @@
       &_message {
         flex-grow: 2;
       }
+    }
+
+    &__text {
+      text-align: start;
+    }
+
+    @include laptop {
+      &__label {
+        flex-grow: 1;
+      }
 
       &__button {
-        flex-grow: 0;
+        flex: 0 1 rem(274);
+        margin: 0 auto;
+      }
+    }
+
+    @include tablet {
+      &__button {
+        flex: 0 0 auto;
       }
     }
   }

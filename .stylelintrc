@@ -492,6 +492,7 @@
     "color-named": "never",
     "color-no-hex": null,
     "color-no-invalid-hex": true,
+    "color-function-notation": "legacy",
     "comment-empty-line-before": [
       "always",
       {

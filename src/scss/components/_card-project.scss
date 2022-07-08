@@ -32,6 +32,10 @@
     max-height: rem(345);
     transition-property: max-height;
     transition-duration: $transitionDuration;
+
+    @include laptop {
+      max-height: rem(274);
+    }
   }
 
   @include mouse-device {
@@ -39,6 +43,10 @@
     &:focus {
       .card-project__img {
         max-height: rem(277);
+
+        @include laptop {
+          max-height: rem(203);
+        }
       }
 
       .card-project__button-container {

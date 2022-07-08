@@ -1,20 +1,21 @@
 .button {
+  border: rem(1) solid transparent;
   border-radius: rem(4);
   font-weight: 700;
   text-transform: uppercase;
 
   &_size-large {
-    padding: rem(17) rem(40);
+    padding: rem(16) rem(40);
     font-size: rem(16);
   }
 
   &_size-regular {
-    padding: rem(14) rem(32);
+    padding: rem(13) rem(32);
     font-size: rem(14);
   }
 
   &_size-small {
-    padding: rem(12) rem(24);
+    padding: rem(11) rem(24);
     font-size: rem(12);
   }
 
@@ -23,7 +24,11 @@
   }
 
   &_border-primary {
-    border: rem(1) solid var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  &_border-white {
+    border-color: var(--color-white);
   }
 
   &_color-white {

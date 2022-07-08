@@ -1,9 +1,14 @@
-import { sliderInSectionSelectedProjects, sliderInSectionReviews } from './helpers/sliders';
+import { heroSlider, selectedProjectsSlider, reviewsSlider } from './helpers/sliders';
+import createsCircularProgressbar from './helpers/createsCircularProgressbar';
 
 const { page } = document.body.dataset;
 
 if (page === 'index') {
-  sliderInSectionSelectedProjects();
+  heroSlider();
 
-  sliderInSectionReviews();
+  selectedProjectsSlider();
+
+  reviewsSlider();
+
+  createsCircularProgressbar('.facts-figures .progressbar__circle');
 }
