@@ -29,12 +29,21 @@
   }
 
   &__img {
+    width: 100%;
+    min-height: rem(345);
     max-height: rem(345);
-    transition-property: max-height;
+    transition-property: min-height, max-height;
     transition-duration: $transitionDuration;
 
-    @include laptop {
-      max-height: rem(274);
+    @include mobile {
+      min-height: rem(300);
+      max-height: rem(300);
+    }
+
+    @media (orientation: landscape) and (max-width: 767.98px),
+      (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+      min-height: rem(240);
+      max-height: rem(240);
     }
   }
 
@@ -42,10 +51,18 @@
     &:hover,
     &:focus {
       .card-project__img {
+        min-height: rem(277);
         max-height: rem(277);
 
-        @include laptop {
-          max-height: rem(203);
+        @include mobile {
+          min-height: rem(232);
+          max-height: rem(232);
+        }
+
+        @media (orientation: landscape) and (max-width: 767.98px),
+          (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+          min-height: rem(172);
+          max-height: rem(172);
         }
       }
 

@@ -16,6 +16,10 @@
         justify-content: center;
       }
     }
+
+    @include mobile {
+      margin: 0 0 rem(40);
+    }
   }
 
   &__item {
@@ -34,5 +38,9 @@
     .news[data-news="#{$news}"]::before {
       @include image-set("../img/#{$news}__desctop");
     }
+  }
+
+  @include small-tablet {
+    padding: rem(45) 0 rem(60);
   }
 }

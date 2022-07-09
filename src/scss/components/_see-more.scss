@@ -7,4 +7,10 @@
   .button {
     flex-shrink: 0;
   }
+
+  @include mobile {
+    text-align: center;
+    flex-direction: column;
+    gap: rem(20);
+  }
 }

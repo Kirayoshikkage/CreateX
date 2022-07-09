@@ -1,4 +1,8 @@
 .text {
   font-size: rem(16);
   line-height: lh(25, 16);
+
+  @include mobile {
+    font-size: rem(14);
+  }
 }

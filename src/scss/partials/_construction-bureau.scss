@@ -4,5 +4,17 @@
   .video {
     height: rem(500);
     background-color: var(--color-primary);
+
+    @include small-tablet {
+      height: rem(300);
+    }
+
+    @media (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+      height: rem(300);
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0 rem(45);
   }
 }

@@ -37,7 +37,10 @@ const selectedProjectsSlider = function () {
       prevEl: buttonPrev,
     },
     breakpoints: {
-      768: {
+      320: {
+        slidesPerView: 1,
+      },
+      576: {
         slidesPerView: 2,
       },
       1024: {

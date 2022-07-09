@@ -25,13 +25,6 @@
     align-items: center;
   }
 
-  .caption {
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -77,6 +70,10 @@
 
     .news__content {
       padding: rem(24);
+
+      @include mobile {
+        padding: 1rem;
+      }
     }
 
     .caption {
@@ -93,6 +90,10 @@
 
     .news__content {
       padding: rem(16) rem(24);
+
+      @include mobile {
+        padding: 1rem;
+      }
     }
 
     .caption {

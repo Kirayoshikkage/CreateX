@@ -85,6 +85,12 @@ a {
   margin: 0 auto;
 }
 
+@include extraLarge {
+  :root {
+    font-size: 125%;
+  }
+}
+
 @include laptop {
   .container {
     max-width: rem(1024);

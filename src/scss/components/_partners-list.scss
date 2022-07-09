@@ -8,4 +8,28 @@
     opacity: 0.5;
     filter: grayscale(100%);
   }
+
+  &__link {
+    border-bottom: rem(2) solid transparent;
+    transition-property: border-color;
+    transition-duration: $transitionDuration;
+    filter: blur(100%);
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        border-bottom-color: var(--color-primary);
+      }
+    }
+  }
+
+  &__img {
+    width: rem(120);
+    height: rem(64);
+  }
+
+  @include mobile {
+    gap: rem(30);
+    justify-content: space-evenly;
+  }
 }

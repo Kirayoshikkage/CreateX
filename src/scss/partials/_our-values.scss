@@ -3,14 +3,22 @@
 
   .list-our-values {
     margin-bottom: rem(120);
-  }
 
-  .subtitle {
-    margin: 0 0 rem(32);
+    @include small-tablet {
+      margin-bottom: rem(60);
+    }
   }
 
   .question {
     position: relative;
     margin-bottom: rem(-150);
+
+    @include small-tablet {
+      margin-bottom: rem(-75);
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(45) 0 rem(30);
   }
 }

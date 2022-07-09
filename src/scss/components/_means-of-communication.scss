@@ -1,4 +1,6 @@
 .means-of-communication {
+  outline: none;
+
   &__icon {
     width: rem(40);
     height: rem(40);
@@ -17,5 +19,34 @@
     font-size: rem(18);
     line-height: lh(27, 18);
     color: var(--color-ebonyClay);
+  }
+
+  &__text,
+  &__contact {
+    transition-property: color;
+    transition-duration: $transitionDuration;
+  }
+
+  @include mouse-device {
+    &:hover,
+    &:focus {
+      .means-of-communication__text,
+      .means-of-communication__contact {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  @include touch-device {
+    &:active {
+      .means-of-communication__text,
+      .means-of-communication__contact {
+        color: var(--color-primary);
+      }
+
+      .means-of-communication__icon {
+        fill: var(--color-radicalRed);
+      }
+    }
   }
 }

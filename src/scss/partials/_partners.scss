@@ -1,4 +1,8 @@
 .partners {
   padding: rem(80) 0 rem(85);
   background-color: var(--color-porcelain);
+
+  @include small-tablet {
+    padding: rem(40) 0 rem(42.5);
+  }
 }

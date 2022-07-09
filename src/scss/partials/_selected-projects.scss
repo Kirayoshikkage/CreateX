@@ -6,6 +6,12 @@
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: rem(60);
+
+    @include mobile {
+      flex-direction: column;
+      gap: rem(40);
+      margin-bottom: rem(40);
+    }
   }
 
   .title {
@@ -14,9 +20,17 @@
 
   .swiper {
     padding-bottom: rem(80);
+
+    @include mobile {
+      padding-bottom: rem(30);
+    }
   }
 
   .swiper-slide {
     height: auto;
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0;
   }
 }

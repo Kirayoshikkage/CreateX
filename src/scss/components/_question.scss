@@ -2,6 +2,14 @@
   padding: rem(48) rem(60);
   background-color: var(--color-white);
 
+  .subtitle {
+    margin: 0 0 rem(32);
+
+    @include mobile {
+      margin: 0 0 rem(24);
+    }
+  }
+
   .form {
     display: flex;
     flex-wrap: wrap;
@@ -36,5 +44,21 @@
         flex: 0 0 auto;
       }
     }
+
+    @include mobile {
+      gap: 1rem;
+
+      &__button {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(24) rem(30);
+  }
+
+  @include mobile {
+    padding: 1rem;
   }
 }

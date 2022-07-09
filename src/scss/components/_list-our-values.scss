@@ -4,10 +4,6 @@
   justify-content: space-between;
   gap: rem(60) rem(187);
 
-  @include tablet {
-    gap: rem(60) rem(94);
-  }
-
   &__item {
     position: relative;
     flex: 1 1 rem(285);
@@ -56,6 +52,12 @@
       display: none;
     }
 
+    @each $values in quality, safety, comfort {
+      &_#{$values}::before {
+        background-image: url("../img/#{$values}.svg");
+      }
+    }
+
     @include laptop {
       &:nth-child(3n)::after {
         display: block;
@@ -66,14 +68,26 @@
       }
     }
 
-    @each $values in quality, safety, comfort {
-      &_#{$values}::before {
-        background-image: url("../img/#{$values}.svg");
+    @include small-tablet {
+      &:nth-child(1n)::after {
+        display: none;
       }
     }
   }
 
   .caption {
     margin: 0 0 rem(8);
+  }
+
+  @include tablet {
+    gap: rem(60) rem(94);
+  }
+
+  @media (orientation: landscape) and (max-width: 767.98px) {
+    gap: rem(30);
+
+    &__item {
+      flex: 1 1 calc(50% - rem(30));
+    }
   }
 }

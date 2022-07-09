@@ -12,3 +12,9 @@ if (page === 'index') {
 
   createsCircularProgressbar('.facts-figures .progressbar__circle');
 }
+
+// Анимации
+
+// Доступность
+
+// Чек лист

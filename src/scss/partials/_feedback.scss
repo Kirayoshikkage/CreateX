@@ -4,7 +4,7 @@
   padding: rem(80) 0;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: var(--color-black);
+  background-color: var(--color-ebonyClay);
 
   &__content {
     flex-direction: column;
@@ -21,6 +21,14 @@
     @include laptop {
       margin: 0 auto;
     }
+
+    @include mobile {
+      padding: 1rem;
+    }
+
+    @media (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+      max-width: 100%;
+    }
   }
 
   .form {
@@ -31,5 +39,35 @@
     &__button {
       align-self: center;
     }
+
+    @include mobile {
+      gap: 1rem;
+    }
+
+    @media (orientation: landscape) and (max-width: 767.98px),
+      (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &__label {
+        flex: 1 1 calc(50% - 1rem);
+
+        &_textarea {
+          flex: 1 1 100%;
+        }
+      }
+
+      &__button {
+        width: 100%;
+      }
+    }
+  }
+
+  @include small-tablet {
+    @include image-set("../img/feedback-bg__mobile");
+  }
+
+  @include mobile {
+    padding: rem(60) 0;
   }
 }

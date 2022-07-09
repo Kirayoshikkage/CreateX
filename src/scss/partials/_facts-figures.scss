@@ -15,4 +15,12 @@
   &__item {
     flex: 0 1 rem(148);
   }
+
+  @include small-tablet {
+    padding: rem(90) 0 rem(45);
+  }
+
+  @include mobile {
+    background: none;
+  }
 }

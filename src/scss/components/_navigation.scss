@@ -1,15 +1,27 @@
 .navigation {
   &__link {
+    outline: none;
     font-weight: 700;
     font-size: var(--fz-16);
     line-height: lh(26, 16);
     color: var(--color-mako);
-  }
+    border-bottom: rem(2) solid transparent;
+    transition-property: color, border-color;
+    transition-duration: $transitionDuration;
 
-  &__list {
-    &_row {
-      display: flex;
-      flex-wrap: wrap;
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        color: var(--color-radicalRed);
+        color: var(--color-radicalRed);
+      }
     }
   }
 }

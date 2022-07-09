@@ -1,4 +1,5 @@
 .button {
+  display: inline-block;
   border: rem(1) solid transparent;
   border-radius: rem(4);
   font-weight: 700;
@@ -37,5 +38,72 @@
 
   &_color-primary {
     color: var(--color-primary);
+  }
+
+  &_animation-one {
+    transition-property: background, color, border-color;
+    transition-duration: $transitionDuration;
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        background-color: var(--color-white);
+        color: var(--color-primary);
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        background-color: var(--color-radicalRed);
+        color: var(--color-white);
+        border-color: transparent;
+      }
+    }
+  }
+
+  &_animation-two {
+    transition-property: border-color, background, color;
+    transition-duration: $transitionDuration;
+
+    @mixin animation {
+      background-color: transparent;
+      color: var(--color-white);
+      border-bottom-color: var(--color-white);
+    }
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        @include animation;
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        @include animation;
+      }
+    }
+  }
+
+  &_animation-three {
+    transition-property: border-color, background, color;
+    transition-duration: $transitionDuration;
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        background-color: transparent;
+        color: var(--color-radicalRed);
+        border-color: var(--color-radicalRed);
+      }
+    }
   }
 }

@@ -19,6 +19,16 @@
 
     &:nth-child(even) {
       justify-self: end;
+
+      @include small-tablet {
+        justify-self: center;
+      }
+    }
+
+    @include small-tablet {
+      &:last-child {
+        justify-self: end;
+      }
     }
   }
 
@@ -39,6 +49,10 @@
     @include tablet {
       display: flex;
     }
+
+    @include small-tablet {
+      justify-content: center;
+    }
   }
 
   .form {
@@ -49,16 +63,33 @@
 
     &__label {
       flex: 1 1 rem(233);
+
+      @include mobile {
+        flex: 1 1 auto;
+      }
     }
 
     &__input {
       border-color: rgba(255, 255, 255, 0.2);
       border-radius: 0;
       background-color: rgba(255, 255, 255, 0.2);
+
+      @include mobile {
+        border-radius: rem(4);
+      }
     }
 
     &__button {
       border-radius: 0;
+
+      @include mobile {
+        border-radius: rem(4);
+      }
+    }
+
+    @include mobile {
+      gap: rem(20);
+      flex-direction: column;
     }
   }
 
@@ -84,6 +115,22 @@
 
     &__link {
       color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: rem(30);
+    }
+  }
+
+  @include mobile {
+    .copyright {
+      justify-content: center;
     }
   }
 }

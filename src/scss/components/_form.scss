@@ -27,6 +27,9 @@
     color: var(--color-ebonyClay);
     background-color: var(--color-athensGray);
 
+    transition-property: box-shadow, border-color;
+    transition-duration: $transitionDuration;
+
     &::placeholder {
       font-size: inherit;
       line-height: inherit;
@@ -35,6 +38,24 @@
 
     &_textarea {
       resize: none;
+    }
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        border-color: rgba(255, 90, 48, 0.25);
+        box-shadow: rem(1) rem(1) rem(10) rgba(255, 90, 48, 0.25),
+          rem(-1) rem(-1) rem(10) rgba(255, 90, 48, 0.25);
+      }
+    }
+
+    @include touch-device {
+      &:hover,
+      &:focus {
+        border-color: rgba(245, 47, 110, 0.25);
+        box-shadow: rem(1) rem(1) rem(10) rgba(245, 47, 110, 0.25),
+          rem(-1) rem(-1) rem(10) rgba(245, 47, 110, 0.25);
+      }
     }
   }
 
