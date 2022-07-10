@@ -40,69 +40,41 @@
     color: var(--color-primary);
   }
 
-  &_animation-one {
-    transition-property: background, color, border-color;
+  &_animation-dark-style {
+    transition-property: border-color, background;
     transition-duration: $transitionDuration;
 
     @include mouse-device {
       &:hover,
       &:focus {
-        background-color: var(--color-white);
-        color: var(--color-primary);
-      }
-    }
-
-    @include touch-device {
-      &:active {
-        background-color: var(--color-radicalRed);
-        color: var(--color-white);
         border-color: transparent;
-      }
-    }
-  }
-
-  &_animation-two {
-    transition-property: border-color, background, color;
-    transition-duration: $transitionDuration;
-
-    @mixin animation {
-      background-color: transparent;
-      color: var(--color-white);
-      border-bottom-color: var(--color-white);
-    }
-
-    @include mouse-device {
-      &:hover,
-      &:focus {
-        @include animation;
+        background-color: var(--color-mako);
       }
     }
 
     @include touch-device {
       &:active {
-        @include animation;
+        background-color: var(--color-ebonyClay);
       }
     }
   }
 
-  &_animation-three {
-    transition-property: border-color, background, color;
+  &_animation-light-style {
+    transition-property: color, background;
     transition-duration: $transitionDuration;
 
     @include mouse-device {
       &:hover,
       &:focus {
-        background-color: transparent;
-        color: var(--color-primary);
-        border-color: var(--color-primary);
+        color: var(--color-mako);
+        background-color: var(--color-white);
       }
     }
 
     @include touch-device {
       &:active {
-        background-color: transparent;
-        color: var(--color-radicalRed);
-        border-color: var(--color-radicalRed);
+        color: var(--color-mako);
+        background-color: var(--color-iron);
       }
     }
   }

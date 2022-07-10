@@ -47,29 +47,36 @@
     }
   }
 
+  @mixin animation {
+    .card-project__img {
+      min-height: rem(277);
+      max-height: rem(277);
+
+      @include mobile {
+        min-height: rem(232);
+        max-height: rem(232);
+      }
+
+      @media (orientation: landscape) and (max-width: 767.98px),
+        (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+        min-height: rem(172);
+        max-height: rem(172);
+      }
+    }
+
+    .card-project__button-container {
+      margin-top: rem(22);
+      max-height: rem(46);
+    }
+  }
+
+  &:focus {
+    @include animation;
+  }
+
   @include mouse-device {
-    &:hover,
-    &:focus {
-      .card-project__img {
-        min-height: rem(277);
-        max-height: rem(277);
-
-        @include mobile {
-          min-height: rem(232);
-          max-height: rem(232);
-        }
-
-        @media (orientation: landscape) and (max-width: 767.98px),
-          (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
-          min-height: rem(172);
-          max-height: rem(172);
-        }
-      }
-
-      .card-project__button-container {
-        margin-top: rem(22);
-        max-height: rem(46);
-      }
+    &:hover {
+      @include animation;
     }
   }
 }

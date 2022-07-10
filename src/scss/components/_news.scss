@@ -20,6 +20,10 @@
     background-color: var(--color-stormGray);
   }
 
+  &__link {
+    @include color-animation;
+  }
+
   &__item_flex {
     display: flex;
     align-items: center;

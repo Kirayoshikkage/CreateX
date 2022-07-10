@@ -1,5 +1,6 @@
 @mixin custom-checkbox {
   position: relative;
+  outline: none;
 
   &__field {
     appearance: none;

@@ -33,6 +33,7 @@
   }
 
   .logo {
+    display: inline-block;
     margin-right: rem(60);
 
     @include tablet {
@@ -57,39 +58,35 @@
 
   .form {
     display: flex;
-    overflow: hidden;
     margin: 0 0 rem(16);
-    border-radius: rem(4);
 
     &__label {
       flex: 1 1 rem(233);
-
-      @include mobile {
-        flex: 1 1 auto;
-      }
     }
 
     &__input {
-      border-color: rgba(255, 255, 255, 0.2);
-      border-radius: 0;
-      background-color: rgba(255, 255, 255, 0.2);
-
-      @include mobile {
-        border-radius: rem(4);
-      }
+      border-radius: rem(4) 0 0 rem(4);
     }
 
     &__button {
-      border-radius: 0;
-
-      @include mobile {
-        border-radius: rem(4);
-      }
+      border-radius: 0 rem(4) rem(4) 0;
     }
 
     @include mobile {
-      gap: rem(20);
       flex-direction: column;
+      gap: rem(20);
+
+      &__label {
+        flex: 1 1 auto;
+      }
+
+      &__input {
+        border-radius: rem(4);
+      }
+
+      &__button {
+        border-radius: rem(4);
+      }
     }
   }
 
@@ -115,6 +112,8 @@
 
     &__link {
       color: rgba(255, 255, 255, 0.6);
+
+      @include color-animation;
     }
   }
 

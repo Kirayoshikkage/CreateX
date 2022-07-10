@@ -12,14 +12,13 @@
     @include mouse-device {
       &:hover,
       &:focus {
-        color: var(--color-primary);
         border-color: var(--color-primary);
+        color: var(--color-primary);
       }
     }
 
     @include touch-device {
       &:active {
-        color: var(--color-radicalRed);
         color: var(--color-radicalRed);
       }
     }

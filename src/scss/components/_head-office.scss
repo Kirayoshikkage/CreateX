@@ -16,5 +16,10 @@
 
   &__span {
     color: rgba(255, 255, 255, 0.6);
+    transition: color $transitionDuration;
+  }
+
+  a {
+    @include color-animation(".head-office__span");
   }
 }

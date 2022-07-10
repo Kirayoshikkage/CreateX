@@ -4,21 +4,22 @@
   justify-content: space-between;
   gap: rem(50);
 
-  [alt="Sunset realty"] {
-    opacity: 0.5;
-    filter: grayscale(100%);
-  }
-
   &__link {
-    border-bottom: rem(2) solid transparent;
-    transition-property: border-color;
-    transition-duration: $transitionDuration;
-    filter: blur(100%);
-
+    outline: none;
     @include mouse-device {
       &:hover,
       &:focus {
-        border-bottom-color: var(--color-primary);
+        .partners-list__img {
+          filter: sepia(100%);
+        }
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        .partners-list__img {
+          filter: sepia(100%);
+        }
       }
     }
   }
@@ -26,10 +27,11 @@
   &__img {
     width: rem(120);
     height: rem(64);
+    transition: filter $transitionDuration;
   }
 
   @include mobile {
-    gap: rem(30);
     justify-content: space-evenly;
+    gap: rem(30);
   }
 }

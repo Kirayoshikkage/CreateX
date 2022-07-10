@@ -55,18 +55,10 @@
 
     &__text {
       grid-area: text;
-
-      @include laptop {
-        display: none;
-      }
     }
 
     &__contact {
       grid-area: contact;
-
-      @include laptop {
-        display: none;
-      }
     }
 
     &:not(:last-child) {
@@ -79,6 +71,14 @@
 
     @include laptop {
       grid-template-areas: "icon";
+
+      &__text {
+        display: none;
+      }
+
+      &__contact {
+        display: none;
+      }
     }
   }
 }

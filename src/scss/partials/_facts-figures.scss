@@ -1,9 +1,9 @@
 .facts-figures {
-  @include image-set("../img/facts-figures-bg__desctop");
-
   padding: rem(180) 0 rem(90);
   background-position: left top rem(-340);
   background-repeat: no-repeat;
+
+  @include image-set("../img/facts-figures-bg__desctop");
 
   &__list {
     display: flex;

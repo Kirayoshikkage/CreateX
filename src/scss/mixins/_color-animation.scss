@@ -1,0 +1,29 @@
+@mixin color-animation($selector: false) {
+  outline: none;
+  transition: color $transitionDuration;
+
+  @include mouse-device {
+    &:hover,
+    &:focus {
+      @if ($selector) {
+        #{$selector} {
+          color: var(--color-primary);
+        }
+      } @else {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  @include touch-device {
+    &:active {
+      @if ($selector) {
+        #{$selector} {
+          color: var(--color-radicalRed);
+        }
+      } @else {
+        color: var(--color-radicalRed);
+      }
+    }
+  }
+}

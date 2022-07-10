@@ -25,13 +25,13 @@
 
     &_bg-primary {
       &:not(.swiper-button-disabled) {
-        background-color: var(--color-primary);
         fill: var(--color-white);
+        background-color: var(--color-primary);
       }
 
       &.swiper-button-disabled {
-        opacity: 1;
         fill: var(--color-ebonyClay);
+        opacity: 1;
       }
     }
 
@@ -43,12 +43,12 @@
       }
 
       &.swiper-button-disabled {
-        opacity: 1;
         background-color: rgba(255, 255, 255, 0.25);
+        opacity: 1;
       }
     }
 
-    &_animation-one {
+    &_animation-style-primary {
       @include mouse-device {
         &:hover,
         &:focus {
@@ -61,7 +61,7 @@
       }
 
       @include touch-device {
-        &:active {
+        &:focus {
           background-color: var(--color-radicalRed);
 
           .buttons-slider__icon {
@@ -71,7 +71,7 @@
       }
     }
 
-    &_animation-two {
+    &_animation-style-light {
       @include mouse-device {
         &:hover,
         &:focus {
@@ -85,7 +85,7 @@
       }
 
       @include touch-device {
-        &:active {
+        &:focus {
           border: rem(1) solid var(--color-radicalRed);
           background-color: transparent;
 
