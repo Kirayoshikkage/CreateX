@@ -1,29 +1,37 @@
 .header {
+  position: relative;
+  z-index: 101;
   padding: rem(22) 0;
 
   .container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     row-gap: rem(20);
+  }
+
+  .burger-trigger {
+    display: none;
   }
 
   .logo {
     flex-shrink: 0;
-    margin: 0 rem(60) 0 0;
-
-    @include laptop {
-      margin: 0 rem(40) 0 0;
-    }
 
     @include small-tablet {
-      margin: 0 auto 0 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include mobile {
+      position: relative;
+      transform: none;
+      left: 0;
     }
   }
 
   .navigation {
-    margin-right: auto;
-
     &__list {
       display: grid;
       grid-template-columns: repeat(5, auto);
@@ -36,6 +44,19 @@
     }
 
     @include small-tablet {
+      display: none;
+    }
+  }
+
+  &__group {
+    display: flex;
+    gap: rem(36);
+
+    @include laptop {
+      gap: rem(16);
+    }
+
+    @include mobile {
       display: none;
     }
   }
@@ -61,14 +82,6 @@
       grid-area: contact;
     }
 
-    &:not(:last-child) {
-      margin-right: rem(36);
-
-      @include laptop {
-        margin-right: rem(16);
-      }
-    }
-
     @include laptop {
       grid-template-areas: "icon";
 
@@ -79,6 +92,12 @@
       &__contact {
         display: none;
       }
+    }
+  }
+
+  @include small-tablet {
+    .burger-trigger {
+      display: grid;
     }
   }
 }
