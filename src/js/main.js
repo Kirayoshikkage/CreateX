@@ -105,10 +105,3 @@ try {
 
   console.log(error);
 }
-
-/**
- *
- * Тесты CircularProgressbar, SliderProgressbar
- *
- * linters
- */
