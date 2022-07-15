@@ -1,5 +1,6 @@
 .burger-menu {
   @include alert;
+  z-index: 100;
 
   &[data-open="true"] {
     .burger-menu__body {

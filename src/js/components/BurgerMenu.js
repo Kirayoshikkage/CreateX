@@ -6,8 +6,9 @@ export default class BurgerMenu extends Alert {
     trigger = false,
     breakpoints = false,
     animation = false,
+    focusLock = false,
   }) {
-    super({ container, trigger, animation });
+    super({ container, trigger, animation, focusLock });
     this._breakpoints = breakpoints ? breakpoints : false;
   }
 
@@ -18,18 +19,12 @@ export default class BurgerMenu extends Alert {
     },
     {
       set(target, prop, value, context) {
-        target.bind._callFunctionsBreakpoint(value);
+        target.bind._causesFunctionsBreakpoint(value);
 
         return Reflect.set(target, prop, value, context);
       },
     }
   );
-
-  /**
-   *
-   * Инициализирует класс
-   *
-   */
 
   init() {
     super.init();
@@ -37,27 +32,26 @@ export default class BurgerMenu extends Alert {
     this._initCurrentBreakpoint();
   }
 
-  /**
-   *
-   * Инициализирует текущий брейкпоинт
-   *
-   */
-
   _initCurrentBreakpoint() {
     if (!this._breakpoints) return;
 
     window.addEventListener("resize", () => {
-      setTimeout(this._setCurrentBreakpoint.bind(this), 0);
+      setTimeout(this._setsCurrentBreakpoint.bind(this), 0);
     });
 
-    this._setCurrentBreakpoint();
+    this._setsCurrentBreakpoint();
   }
 
-  /**
-   *
-   * Возвращает текущий брейкпоинт [брейкпоинт, список функций]
-   *
-   */
+  _setsCurrentBreakpoint() {
+    const [newBreakpoint, listFunctions] = this._getCurrentBreakpoint();
+    const [oldBreakpoint] = this._currentBreakpoint.breakpoint;
+
+    if (newBreakpoint === oldBreakpoint) return;
+
+    this._currentBreakpoint.breakpoint = newBreakpoint
+      ? [newBreakpoint, listFunctions]
+      : [];
+  }
 
   _getCurrentBreakpoint() {
     const width = document.body.offsetWidth;
@@ -76,30 +70,7 @@ export default class BurgerMenu extends Alert {
     );
   }
 
-  /**
-   *
-   * Устанавливает текущий брейкпоинт в переменную this._currentBreakpoint
-   *
-   */
-
-  _setCurrentBreakpoint() {
-    const [newBreakpoint, listFunctions] = this._getCurrentBreakpoint();
-    const [oldBreakpoint] = this._currentBreakpoint.breakpoint;
-
-    if (newBreakpoint === oldBreakpoint) return;
-
-    this._currentBreakpoint.breakpoint = newBreakpoint
-      ? [newBreakpoint, listFunctions]
-      : [];
-  }
-
-  /**
-   *
-   * Вызывает функции брейкпоинта
-   *
-   */
-
-  _callFunctionsBreakpoint(breakpoint) {
+  _causesFunctionsBreakpoint(breakpoint) {
     if (!breakpoint.length) return;
 
     const [, listFunctions] = breakpoint;

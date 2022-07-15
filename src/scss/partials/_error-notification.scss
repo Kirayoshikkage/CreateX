@@ -1,0 +1,23 @@
+.error-notification {
+  &__content {
+    padding-top: rem(146);
+    background-image: url("../img/danger.svg");
+    background-repeat: no-repeat;
+    background-size: rem(98) rem(98);
+    background-position: top rem(48) center;
+
+    @include mobile {
+      padding: rem(146) rem(24) rem(24);
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-size: rem(24);
+    color: var(--color-danger);
+
+    @include mobile {
+      font-size: rem(18);
+    }
+  }
+}

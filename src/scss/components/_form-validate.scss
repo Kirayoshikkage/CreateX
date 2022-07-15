@@ -1,0 +1,22 @@
+.validate-error-message {
+  position: absolute;
+  bottom: rem(-4);
+  left: 0;
+  color: var(--color-danger);
+  font-size: rem(12);
+  opacity: 0;
+  transform: translateY(75%);
+
+  transition-property: opacity, transform;
+  transition-duration: $transitionDuration;
+
+  &_show {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+}
+
+.validate-error {
+  border-color: var(--color-danger) !important;
+  background-size: rem(16) rem(16) !important;
+}

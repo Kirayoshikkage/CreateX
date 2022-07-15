@@ -14,6 +14,10 @@
 }
 
 .form {
+  &__label {
+    position: relative;
+  }
+
   &__text {
     display: block;
     margin: 0 0 rem(8);
@@ -33,6 +37,11 @@
     &_textarea {
       resize: none;
     }
+
+    background-repeat: no-repeat;
+    background-position: center right rem(16);
+    background-size: 0 0;
+    background-image: url("../img/danger.svg");
   }
 
   &_size-xl {

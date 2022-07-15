@@ -1,5 +1,10 @@
 export default class Alert {
-  constructor({ container = null, trigger = false, animation = false } = {}) {
+  constructor({
+    container = null,
+    trigger = false,
+    animation = false,
+    focusLock,
+  } = {}) {
     this._container = document.querySelector(container);
 
     this._body = `${container ?? ""}__body`;
@@ -7,31 +12,21 @@ export default class Alert {
     this._trigger = trigger ? document.querySelector(trigger) : false;
 
     this._animation = animation ? animation : false;
+
+    this._focusLock = focusLock ? focusLock : false;
   }
 
-  _isOpen;
-
-  /**
-   *
-   * Инициализирует класс
-   *
-   */
+  _isOpen = false;
 
   init() {
-    this._addEventListenersTrigger();
+    this._addsEventListenersTrigger();
 
-    this._closeWindowOnClickOutside();
+    this._closesWindowOnClickOutside();
 
-    this.close();
+    this._setsStyleHiding();
   }
 
-  /**
-   *
-   * Добавляет обработчики событий триггеру
-   *
-   */
-
-  _addEventListenersTrigger() {
+  _addsEventListenersTrigger() {
     if (!this._trigger) return;
 
     this._trigger.addEventListener("pointerdown", () => {
@@ -45,25 +40,13 @@ export default class Alert {
     });
   }
 
-  /**
-   *
-   * Закрывает окно по клику вне
-   *
-   */
-
-  _closeWindowOnClickOutside() {
+  _closesWindowOnClickOutside() {
     this._container.addEventListener("pointerdown", (e) => {
       if (e.target.closest(this._body)) return;
 
       this.close();
     });
   }
-
-  /**
-   *
-   * Открывает / закрывает окно
-   *
-   */
 
   toggle() {
     if (this._isOpen) {
@@ -75,31 +58,21 @@ export default class Alert {
     this.open();
   }
 
-  /**
-   *
-   * Открывает окно
-   *
-   */
-
   open() {
     this._isOpen = true;
 
-    this._setStyleVisibility();
+    this._setsStyleVisibility();
 
-    this._toggleBlockScroll();
+    this._switchesBlockScroll();
 
-    this._toggleClassActiveTrigger();
+    this._switchesClassActiveTrigger();
 
-    this._changeAttrDataOpenAtWindow();
+    this._changesAttrDataOpenAtWindow();
+
+    this._blocksFocus();
   }
 
-  /**
-   *
-   * Устанавливает стили видимости
-   *
-   */
-
-  _setStyleVisibility() {
+  _setsStyleVisibility() {
     if (this._animation) {
       this._animation.setStyleVisibility(this._container);
 
@@ -110,13 +83,7 @@ export default class Alert {
     this._container.style.opacity = 1;
   }
 
-  /**
-   *
-   * Добавляет блокировку скроллу / снимает блокировку скролла
-   *
-   */
-
-  _toggleBlockScroll() {
+  _switchesBlockScroll() {
     if (this._isOpen) {
       document.body.classList.add("overflow-hidden");
 
@@ -126,13 +93,7 @@ export default class Alert {
     document.body.classList.remove("overflow-hidden");
   }
 
-  /**
-   *
-   * Добавляет / снимает класс активности у триггера
-   *
-   */
-
-  _toggleClassActiveTrigger() {
+  _switchesClassActiveTrigger() {
     if (!this._trigger) return;
 
     if (this._isOpen) {
@@ -144,13 +105,7 @@ export default class Alert {
     this._trigger.classList.remove("active");
   }
 
-  /**
-   *
-   * Изменяет атрибут data-open у окна
-   *
-   */
-
-  _changeAttrDataOpenAtWindow() {
+  _changesAttrDataOpenAtWindow() {
     if (this._isOpen) {
       this._container.dataset.open = true;
 
@@ -160,31 +115,27 @@ export default class Alert {
     this._container.dataset.open = false;
   }
 
-  /**
-   *
-   * Закрывает окно
-   *
-   */
+  _blocksFocus() {
+    if (!this._focusLock) return;
+
+    this._focusLock.blocksFocus();
+  }
 
   close() {
     this._isOpen = false;
 
-    this._setStyleHiding();
+    this._setsStyleHiding();
 
-    this._toggleBlockScroll();
+    this._switchesBlockScroll();
 
-    this._toggleClassActiveTrigger();
+    this._switchesClassActiveTrigger();
 
-    this._changeAttrDataOpenAtWindow();
+    this._changesAttrDataOpenAtWindow();
+
+    this._unblocksFocus();
   }
 
-  /**
-   *
-   * Устанавливает стили сокрытия
-   *
-   */
-
-  _setStyleHiding() {
+  _setsStyleHiding() {
     if (this._animation) {
       this._animation.setStyleHiding(this._container);
 
@@ -195,11 +146,11 @@ export default class Alert {
     this._container.style.opacity = 0;
   }
 
-  /**
-   *
-   * Возвращает true - если окно открыто, false - закрыто
-   *
-   */
+  _unblocksFocus() {
+    if (!this._focusLock) return;
+
+    this._focusLock.unblocksFocus();
+  }
 
   isOpen() {
     return this._isOpen;

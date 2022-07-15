@@ -58,7 +58,7 @@
 
   .form {
     display: flex;
-    margin: 0 0 rem(16);
+    margin: 0 0 rem(24);
 
     &__label {
       flex: 1 1 rem(233);
@@ -66,6 +66,7 @@
 
     &__input {
       border-radius: rem(4) 0 0 rem(4);
+      color: var(--color-white);
     }
 
     &__button {

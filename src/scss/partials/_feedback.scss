@@ -34,14 +34,10 @@
   .form {
     display: flex;
     flex-direction: column;
-    gap: rem(20);
+    gap: rem(24);
 
     &__button {
       align-self: center;
-    }
-
-    @include mobile {
-      gap: 1rem;
     }
 
     @media (orientation: landscape) and (max-width: 767.98px),

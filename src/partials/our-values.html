@@ -34,35 +34,38 @@
         Want to know more? Ask us a question:
       </h3>
       <form
-        class="form form_size-l form_style-light form_primary-animation"
+        class="question-form form form_size-l form_style-light form_primary-animation"
         action="#"
       >
         <label class="form__label">
           <span class="form__text"> Name </span>
           <input
-            class="input-reset form__input"
+            class="input-reset form__input form__input_name"
             name="name"
             type="text"
             placeholder="Your name"
           />
+          <span class="validate-error-message"></span>
         </label>
         <label class="form__label">
           <span class="form__text"> Phone </span>
           <input
-            class="input-reset form__input"
+            class="input-reset form__input form__input_phone"
             name="phone"
             type="tel"
             placeholder="Your phone"
           />
+          <span class="validate-error-message"></span>
         </label>
         <label class="form__label form__label_message">
           <span class="form__text"> Message </span>
           <input
-            class="input-reset form__input"
+            class="input-reset form__input form__input_message"
             name="message"
             type="text"
             placeholder="Your message"
           />
+          <span class="validate-error-message"></span>
         </label>
         <button
           class="btn-reset button button_size-regular button_color-white button_background-primary button_animation-three button_animation-dark-style form__button"

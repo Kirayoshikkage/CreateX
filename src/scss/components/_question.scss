@@ -46,8 +46,6 @@
     }
 
     @include mobile {
-      gap: 1rem;
-
       &__button {
         flex: 1 1 100%;
       }

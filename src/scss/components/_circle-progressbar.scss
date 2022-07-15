@@ -1,4 +1,4 @@
-.progressbar {
+.circle-progressbar {
   &__circle {
     position: relative;
     margin-bottom: rem(20);
@@ -7,11 +7,11 @@
 
     @each $color in seaBuckthorn, radicalRed, cornflowerBlue, caribbeanGreen {
       &_#{$color} {
-        .progressbar__bg {
+        .circle-progressbar__line {
           stroke: var(--color-#{$color});
         }
 
-        .progressbar__progress {
+        .circle-progressbar__line-progress {
           stroke: var(--color-#{$color});
         }
       }
@@ -26,12 +26,12 @@
     bottom: 0;
   }
 
-  &__bg {
+  &__line {
     stroke: var(--color-ebonyClay);
     opacity: 0.3;
   }
 
-  &__progress {
+  &__line-progress {
     stroke: var(--color-ebonyClay);
     transform: rotate(-90deg) translateX(20px);
     transform-origin: center;
