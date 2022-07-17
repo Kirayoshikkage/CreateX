@@ -41,19 +41,21 @@
   }
 
   &_animation-dark-style {
-    transition-property: border-color, background;
+    transition-property: border-color, color, background;
     transition-duration: $transitionDuration;
 
     @include mouse-device {
       &:hover,
       &:focus {
         border-color: transparent;
+        color: var(--color-white);
         background-color: var(--color-mako);
       }
     }
 
     @include touch-device {
       &:active {
+        color: var(--color-white);
         background-color: var(--color-ebonyClay);
       }
     }

@@ -38,6 +38,10 @@ function app() {
     },
   );
 
+  tunesValidationFeedbackForm();
+
+  tunesValidationNewsletterSubscriptionForm();
+
   if (page === 'index') {
     tunesHeroSlider();
 
@@ -91,10 +95,6 @@ function app() {
         window.location.href = linkHref;
       },
     );
-
-    tunesValidationFeedbackForm();
-
-    tunesValidationNewsletterSubscriptionForm();
   }
 }
 

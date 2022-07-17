@@ -1,79 +1,125 @@
-.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: rem(60) 0;
-  min-height: 100vh;
-  background-color: var(--color-ebonyClay);
-
-  .container {
+[data-page='index'] {
+  .hero {
     position: relative;
-    z-index: 2;
-    margin: 0;
-    padding-left: max(rem(16), calc((100% - rem(1230)) / 2));
+    display: flex;
+    align-items: center;
+    padding: rem(60) 0;
+    min-height: 100vh;
+    background-color: var(--color-ebonyClay);
 
-    @include laptop {
-      margin: 0 auto;
-      padding: 0 rem(16);
-      text-align: center;
-    }
-  }
+    .container {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      padding-left: max(rem(16), calc((100% - rem(1230)) / 2));
 
-  &__content {
-    max-width: rem(577);
-  }
-
-  .caption {
-    font-weight: 400;
-  }
-
-  &__button {
-    &:not(:last-child) {
-      margin-right: 1rem;
-
-      @include mobile {
-        margin: 0 0 1rem;
+      @include laptop {
+        margin: 0 auto;
+        padding: 0 rem(16);
+        text-align: center;
       }
     }
 
-    @include mobile {
-      display: block;
+    &__content {
+      max-width: rem(577);
+    }
+
+    .caption {
+      font-weight: 400;
+    }
+
+    &__button {
+      &:not(:last-child) {
+        margin-right: 1rem;
+
+        @include mobile {
+          margin: 0 0 1rem;
+        }
+      }
+
+      @include mobile {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .buttons-slider {
+      position: absolute;
+      top: 50%;
+      z-index: 3;
+      transform: translateY(-50%);
+
+      @include small-tablet {
+        display: none;
+      }
+    }
+
+    &__prev {
+      left: rem(32);
+    }
+
+    &__next {
+      right: rem(32);
+    }
+
+    .swiper {
+      position: absolute;
+      z-index: 1;
       width: 100%;
+      height: 100%;
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .slider-progressbar {
+      margin-top: rem(60);
     }
   }
+}
 
-  .buttons-slider {
-    position: absolute;
-    top: 50%;
-    z-index: 3;
-    transform: translateY(-50%);
+body:not([data-page='index']) {
+  .hero {
+    position: relative;
+    padding: rem(70) 0 rem(170);
+    background: #f4f5f7;
 
-    @include small-tablet {
-      display: none;
+    .crumbs {
+      margin-bottom: rem(40);
     }
-  }
 
-  &__prev {
-    left: rem(32);
-  }
+    &__content {
+      position: relative;
+      z-index: 2;
+      max-width: rem(600);
+    }
 
-  &__next {
-    right: rem(32);
-  }
+    @include mobile {
+      padding: rem(40) 0 rem(90);
+      text-align: center;
+    }
 
-  .swiper {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-  }
+    @each $page in services {
+      &::before {
+        @include image-set('../img/#{$page}-hero-bg');
 
-  &__img {
-    width: 100%;
-    height: 100%;
-  }
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 51%;
+        height: rem(600);
+        background-position: top left;
+        background-size: cover;
+        background-repeat: no-repeat;
 
-  .slider-progressbar {
-    margin-top: rem(60);
+        @include small-tablet {
+          display: none;
+        }
+      }
+    }
   }
 }

@@ -2,13 +2,13 @@
  * @jest-environment jsdom
  */
 
+import FocusLock from '../FocusLock';
+
 jest.useFakeTimers();
 
-import FocusLock from "../FocusLock";
-
-describe("Тестирование блокировки фокуса", () => {
+describe('Тестирование блокировки фокуса', () => {
   beforeEach(() => {
-    document.body.innerHTML = "";
+    document.body.innerHTML = '';
 
     const elements = `
       <a class="link" href="#">Link</a>
@@ -18,84 +18,84 @@ describe("Тестирование блокировки фокуса", () => {
       </div>
     `;
 
-    document.body.insertAdjacentHTML("beforeend", elements);
+    document.body.insertAdjacentHTML('beforeend', elements);
   });
 
-  describe("Тесирование открытых методов", () => {
-    it("Блокировка фокуса", () => {
+  describe('Тесирование открытых методов', () => {
+    it('Блокировка фокуса', () => {
       const sut = new FocusLock();
-      const focusableElement = document.querySelector(".link");
+      const focusableElement = document.querySelector('.link');
       sut.init();
       jest.runAllTimers();
 
       sut.blocksFocus();
 
-      expect(focusableElement.getAttribute("tabindex")).toBe("-1");
+      expect(focusableElement.getAttribute('tabindex')).toBe('-1');
     });
 
-    it("Разблокировка фокуса", () => {
+    it('Разблокировка фокуса', () => {
       const sut = new FocusLock();
-      const focusableElement = document.querySelector(".link");
+      const focusableElement = document.querySelector('.link');
       sut.init();
       jest.runAllTimers();
       sut.blocksFocus();
 
       sut.unblocksFocus();
 
-      expect(focusableElement.getAttribute("tabindex")).toBe("0");
+      expect(focusableElement.getAttribute('tabindex')).toBe('0');
     });
   });
 
-  describe("Тестирование добавления исключений", () => {
-    it("Исключение передается в неверном формате", () => {
-      const sut = new FocusLock(document.querySelector("a"));
+  describe('Тестирование добавления исключений', () => {
+    it('Исключение передается в неверном формате', () => {
+      const sut = new FocusLock(document.querySelector('a'));
 
       expect(() => sut.init()).toThrow();
     });
 
-    it("Исключение передается в виде массивa", () => {
-      const sut = new FocusLock([".container-exception"]);
-      const link = document.querySelector(".link");
+    it('Исключение передается в виде массивa', () => {
+      const sut = new FocusLock(['.container-exception']);
+      const link = document.querySelector('.link');
       const linkInContainerException = document.querySelector(
-        ".container-exception__link"
+        '.container-exception__link',
       );
       sut.init();
       jest.runAllTimers();
 
       sut.blocksFocus();
 
-      expect(link.getAttribute("tabindex")).toBe("-1");
-      expect(linkInContainerException.getAttribute("tabindex")).not.toBe("-1");
+      expect(link.getAttribute('tabindex')).toBe('-1');
+      expect(linkInContainerException.getAttribute('tabindex')).not.toBe('-1');
     });
 
-    it("Исключение передается в виде строки", () => {
-      const sut = new FocusLock(".container-exception");
-      const link = document.querySelector(".link");
+    it('Исключение передается в виде строки', () => {
+      const sut = new FocusLock('.container-exception');
+      const link = document.querySelector('.link');
       const linkInContainerException = document.querySelector(
-        ".container-exception__link"
+        '.container-exception__link',
       );
       sut.init();
       jest.runAllTimers();
 
       sut.blocksFocus();
 
-      expect(link.getAttribute("tabindex")).toBe("-1");
-      expect(linkInContainerException.getAttribute("tabindex")).not.toBe("-1");
+      expect(link.getAttribute('tabindex')).toBe('-1');
+      expect(linkInContainerException.getAttribute('tabindex')).not.toBe('-1');
     });
   });
 
-  describe("Тестирование поведения", () => {
-    it("Новые элементы на странице добавляются в список блокировок, если соответствуют критериям", async () => {
+  describe('Тестирование поведения', () => {
+    it('Новые элементы на странице добавляются в список блокировок, если соответствуют критериям', async () => {
       const sut = new FocusLock();
       const focusableElement = `
         <a class="added-link" href="">new link</a>
       `;
-      const unfocusableElement = `<div class="added-div">123</div>`;
+      const unfocusableElement = '<div class="added-div">123</div>';
       sut.init();
       jest.runAllTimers();
 
-      document.body.insertAdjacentHTML("beforeend", focusableElement);
-      document.body.insertAdjacentHTML("beforeend", unfocusableElement);
+      document.body.insertAdjacentHTML('beforeend', focusableElement);
+      document.body.insertAdjacentHTML('beforeend', unfocusableElement);
 
       // Без этой конструкции не работает, потому что MutationObserver выполняется позже чем блокировка фокуса
 
@@ -104,10 +104,10 @@ describe("Тестирование блокировки фокуса", () => {
       });
 
       expect(
-        document.querySelector(".added-link").getAttribute("tabindex")
-      ).toBe("-1");
+        document.querySelector('.added-link').getAttribute('tabindex'),
+      ).toBe('-1');
       expect(
-        document.querySelector(".added-div").getAttribute("tabindex")
+        document.querySelector('.added-div').getAttribute('tabindex'),
       ).toBeNull();
     });
   });

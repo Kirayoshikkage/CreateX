@@ -2,13 +2,13 @@
  * @jest-environment jsdom
  */
 
-import CircularProgressbar from "../CircularProgressbar";
+import CircularProgressbar from '../CircularProgressbar';
 
-describe("Тестирование кругового прогрессбара", () => {
+describe('Тестирование кругового прогрессбара', () => {
   beforeEach(() => {
-    document.body.innerHTML = "";
+    document.body.innerHTML = '';
 
-    let circularProgressbar = `
+    const circularProgressbar = `
       <div class="circle-progressbar">
         <div class="circle-progressbar__circle">
           <svg class="circle-progressbar__svg" viewBox="-10 -10 320 320">
@@ -37,42 +37,42 @@ describe("Тестирование кругового прогрессбара",
       </div>
     `;
 
-    document.body.insertAdjacentHTML("beforeend", circularProgressbar);
+    document.body.insertAdjacentHTML('beforeend', circularProgressbar);
   });
 
-  describe("Тестирование открытых методов", () => {
-    it("Получение прогресса", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+  describe('Тестирование открытых методов', () => {
+    it('Получение прогресса', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         to: 120,
       });
       sut.init();
 
-      let { percent, value } = sut.getProgress();
+      const { percent, value } = sut.getProgress();
 
       expect(percent).toBe(10);
       expect(value).toBe(12);
     });
 
-    it("Обновление прогресса, прогресс передан", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+    it('Обновление прогресса, прогресс передан', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         to: 100,
       });
       sut.init();
 
       sut.updatesProgress(20);
-      let { percent, value } = sut.getProgress();
+      const { percent, value } = sut.getProgress();
 
       expect(percent).toBe(20);
       expect(value).toBe(20);
     });
 
-    it("Обновление прогресса, прогресс не передан", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+    it('Обновление прогресса, прогресс не передан', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         to: 100,
       });
@@ -83,9 +83,9 @@ describe("Тестирование кругового прогрессбара",
       }).toThrow();
     });
 
-    it("Обновление прогресса, переданы некорректные данные", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+    it('Обновление прогресса, переданы некорректные данные', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         to: 100,
       });
@@ -100,66 +100,66 @@ describe("Тестирование кругового прогрессбара",
     });
   });
 
-  describe("Тестирование поведения", () => {
-    it("Прогресс передан в процентах", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+  describe('Тестирование поведения', () => {
+    it('Прогресс передан в процентах', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         isPercent: true,
         to: 150,
       });
       sut.init();
 
-      let { percent, value } = sut.getProgress();
+      const { percent, value } = sut.getProgress();
 
       expect(percent).toBe(10);
       expect(value).toBe(15);
     });
 
-    it("Прогресс передан в значениях", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+    it('Прогресс передан в значениях', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         isPercent: false,
         to: 120,
       });
       sut.init();
 
-      let { percent, value } = sut.getProgress();
+      const { percent, value } = sut.getProgress();
 
       expect(percent).toBe(8);
       expect(value).toBe(10);
     });
 
-    it("Прогресс выводится в процентах", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+    it('Прогресс выводится в процентах', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         to: 120,
       });
       sut.init();
 
-      let rezult = document.querySelector(
-        ".circle-progressbar__value"
+      const rezult = document.querySelector(
+        '.circle-progressbar__value',
       ).textContent;
 
-      expect(rezult).toBe("10%");
+      expect(rezult).toBe('10%');
     });
 
-    it("Прогресс выводится в значениях", () => {
-      let sut = new CircularProgressbar({
-        container: ".circle-progressbar",
+    it('Прогресс выводится в значениях', () => {
+      const sut = new CircularProgressbar({
+        container: '.circle-progressbar',
         progress: 10,
         to: 120,
         showPercent: false,
       });
       sut.init();
 
-      let rezult = document.querySelector(
-        ".circle-progressbar__value"
+      const rezult = document.querySelector(
+        '.circle-progressbar__value',
       ).textContent;
 
-      expect(rezult).toBe("12");
+      expect(rezult).toBe('12');
     });
   });
 });

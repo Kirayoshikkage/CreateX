@@ -2,8 +2,7 @@
   outline: none;
   border-radius: rem(4);
   height: 100%;
-  box-shadow:
-    0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
+  box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
     0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
     0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
     0 rem(80) rem(80) rem(-20) rgba(154, 156, 165, 8%);
@@ -68,6 +67,14 @@
     .card-project__button-container {
       margin-top: rem(22);
       max-height: rem(46);
+    }
+
+    .card-project__button {
+      @include mouse-device {
+        border-color: transparent;
+        color: var(--color-white);
+        background-color: var(--color-mako);
+      }
     }
   }
 

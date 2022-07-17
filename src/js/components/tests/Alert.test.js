@@ -2,11 +2,11 @@
  * @jest-environment jsdom
  */
 
-import Alert from "../Alert";
+import Alert from '../Alert';
 
-describe("Тестирование Alert", () => {
+describe('Тестирование Alert', () => {
   beforeEach(() => {
-    document.body.innerHTML = "";
+    document.body.innerHTML = '';
 
     const alert = `
       <aricle class="alert">
@@ -18,13 +18,13 @@ describe("Тестирование Alert", () => {
       </aricle>
     `;
 
-    document.body.insertAdjacentHTML("beforeend", alert);
+    document.body.insertAdjacentHTML('beforeend', alert);
   });
 
-  describe("Тестирование открытого интерфейса", () => {
-    it("Проверка метода открытия", () => {
-      let sut = new Alert({
-        container: ".alert",
+  describe('Тестирование открытого интерфейса', () => {
+    it('Проверка метода открытия', () => {
+      const sut = new Alert({
+        container: '.alert',
       });
       sut.init();
 
@@ -33,9 +33,9 @@ describe("Тестирование Alert", () => {
       expect(sut.isOpen()).toBeTruthy();
     });
 
-    it("Проверка метода закрытия", () => {
-      let sut = new Alert({
-        container: ".alert",
+    it('Проверка метода закрытия', () => {
+      const sut = new Alert({
+        container: '.alert',
       });
       sut.init();
       sut.open();
@@ -45,9 +45,9 @@ describe("Тестирование Alert", () => {
       expect(sut.isOpen()).toBeFalsy();
     });
 
-    it("Проверка метода открытия / закрытия", () => {
-      let sut = new Alert({
-        container: ".alert",
+    it('Проверка метода открытия / закрытия', () => {
+      const sut = new Alert({
+        container: '.alert',
       });
       sut.init();
 
