@@ -1,15 +1,15 @@
 .burger-trigger {
-  width: rem(24);
+  z-index: 101;
   display: grid;
   grid-template-columns: 1fr;
+  width: rem(24);
   gap: rem(7.5);
-  z-index: 101;
 
   &__item {
+    border-radius: rem(4);
     width: 100%;
     height: rem(3);
     background-color: var(--color-primary);
-    border-radius: rem(4);
     transition-property: transform, opacity, visibility, background;
     transition-duration: $transitionDuration;
   }

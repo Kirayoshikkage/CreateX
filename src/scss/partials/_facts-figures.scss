@@ -3,7 +3,7 @@
   background-position: left top rem(-340);
   background-repeat: no-repeat;
 
-  @include image-set("../img/facts-figures-bg__desctop");
+  @include image-set('../img/facts-figures-bg__desctop');
 
   &__list {
     display: flex;

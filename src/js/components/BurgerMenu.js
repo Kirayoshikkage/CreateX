@@ -1,4 +1,4 @@
-import Alert from "./Alert";
+import Alert from './Alert';
 
 export default class BurgerMenu extends Alert {
   constructor({
@@ -8,8 +8,10 @@ export default class BurgerMenu extends Alert {
     animation = false,
     focusLock = false,
   }) {
-    super({ container, trigger, animation, focusLock });
-    this._breakpoints = breakpoints ? breakpoints : false;
+    super({
+      container, trigger, animation, focusLock,
+    });
+    this._breakpoints = breakpoints || false;
   }
 
   _currentBreakpoint = new Proxy(
@@ -23,7 +25,7 @@ export default class BurgerMenu extends Alert {
 
         return Reflect.set(target, prop, value, context);
       },
-    }
+    },
   );
 
   init() {
@@ -35,7 +37,7 @@ export default class BurgerMenu extends Alert {
   _initCurrentBreakpoint() {
     if (!this._breakpoints) return;
 
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       setTimeout(this._setsCurrentBreakpoint.bind(this), 0);
     });
 
@@ -60,13 +62,12 @@ export default class BurgerMenu extends Alert {
       (acc, [breakpoint, listFunctions]) => {
         if (width >= breakpoint) {
           // eslint-disable-next-line no-param-reassign
-
           acc = [breakpoint, listFunctions];
         }
 
         return acc;
       },
-      []
+      [],
     );
   }
 
@@ -75,8 +76,8 @@ export default class BurgerMenu extends Alert {
 
     const [, listFunctions] = breakpoint;
 
-    for (const func of listFunctions) {
+    listFunctions.forEach((func) => {
       func();
-    }
+    });
   }
 }

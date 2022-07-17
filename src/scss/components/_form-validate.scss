@@ -1,12 +1,11 @@
 .validate-error-message {
   position: absolute;
-  bottom: rem(-4);
   left: 0;
-  color: var(--color-danger);
+  bottom: rem(-4);
   font-size: rem(12);
+  color: var(--color-danger);
   opacity: 0;
   transform: translateY(75%);
-
   transition-property: opacity, transform;
   transition-duration: $transitionDuration;
 
@@ -17,6 +16,8 @@
 }
 
 .validate-error {
+  /* stylelint-disable-next-line declaration-no-important */
   border-color: var(--color-danger) !important;
+  /* stylelint-disable-next-line declaration-no-important */
   background-size: rem(16) rem(16) !important;
 }

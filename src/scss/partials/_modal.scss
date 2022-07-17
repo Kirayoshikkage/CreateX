@@ -5,21 +5,21 @@
   align-items: center;
   justify-content: center;
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     .modal__body {
-      transform: translate(0);
       opacity: 1;
+      transform: translate(0);
     }
   }
 
   &__body {
-    background-color: var(--color-white);
+    margin: 0 1rem;
     border-radius: rem(4);
+    background-color: var(--color-white);
     opacity: 0;
     transform: translateY(-50%);
     transition-property: opacity, transform;
     transition-duration: $transitionDuration;
-    margin: 0 1rem;
   }
 
   &__content {
@@ -29,11 +29,11 @@
 
   &__close {
     position: absolute;
-    top: rem(24);
     right: rem(24);
+    top: rem(24);
+    border-bottom: rem(2) solid transparent;
     width: rem(24);
     height: rem(24);
-    border-bottom: rem(2) solid transparent;
     transition: border-color $transitionDuration;
 
     @include mouse-device {
@@ -96,17 +96,17 @@
   }
 
   &__status {
-    display: none;
-    font-size: rem(24);
-    font-weight: 700;
     position: relative;
+    display: none;
     padding-left: rem(60);
+    font-weight: 700;
+    font-size: rem(24);
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
-      top: 50%;
       left: 0;
+      top: 50%;
       width: rem(48);
       height: rem(48);
       background-size: cover;
@@ -114,22 +114,11 @@
       transform: translateY(-50%);
     }
 
-    @include mobile {
-      padding: rem(60) 0 0;
-      text-align: center;
-
-      &::before {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-
     &_success {
       color: var(--color-caribbeanGreen);
 
       &::before {
-        background-image: url("../img/success.svg");
+        background-image: url('../img/success.svg');
       }
     }
 
@@ -137,7 +126,18 @@
       color: var(--color-danger);
 
       &::before {
-        background-image: url("../img/error.svg");
+        background-image: url('../img/error.svg');
+      }
+    }
+
+    @include mobile {
+      padding: rem(60) 0 0;
+      text-align: center;
+
+      &::before {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
       }
     }
   }

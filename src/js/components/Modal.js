@@ -1,4 +1,4 @@
-import Alert from "./Alert";
+import Alert from './Alert';
 
 export default class Modal extends Alert {
   constructor({
@@ -7,9 +7,11 @@ export default class Modal extends Alert {
     animation = false,
     focusLock = false,
   }) {
-    super({ container, trigger, animation, focusLock });
+    super({
+      container, trigger, animation, focusLock,
+    });
 
-    this._closeBtn = this._container.querySelector(".modal__close");
+    this._closeBtn = this._container.querySelector('.modal__close');
   }
 
   init() {
@@ -19,12 +21,12 @@ export default class Modal extends Alert {
   }
 
   _addsEventListenersButtonClose() {
-    this._closeBtn.addEventListener("pointerdown", () => {
+    this._closeBtn.addEventListener('pointerdown', () => {
       this.close();
     });
 
-    this._closeBtn.addEventListener("keydown", (e) => {
-      if (e.code !== "Enter") return;
+    this._closeBtn.addEventListener('keydown', (e) => {
+      if (e.code !== 'Enter') return;
 
       this.close();
     });

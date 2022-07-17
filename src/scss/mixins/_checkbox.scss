@@ -11,13 +11,13 @@
   &__content {
     display: block;
     padding-left: rem(28);
-    cursor: pointer;
     font-size: rem(14);
     line-height: lh(21, 14);
     color: var(--color-stormGray);
+    cursor: pointer;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: rem(3);
@@ -31,14 +31,14 @@
     }
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: rem(3);
       width: rem(16);
       height: rem(16);
       box-sizing: border-box;
-      background-image: url("../img/check.svg");
+      background-image: url('../img/check.svg');
       background-position: center center;
       background-size: rem(10) rem(8);
       background-repeat: no-repeat;
@@ -52,8 +52,8 @@
   }
 
   &__field:checked + &__content::before {
-    background-color: var(--color-primary);
     border-color: var(--color-primary);
+    background-color: var(--color-primary);
   }
 
   &__field:focus + &__content::before {

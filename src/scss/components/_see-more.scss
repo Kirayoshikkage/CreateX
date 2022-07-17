@@ -9,8 +9,8 @@
   }
 
   @include mobile {
-    text-align: center;
     flex-direction: column;
+    text-align: center;
     gap: rem(20);
   }
 }

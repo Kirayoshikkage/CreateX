@@ -1,5 +1,5 @@
 export default function insertsErrorNotificationInHTML() {
-  let modal = `
+  const modal = `
     <div class="modal error-notification">
       <div class="modal__body error-notification__body">
         <div class="modal__content error-notification__content">
@@ -14,5 +14,5 @@ export default function insertsErrorNotificationInHTML() {
     </div>
   `;
 
-  document.body.insertAdjacentHTML("beforeend", modal);
+  document.body.insertAdjacentHTML('beforeend', modal);
 }

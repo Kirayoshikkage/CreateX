@@ -9,7 +9,7 @@
   transition-property: visibility, opacity, background;
   transition-duration: $transitionDuration;
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     background-color: rgba(30, 33, 44, 0.5);
   }
 

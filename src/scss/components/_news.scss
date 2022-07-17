@@ -1,15 +1,16 @@
 .news {
   position: relative;
-  height: 100%;
   overflow: hidden;
   border-radius: rem(4);
-  box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
+  height: 100%;
+  box-shadow:
+    0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
     0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
     0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
     0 rem(80) rem(80) rem(-20) rgba(154, 156, 165, 8%);
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -39,7 +40,7 @@
     position: relative;
 
     &:not(:last-child)::before {
-      content: "";
+      content: '';
       position: absolute;
       right: rem(-13);
       top: 50%;
@@ -58,6 +59,7 @@
   }
 
   &__text {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
     display: -webkit-box;
     overflow: hidden;
     margin-top: rem(16);
@@ -105,6 +107,7 @@
     }
   }
 
+  /* stylelint-disable-next-line order/order */
   @include xs {
     &_xs-size-l {
       @include size-l;

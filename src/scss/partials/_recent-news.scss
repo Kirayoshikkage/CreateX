@@ -35,8 +35,8 @@
   @each $news in building-stable-loss, construction-assistance,
     types-flooring-materials
   {
-    .news[data-news="#{$news}"]::before {
-      @include image-set("../img/#{$news}__desctop");
+    .news[data-news='#{$news}']::before {
+      @include image-set('../img/#{$news}__desctop');
     }
   }
 

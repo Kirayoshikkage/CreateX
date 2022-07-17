@@ -3,7 +3,7 @@
   background-color: var(--color-ebonyClay);
 
   &__text {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 60%);
   }
 
   &__grid {
@@ -112,7 +112,7 @@
     gap: rem(4);
 
     &__link {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 60%);
 
       @include color-animation;
     }

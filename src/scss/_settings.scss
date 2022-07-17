@@ -80,9 +80,9 @@ a {
 }
 
 .container {
-  max-width: rem(1262);
-  padding: 0 1rem;
   margin: 0 auto;
+  padding: 0 1rem;
+  max-width: rem(1262);
 }
 
 @include extraLarge {

@@ -6,15 +6,15 @@ export default class SliderProgressbar {
   }
 
   makesElementActive(element = null) {
-    element.classList.remove("slider-progressbar__item_inactive");
+    element.classList.remove('slider-progressbar__item_inactive');
 
-    element.classList.add("slider-progressbar__item_active");
+    element.classList.add('slider-progressbar__item_active');
   }
 
   makesElementInactive(element = null) {
-    element.classList.remove("slider-progressbar__item_active");
+    element.classList.remove('slider-progressbar__item_active');
 
-    element.classList.add("slider-progressbar__item_inactive");
+    element.classList.add('slider-progressbar__item_inactive');
   }
 
   init() {
@@ -26,19 +26,19 @@ export default class SliderProgressbar {
   }
 
   _throwsErrors() {
-    if (!this._container) throw new Error("Container not found");
+    if (!this._container) throw new Error('Container not found');
 
-    if (!this._amount) throw new Error("Amount not transferred");
+    if (!this._amount) throw new Error('Amount not transferred');
   }
 
   _insertsElementsIntoTheContainer() {
-    this._container.insertAdjacentHTML("beforeend", this._createsElements());
+    this._container.insertAdjacentHTML('beforeend', this._createsElements());
   }
 
   _createsElements() {
-    let fragment = ``;
+    let fragment = '';
 
-    for (let i = 0; i < this._amount; i++) {
+    for (let i = 0; i < this._amount; i += 1) {
       fragment += `<li class="slider-progressbar__item" data-id=${i}></li>`;
     }
 
@@ -47,7 +47,7 @@ export default class SliderProgressbar {
 
   _savesElementsInFieldElements() {
     this._elements = this._container.querySelectorAll(
-      ".slider-progressbar__item"
+      '.slider-progressbar__item',
     );
   }
 
@@ -56,17 +56,17 @@ export default class SliderProgressbar {
   }
 
   _setsInitialValue() {
-    this.getElementOnIndex(0).classList.add("slider-progressbar__item_active");
+    this.getElementOnIndex(0).classList.add('slider-progressbar__item_active');
   }
 
   getElementOnIndex(index = null) {
-    if (index === null) throw new Error("Index not transferred");
+    if (index === null) throw new Error('Index not transferred');
 
-    return this._elements[index] ?? "";
+    return this._elements[index] ?? '';
   }
 
   setsElementsEventListener(event = null, cb = null) {
-    if (typeof event !== "string") throw new Error("Event wrong type");
+    if (typeof event !== 'string') throw new Error('Event wrong type');
 
     this._elements.forEach((element) => {
       element.addEventListener(event, (e) => {

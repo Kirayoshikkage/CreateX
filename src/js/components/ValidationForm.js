@@ -1,16 +1,16 @@
 export default class ValidationForm {
   constructor(form = null) {
-    this._form = typeof form === "string" ? document.querySelector(form) : null;
+    this._form = typeof form === 'string' ? document.querySelector(form) : null;
   }
 
   _listOfValidationRules = new Map([
-    ["minLength", this._minLength],
-    ["maxLength", this._maxLength],
-    ["text", this._text],
-    ["requered", this._requered],
-    ["email", this._email],
-    ["phone", this._phone],
-    ["checkbox", this._checkbox],
+    ['minLength', this._minLength],
+    ['maxLength', this._maxLength],
+    ['text', this._text],
+    ['requered', this._requered],
+    ['email', this._email],
+    ['phone', this._phone],
+    ['checkbox', this._checkbox],
   ]);
 
   _listElementsToCheck = new Map();
@@ -18,7 +18,7 @@ export default class ValidationForm {
   _isValid = false;
 
   submit(cb) {
-    this._form.addEventListener("submit", (e) => {
+    this._form.addEventListener('submit', (e) => {
       e.preventDefault();
 
       cb(e);
@@ -30,11 +30,9 @@ export default class ValidationForm {
   }
 
   addRuleValidationElements(selector, rules) {
-    if (typeof selector !== "string")
-      throw new Error("The transmitted data is not correct");
+    if (typeof selector !== 'string') { throw new Error('The transmitted data is not correct'); }
 
-    if (!Array.isArray(rules))
-      throw new Error("The transmitted data is not correct");
+    if (!Array.isArray(rules)) { throw new Error('The transmitted data is not correct'); }
 
     document.querySelectorAll(selector)?.forEach((element) => {
       this._setRuleForElement(element, rules);
@@ -42,20 +40,18 @@ export default class ValidationForm {
   }
 
   addCustomRuleValidateInList(name, cb) {
-    if (typeof name !== "string")
-      throw new Error("The transmitted data is not correct");
+    if (typeof name !== 'string') { throw new Error('The transmitted data is not correct'); }
 
-    if (typeof cb !== "function")
-      throw new Error("The transmitted data is not correct");
+    if (typeof cb !== 'function') { throw new Error('The transmitted data is not correct'); }
 
     this._listOfValidationRules.set(name, cb);
   }
 
   _setRuleForElement(element, rules) {
-    let listValidationFunctions = [];
+    const listValidationFunctions = [];
 
     rules.forEach(({ rule, ...arg }) => {
-      let func = this._listOfValidationRules.get(rule);
+      const func = this._listOfValidationRules.get(rule);
 
       listValidationFunctions.push(func.bind(this, { ...arg, element }));
     });
@@ -64,8 +60,7 @@ export default class ValidationForm {
   }
 
   init() {
-    if (!this._form || this._form.tagName !== "FORM")
-      throw new Error("The transmitted data is not correct");
+    if (!this._form || this._form.tagName !== 'FORM') { throw new Error('The transmitted data is not correct'); }
   }
 
   isValid() {
@@ -77,7 +72,7 @@ export default class ValidationForm {
   _checkValidationAllElementsForm() {
     let flag = true;
 
-    for (let element of this._listElementsToCheck.keys()) {
+    for (const element of this._listElementsToCheck.keys()) {
       if (!this._validationOneElement(element)) {
         flag = false;
       }
@@ -91,7 +86,7 @@ export default class ValidationForm {
     let flag = true;
 
     this._listElementsToCheck.get(element).every((func) => {
-      let { validate, errorMessage: message } = func();
+      const { validate, errorMessage: message } = func();
 
       if (!validate) {
         flag = !flag;
@@ -111,26 +106,26 @@ export default class ValidationForm {
   }
 
   _showErrorMessage(element, errorMessage) {
-    let errorMessageElement = element.nextElementSibling;
+    const errorMessageElement = element.nextElementSibling;
 
     this._searchElementErrorMessage(errorMessageElement, (errorElement) => {
       errorElement.textContent = errorMessage;
-      element.classList.add("validate-error");
-      errorElement.classList.add("validate-error-message_show");
+      element.classList.add('validate-error');
+      errorElement.classList.add('validate-error-message_show');
     });
   }
 
   _hideErrorMessage(element) {
-    let errorMessageElement = element.nextElementSibling;
+    const errorMessageElement = element.nextElementSibling;
 
     this._searchElementErrorMessage(errorMessageElement, (errorElement) => {
-      element.classList.remove("validate-error");
-      errorElement.classList.remove("validate-error-message_show");
+      element.classList.remove('validate-error');
+      errorElement.classList.remove('validate-error-message_show');
     });
   }
 
   _searchElementErrorMessage(errorElement, cb) {
-    if (errorElement.classList.contains("validate-error-message")) {
+    if (errorElement.classList.contains('validate-error-message')) {
       cb(errorElement);
 
       return;
@@ -140,9 +135,9 @@ export default class ValidationForm {
   }
 
   _minLength({ element, value, errorMessage = null }) {
-    let inputValue = element.value.trim();
+    const inputValue = element.value.trim();
 
-    if (inputValue.length < value && inputValue !== "") {
+    if (inputValue.length < value && inputValue !== '') {
       return {
         validate: false,
         errorMessage,
@@ -155,7 +150,7 @@ export default class ValidationForm {
   }
 
   _maxLength({ element, value, errorMessage = null }) {
-    let inputValue = element.value.trim();
+    const inputValue = element.value.trim();
 
     if (inputValue.length > value) {
       return {
@@ -170,9 +165,9 @@ export default class ValidationForm {
   }
 
   _requered({ element, errorMessage = null }) {
-    let inputValue = element.value.trim();
+    const inputValue = element.value.trim();
 
-    if (inputValue == "") {
+    if (inputValue == '') {
       return {
         validate: false,
         errorMessage,
@@ -185,10 +180,10 @@ export default class ValidationForm {
   }
 
   _text({ element, errorMessage = null }) {
-    let inputValue = element.value.trim(),
-      regexp = /[^a-zA-ZА-Яа-я\s]/;
+    const inputValue = element.value.trim();
+    const regexp = /[^a-zA-ZА-Яа-я\s]/;
 
-    if (regexp.test(inputValue) && inputValue !== "") {
+    if (regexp.test(inputValue) && inputValue !== '') {
       return {
         validate: false,
         errorMessage,
@@ -201,10 +196,10 @@ export default class ValidationForm {
   }
 
   _email({ element, errorMessage = null }) {
-    let inputValue = element.value.trim(),
-      regexp = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    const inputValue = element.value.trim();
+    const regexp = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-    if (regexp.test(inputValue) == false && inputValue !== "") {
+    if (regexp.test(inputValue) == false && inputValue !== '') {
       return {
         validate: false,
         errorMessage,
@@ -217,10 +212,10 @@ export default class ValidationForm {
   }
 
   _phone({ element, errorMessage = null }) {
-    let inputValue = element.value.trim(),
-      regexp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+    const inputValue = element.value.trim();
+    const regexp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 
-    if (regexp.test(inputValue) == false && inputValue !== "") {
+    if (regexp.test(inputValue) == false && inputValue !== '') {
       return {
         validate: false,
         errorMessage,
@@ -233,7 +228,7 @@ export default class ValidationForm {
   }
 
   _checkbox({ element, errorMessage }) {
-    let checked = element.checked;
+    const { checked } = element;
 
     if (!checked) {
       return {

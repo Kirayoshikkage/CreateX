@@ -11,15 +11,15 @@ export default class FocusLock {
   ];
 
   blocksFocus() {
-    for (let element of this._listElementsToBlock) {
-      element.setAttribute("tabindex", -1);
-    }
+    this._listElementsToBlock.forEach((element) => {
+      element.setAttribute('tabindex', -1);
+    });
   }
 
   unblocksFocus() {
-    for (let element of this._listElementsToBlock) {
-      element.setAttribute("tabindex", 0);
-    }
+    this._listElementsToBlock.forEach((element) => {
+      element.setAttribute('tabindex', 0);
+    });
   }
 
   init() {
@@ -27,7 +27,7 @@ export default class FocusLock {
 
     setTimeout(() => {
       this._populatesTheListElementsToBlock(
-        document.body.querySelectorAll("*")
+        document.body.querySelectorAll('*'),
       );
     }, 0);
 
@@ -36,11 +36,11 @@ export default class FocusLock {
 
   _throwsErrors() {
     if (
-      this._exception &&
-      !Array.isArray(this._exception) &&
-      typeof this._exception !== "string"
+      this._exception
+      && !Array.isArray(this._exception)
+      && typeof this._exception !== 'string'
     ) {
-      throw new Error("Exception wrong type");
+      throw new Error('Exception wrong type');
     }
   }
 
@@ -49,9 +49,7 @@ export default class FocusLock {
   }
 
   _removesElementsFromBlockList(listElements) {
-    listElements.forEach((element) =>
-      this._listElementsToBlock.delete(element)
-    );
+    listElements.forEach((element) => this._listElementsToBlock.delete(element));
   }
 
   _addsElementToBlockList(element) {
@@ -77,7 +75,8 @@ export default class FocusLock {
       return !element.closest(this._exception);
     }
 
-    for (let exception of this._exception) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const exception of this._exception) {
       if (element.closest(exception)) {
         return false;
       }
@@ -87,8 +86,8 @@ export default class FocusLock {
   }
 
   _addsMutationObserverForBody() {
-    const observer = new MutationObserver(
-      this._handlesMutationObserver.bind(this)
+    new MutationObserver(
+      this._handlesMutationObserver.bind(this),
     ).observe(document.body, {
       childList: true,
       subtree: true,
@@ -97,7 +96,7 @@ export default class FocusLock {
   }
 
   _handlesMutationObserver(listMutation) {
-    for (let mutation of listMutation) {
+    listMutation.forEach((mutation) => {
       const { addedNodes, removedNodes } = mutation;
       const filteredAddedNodes = this._filtersElementsFromNodes(addedNodes);
       const filteredRemoveNodes = this._filtersElementsFromNodes(removedNodes);
@@ -105,7 +104,7 @@ export default class FocusLock {
       this._populatesTheListElementsToBlock(filteredAddedNodes);
 
       this._removesElementsFromBlockList(filteredRemoveNodes);
-    }
+    });
   }
 
   _filtersElementsFromNodes(nodes) {

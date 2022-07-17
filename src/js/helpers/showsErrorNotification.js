@@ -1,13 +1,13 @@
-import Modal from "../components/Modal";
-import FocusLock from "../components/FocusLock";
-import insertsErrorNotificationInHTML from "./insertsErrorNotificationInHTML";
+import Modal from '../components/Modal';
+import FocusLock from '../components/FocusLock';
+import insertsErrorNotificationInHTML from './insertsErrorNotificationInHTML';
 
 export default function showsErrorNotification() {
   insertsErrorNotificationInHTML();
 
-  const focusLock = new FocusLock(".error-notification");
+  const focusLock = new FocusLock('.error-notification');
   const errorNotification = new Modal({
-    container: ".error-notification",
+    container: '.error-notification',
     focusLock,
   });
 

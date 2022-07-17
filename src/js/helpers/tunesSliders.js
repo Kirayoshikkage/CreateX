@@ -1,10 +1,10 @@
-import Swiper, { Navigation, Keyboard, A11y } from "swiper";
-import SliderProgressbar from "../components/SliderProgressbar";
+import Swiper, { Navigation, Keyboard, A11y } from 'swiper';
+import SliderProgressbar from '../components/SliderProgressbar';
 
 const tunesHeroSlider = function () {
-  const slider = ".hero .swiper";
-  const buttonNext = ".hero .swiper-button-next";
-  const buttonPrev = ".hero .swiper-button-prev";
+  const slider = '.hero .swiper';
+  const buttonNext = '.hero .swiper-button-next';
+  const buttonPrev = '.hero .swiper-button-prev';
   // eslint-disable-next-line no-unused-vars
   const swiper = new Swiper(slider, {
     modules: [Navigation, Keyboard, A11y],
@@ -19,14 +19,14 @@ const tunesHeroSlider = function () {
     },
   });
   const progressbar = new SliderProgressbar(
-    ".hero .slider-progressbar__list",
-    swiper.slides.length
+    '.hero .slider-progressbar__list',
+    swiper.slides.length,
   );
 
   progressbar.init();
 
-  swiper.on("slideChange", (e) => {
-    let { activeIndex, previousIndex } = e;
+  swiper.on('slideChange', (e) => {
+    const { activeIndex, previousIndex } = e;
     const activeElement = progressbar.getElementOnIndex(activeIndex);
     const previousElement = progressbar.getElementOnIndex(previousIndex);
 
@@ -37,8 +37,8 @@ const tunesHeroSlider = function () {
     progressbar.makesElementActive(activeElement);
   });
 
-  progressbar.setsElementsEventListener("pointerdown", (e) => {
-    let idElement = e.target.dataset.id;
+  progressbar.setsElementsEventListener('pointerdown', (e) => {
+    const idElement = e.target.dataset.id;
 
     swiper.slideTo(idElement);
 
@@ -58,9 +58,9 @@ const tunesHeroSlider = function () {
 
 // eslint-disable-next-line func-names
 const tunesSelectedProjectsSlider = function () {
-  const slider = ".selected-projects .swiper";
-  const buttonNext = ".selected-projects .swiper-button-next";
-  const buttonPrev = ".selected-projects .swiper-button-prev";
+  const slider = '.selected-projects .swiper';
+  const buttonNext = '.selected-projects .swiper-button-next';
+  const buttonPrev = '.selected-projects .swiper-button-prev';
   // eslint-disable-next-line no-unused-vars
   const swiper = new Swiper(slider, {
     modules: [Navigation, Keyboard, A11y],
@@ -89,9 +89,9 @@ const tunesSelectedProjectsSlider = function () {
 };
 
 const tunesReviewsSlider = function () {
-  const slider = ".reviews .swiper";
-  const buttonNext = ".reviews .swiper-button-next";
-  const buttonPrev = ".reviews .swiper-button-prev";
+  const slider = '.reviews .swiper';
+  const buttonNext = '.reviews .swiper-button-next';
+  const buttonPrev = '.reviews .swiper-button-prev';
   // eslint-disable-next-line no-unused-vars
   const swiper = new Swiper(slider, {
     modules: [Navigation, Keyboard, A11y],

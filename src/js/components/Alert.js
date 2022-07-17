@@ -7,13 +7,13 @@ export default class Alert {
   } = {}) {
     this._container = document.querySelector(container);
 
-    this._body = `${container ?? ""}__body`;
+    this._body = `${container ?? ''}__body`;
 
     this._trigger = trigger ? document.querySelector(trigger) : false;
 
-    this._animation = animation ? animation : false;
+    this._animation = animation || false;
 
-    this._focusLock = focusLock ? focusLock : false;
+    this._focusLock = focusLock || false;
   }
 
   _isOpen = false;
@@ -29,19 +29,19 @@ export default class Alert {
   _addsEventListenersTrigger() {
     if (!this._trigger) return;
 
-    this._trigger.addEventListener("pointerdown", () => {
+    this._trigger.addEventListener('pointerdown', () => {
       this.toggle();
     });
 
-    this._trigger.addEventListener("keydown", (e) => {
-      if (e.code !== "Enter") return;
+    this._trigger.addEventListener('keydown', (e) => {
+      if (e.code !== 'Enter') return;
 
       this.toggle();
     });
   }
 
   _closesWindowOnClickOutside() {
-    this._container.addEventListener("pointerdown", (e) => {
+    this._container.addEventListener('pointerdown', (e) => {
       if (e.target.closest(this._body)) return;
 
       this.close();
@@ -79,30 +79,30 @@ export default class Alert {
       return;
     }
 
-    this._container.style.visibility = "visible";
+    this._container.style.visibility = 'visible';
     this._container.style.opacity = 1;
   }
 
   _switchesBlockScroll() {
     if (this._isOpen) {
-      document.body.classList.add("overflow-hidden");
+      document.body.classList.add('overflow-hidden');
 
       return;
     }
 
-    document.body.classList.remove("overflow-hidden");
+    document.body.classList.remove('overflow-hidden');
   }
 
   _switchesClassActiveTrigger() {
     if (!this._trigger) return;
 
     if (this._isOpen) {
-      this._trigger.classList.add("active");
+      this._trigger.classList.add('active');
 
       return;
     }
 
-    this._trigger.classList.remove("active");
+    this._trigger.classList.remove('active');
   }
 
   _changesAttrDataOpenAtWindow() {
@@ -142,7 +142,7 @@ export default class Alert {
       return;
     }
 
-    this._container.style.visibility = "hidden";
+    this._container.style.visibility = 'hidden';
     this._container.style.opacity = 0;
   }
 

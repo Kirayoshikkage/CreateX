@@ -12,12 +12,12 @@ export default class CircularProgressbar {
     this._to = +to;
     this._showPercent = Boolean(showPercent);
     this._lineProgress = this._container.querySelector(
-      ".circle-progressbar__line-progress"
+      '.circle-progressbar__line-progress',
     );
     this._progressDisplayField = this._container.querySelector(
-      ".circle-progressbar__value"
+      '.circle-progressbar__value',
     );
-    this._radius = this._lineProgress.getAttribute("r");
+    this._radius = this._lineProgress.getAttribute('r');
     this._circleLength = 2 * Math.PI * this._radius;
   }
 
@@ -31,7 +31,7 @@ export default class CircularProgressbar {
   }
 
   init() {
-    if (!this._container) throw new Error("Container incorrect");
+    if (!this._container) throw new Error('Container incorrect');
 
     this._setsAttrDasharrayLineProgress();
 
@@ -41,13 +41,13 @@ export default class CircularProgressbar {
   }
 
   _setsAttrDasharrayLineProgress() {
-    this._lineProgress.setAttribute("stroke-dasharray", this._circleLength);
+    this._lineProgress.setAttribute('stroke-dasharray', this._circleLength);
   }
 
   _writesValuesInFieldProgress(progress = null) {
-    if (!progress) throw new Error("Value not passed");
+    if (!progress) throw new Error('Value not passed');
 
-    let { percent, value } = this._calculatesValuesProgress(progress);
+    const { percent, value } = this._calculatesValuesProgress(progress);
 
     this._progress.percent = percent;
 
@@ -55,10 +55,9 @@ export default class CircularProgressbar {
   }
 
   _calculatesValuesProgress(value) {
-    if (!value) throw new Error("Value not passed");
+    if (!value) throw new Error('Value not passed');
 
-    if (typeof value !== "string" && typeof value !== "number")
-      throw new Error("The passed value has the wrong type");
+    if (typeof value !== 'string' && typeof value !== 'number') { throw new Error('The passed value has the wrong type'); }
 
     const progress = +value;
 
@@ -83,13 +82,13 @@ export default class CircularProgressbar {
 
   _setsAttrDashoffsetLineProgress() {
     this._lineProgress.setAttribute(
-      "stroke-dashoffset",
-      this._circleLength - (this._circleLength * this._progress.percent) / 100
+      'stroke-dashoffset',
+      this._circleLength - (this._circleLength * this._progress.percent) / 100,
     );
   }
 
   _displaysProgressInTextField() {
-    let { percent, value } = this._progress;
+    const { percent, value } = this._progress;
 
     this._progressDisplayField.textContent = this._showPercent
       ? `${percent}%`
@@ -97,7 +96,7 @@ export default class CircularProgressbar {
   }
 
   updatesProgress(progress = null) {
-    if (!progress) throw new Error("Value not passed");
+    if (!progress) throw new Error('Value not passed');
 
     this._writesValuesInFieldProgress(progress);
 

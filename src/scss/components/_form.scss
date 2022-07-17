@@ -27,6 +27,10 @@
   &__input {
     border-radius: rem(4);
     width: 100%;
+    background-image: url('../img/danger.svg');
+    background-position: center right rem(16);
+    background-size: 0 0;
+    background-repeat: no-repeat;
 
     &::placeholder {
       font-size: inherit;
@@ -37,11 +41,6 @@
     &_textarea {
       resize: none;
     }
-
-    background-repeat: no-repeat;
-    background-position: center right rem(16);
-    background-size: 0 0;
-    background-image: url("../img/danger.svg");
   }
 
   &_size-xl {
@@ -94,8 +93,8 @@
 
   &_style-dark {
     .form__input {
-      border: rem(1) solid rgba(255, 255, 255, 0.2);
-      background-color: rgba(255, 255, 255, 0.2);
+      border: rem(1) solid rgba(255, 255, 255, 20%);
+      background-color: rgba(255, 255, 255, 20%);
 
       &::placeholder {
         color: var(--color-manatee);
@@ -112,14 +111,14 @@
         &:hover,
         &:focus {
           border-color: var(--color-primary);
-          background-color: rgba(255, 90, 48, 0.2);
+          background-color: rgba(255, 90, 48, 20%);
         }
       }
 
       @include touch-device {
         &:focus {
           border-color: var(--color-radicalRed);
-          background-color: rgba(245, 47, 110, 0.2);
+          background-color: rgba(245, 47, 110, 20%);
         }
       }
     }

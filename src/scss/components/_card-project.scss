@@ -2,10 +2,11 @@
   outline: none;
   border-radius: rem(4);
   height: 100%;
-  box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 0.03),
-    0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 0.04),
-    0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 0.05),
-    0 rem(80) rem(80) rem(-20) rgba(154, 156, 165, 0.08);
+  box-shadow:
+    0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
+    0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
+    0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
+    0 rem(80) rem(80) rem(-20) rgba(154, 156, 165, 8%);
   background-color: var(--color-white);
 
   &__content {
@@ -70,6 +71,7 @@
     }
   }
 
+  /* stylelint-disable-next-line order/order */
   &:focus {
     @include animation;
   }
