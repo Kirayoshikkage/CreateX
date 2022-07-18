@@ -1,8 +1,16 @@
 .our-values {
   padding: rem(90) 0 rem(60);
 
-  .list-our-values {
+  .our-qualities {
     margin-bottom: rem(120);
+
+    &__item {
+      @each $values in quality, safety, comfort {
+        &_#{$values}::before {
+          background-image: url('../img/#{$values}.svg');
+        }
+      }
+    }
 
     @include small-tablet {
       margin-bottom: rem(60);

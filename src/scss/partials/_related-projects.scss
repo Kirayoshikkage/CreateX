@@ -1,0 +1,7 @@
+.related-projects {
+  padding: rem(154) 0 rem(100);
+
+  @include small-tablet {
+    padding: rem(77) 0 rem(50);
+  }
+}

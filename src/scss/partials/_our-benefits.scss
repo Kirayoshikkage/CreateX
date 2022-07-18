@@ -1,0 +1,41 @@
+.our-benefits {
+  padding: rem(80) 0 0;
+  background-color: var(--color-ebonyClay);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .our-qualities {
+    margin: 0 0 rem(130);
+
+    &__item {
+      @each $values in fixed-terms, qualified-workers, supervision-control {
+        &_#{$values}::before {
+          background-image: url('../img/#{$values}.svg');
+        }
+      }
+    }
+
+    @include small-tablet {
+      margin: 0 0 rem(65);
+    }
+  }
+
+  &__button {
+    align-self: center;
+    margin-bottom: rem(-26);
+    padding: rem(16) rem(112);
+
+    @include mobile {
+      padding: rem(16) rem(32);
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(40) 0 0;
+  }
+}

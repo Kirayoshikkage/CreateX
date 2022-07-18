@@ -1,6 +1,13 @@
 @mixin color-animation($selector: false) {
   outline: none;
-  transition: color $transitionDuration;
+
+  @if ($selector) {
+    #{$selector} {
+      transition: color $transitionDuration;
+    }
+  } @else {
+    transition: color $transitionDuration;
+  }
 
   @include mouse-device {
     &:hover,

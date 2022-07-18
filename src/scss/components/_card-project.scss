@@ -68,19 +68,19 @@
       margin-top: rem(22);
       max-height: rem(46);
     }
-
-    .card-project__button {
-      @include mouse-device {
-        border-color: transparent;
-        color: var(--color-white);
-        background-color: var(--color-mako);
-      }
-    }
   }
 
   /* stylelint-disable-next-line order/order */
   &:focus {
     @include animation;
+
+    @include mouse-device {
+      .card-project__button {
+        border-color: transparent;
+        color: var(--color-white);
+        background-color: var(--color-mako);
+      }
+    }
   }
 
   @include mouse-device {

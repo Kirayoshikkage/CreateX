@@ -1,0 +1,67 @@
+.pricing {
+  @include image-set('../img/facts-figures-bg__desctop');
+
+  padding: rem(80) 0 rem(60);
+  background-position: left top rem(-340);
+  background-repeat: no-repeat;
+  background-color: var(--color-porcelain);
+
+  &__table {
+    border-radius: rem(4);
+    border-spacing: 0;
+    width: 100%;
+    box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
+      0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
+      0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
+      0 rem(80) rem(80) rem(-20) rgba(154, 156, 165, 8%);
+    background-color: var(--color-white);
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--color-porcelain);
+  }
+
+  th {
+    vertical-align: bottom;
+    padding: rem(32) rem(24) rem(24);
+
+    &:first-child {
+      text-align: left;
+    }
+
+    @include tablet {
+      padding: rem(24) rem(12);
+    }
+  }
+
+  &__price {
+    display: block;
+  }
+
+  &__cell {
+    padding: rem(16) rem(24);
+
+    &_button {
+      padding: rem(32) rem(24);
+    }
+
+    &:not(:first-child) {
+      text-align: center;
+    }
+
+    @include tablet {
+      padding: rem(16) rem(12);
+    }
+  }
+
+  @include tablet {
+    .button {
+      padding: rem(12) rem(12);
+      font-size: rem(10);
+    }
+  }
+
+  @include small-tablet {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 import BurgerMenu from './components/BurgerMenu';
 import {
   tunesHeroSlider,
-  tunesSelectedProjectsSlider,
+  tunesProjectsSlider,
   tunesReviewsSlider,
 } from './helpers/tunesSliders';
 import addsElementsEventKeydown from './helpers/addsElementsEventKeydown';
@@ -13,6 +13,8 @@ import {
 } from './helpers/tunesValidationForms';
 import addsSmoothScroll from './helpers/addsSmoothScroll';
 import showsErrorNotification from './helpers/showsErrorNotification';
+import Accordion from './components/Accordion';
+import addsCardsProjectRouting from './helpers/addsCardsProjectRouting';
 
 const { page } = document.body.dataset;
 
@@ -47,7 +49,7 @@ function app() {
 
     tunesValidationQuestionForm();
 
-    tunesSelectedProjectsSlider();
+    tunesProjectsSlider('.selected-projects');
 
     tunesReviewsSlider();
 
@@ -85,16 +87,15 @@ function app() {
 
     succeededProjectsCircularProgressbar.init();
 
-    addsElementsEventKeydown(
-      document.querySelectorAll('.card-project'),
-      'Enter',
-      (currentTarget) => {
-        const link = currentTarget.querySelector('.card-project__button');
-        const linkHref = link.getAttribute('href');
+    addsCardsProjectRouting();
+  } else if (page === 'interior-design') {
+    const weOfferAccordion = new Accordion('.we-offer__accordion');
 
-        window.location.href = linkHref;
-      },
-    );
+    weOfferAccordion.init();
+
+    tunesProjectsSlider('.related-projects');
+
+    addsCardsProjectRouting();
   }
 }
 

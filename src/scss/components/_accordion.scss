@@ -1,0 +1,72 @@
+.accordion {
+  &__item {
+    padding-left: rem(44);
+
+    &[data-open='true'] {
+      .accordion__trigger::after {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  &__trigger {
+    @include color-animation('.subtitle');
+
+    position: relative;
+    text-align: left;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: rem(-20);
+      top: rem(8);
+      width: rem(24);
+      height: rem(24);
+      background-image: url('../img/minus.svg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      transform: translateX(-100%);
+
+      @include mobile {
+        left: rem(-10);
+        top: rem(4);
+        width: rem(18);
+        height: rem(18);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: rem(-43);
+      top: rem(19);
+      border: rem(1) solid var(--color-primary);
+      border-radius: rem(10);
+      width: rem(22);
+      transform: rotate(-90deg);
+      transition: transform $transitionDuration;
+
+      @include mobile {
+        left: rem(-28);
+        top: rem(12);
+        width: rem(18);
+      }
+    }
+  }
+
+  &__body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height $transitionDuration;
+  }
+
+  &__content {
+    padding-top: rem(12);
+  }
+
+  @include mobile {
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+}

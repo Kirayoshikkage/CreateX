@@ -1,4 +1,4 @@
-.list-our-values {
+.our-qualities {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -29,8 +29,8 @@
       top: 0;
       width: rem(1);
       height: 100%;
-      background:
-        linear-gradient(270deg,
+      background: linear-gradient(
+        270deg,
         rgba(218, 219, 221, 0%) 0%,
         rgba(218, 219, 221, 50%) 12.33%,
         #dadbdd 51.91%,
@@ -50,12 +50,6 @@
 
     &:nth-child(3n)::after {
       display: none;
-    }
-
-    @each $values in quality, safety, comfort {
-      &_#{$values}::before {
-        background-image: url('../img/#{$values}.svg');
-      }
     }
 
     /* stylelint-disable-next-line order/order */

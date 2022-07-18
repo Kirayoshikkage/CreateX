@@ -57,10 +57,10 @@ const tunesHeroSlider = function () {
 };
 
 // eslint-disable-next-line func-names
-const tunesSelectedProjectsSlider = function () {
-  const slider = '.selected-projects .swiper';
-  const buttonNext = '.selected-projects .swiper-button-next';
-  const buttonPrev = '.selected-projects .swiper-button-prev';
+const tunesProjectsSlider = function (selector) {
+  const slider = `${selector} .swiper`;
+  const buttonNext = `${selector} .swiper-button-next`;
+  const buttonPrev = `${selector} .swiper-button-prev`;
   // eslint-disable-next-line no-unused-vars
   const swiper = new Swiper(slider, {
     modules: [Navigation, Keyboard, A11y],
@@ -106,4 +106,4 @@ const tunesReviewsSlider = function () {
   });
 };
 
-export { tunesHeroSlider, tunesSelectedProjectsSlider, tunesReviewsSlider };
+export { tunesHeroSlider, tunesProjectsSlider, tunesReviewsSlider };

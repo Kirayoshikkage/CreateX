@@ -1,36 +1,7 @@
 .selected-projects {
   padding: rem(120) 0;
 
-  &__group {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: rem(60);
-
-    @include mobile {
-      flex-direction: column;
-      margin-bottom: rem(40);
-      gap: rem(40);
-    }
-  }
-
   .title {
     max-width: rem(705);
-  }
-
-  .swiper {
-    padding-bottom: rem(80);
-
-    @include mobile {
-      padding-bottom: rem(30);
-    }
-  }
-
-  .swiper-slide {
-    height: auto;
-  }
-
-  @include small-tablet {
-    padding: rem(60) 0;
   }
 }
