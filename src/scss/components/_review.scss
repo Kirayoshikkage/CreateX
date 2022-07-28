@@ -1,7 +1,17 @@
 .review {
+  &__text {
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-xs;
+  }
+
   &__name {
     margin: 0 0 rem(4);
     font-weight: 700;
+  }
+
+  &__job {
+    color: var(--color-stormGray);
   }
 
   &__img {

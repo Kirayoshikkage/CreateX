@@ -2,12 +2,21 @@
   &__subtitle {
     margin: 0 0 rem(13);
     text-transform: uppercase;
+    color: var(--color-white);
+
+    @extend .text-size-xs;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     gap: rem(4);
+  }
+
+  &__text {
+    color: var(--color-white);
+
+    @extend .text-size-xs;
   }
 
   &__address {

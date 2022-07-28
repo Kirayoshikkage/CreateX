@@ -49,8 +49,10 @@
   }
 
   &__text {
-    font-size: rem(14);
-    line-height: lh(21, 14);
+    font-weight: 400;
     text-align: center;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-xxs;
   }
 }

@@ -8,17 +8,16 @@
   }
 
   &__text {
-    font-weight: 700;
-    font-size: rem(14);
-    line-height: lh(21, 14);
     color: var(--color-mako);
+
+    @extend .text-size-xxs;
+    @extend .text-bold;
   }
 
   &__contact {
-    font-weight: 400;
-    font-size: rem(18);
-    line-height: lh(27, 18);
     color: var(--color-ebonyClay);
+
+    @extend .text-size-s;
   }
 
   &__text,

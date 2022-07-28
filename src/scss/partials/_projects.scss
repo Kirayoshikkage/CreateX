@@ -1,5 +1,5 @@
 .projects {
-  &__group {
+  .group {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -12,16 +12,31 @@
     }
   }
 
+  .buttons-slider__button {
+    @extend .buttons-slider__button_style-primary;
+  }
+
   .swiper {
     padding-bottom: rem(80);
 
     @include mobile {
-      padding-bottom: rem(30);
+      padding-bottom: rem(60);
     }
   }
 
   .swiper-slide {
     height: auto;
+
+    @include mouse-device {
+      visibility: hidden;
+      transition: visibility $transitionDuration;
+    }
+  }
+
+  .swiper-slide-visible {
+    @include mouse-device {
+      visibility: visible;
+    }
   }
 
   @include small-tablet {

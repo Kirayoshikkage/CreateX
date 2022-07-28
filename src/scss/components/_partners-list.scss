@@ -1,8 +1,11 @@
 .partners-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: rem(50);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(120), 1fr));
+  gap: rem(40) rem(102);
+
+  &__item {
+    text-align: center;
+  }
 
   &__link {
     outline: none;
@@ -31,8 +34,15 @@
     transition: filter $transitionDuration;
   }
 
+  @include tablet {
+    gap: rem(54);
+  }
+
   @include mobile {
-    justify-content: space-evenly;
-    gap: rem(30);
+    gap: rem(24);
+  }
+
+  @media (max-width: 320px) {
+    justify-items: center;
   }
 }

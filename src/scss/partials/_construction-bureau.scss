@@ -1,9 +1,21 @@
 .construction-bureau {
   padding: rem(120) 0 rem(90);
+  text-align: center;
 
-  .video {
+  .title {
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  &__video {
+    width: 100%;
     height: rem(500);
-    background-color: var(--color-primary);
+    object-fit: cover;
+    object-position: top;
 
     @include small-tablet {
       height: rem(300);

@@ -2,6 +2,19 @@
   padding: rem(180) 0 rem(80);
   background-color: var(--color-porcelain);
 
+  .title {
+    text-align: center;
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
   .cards-services {
     display: flex;
     flex-wrap: wrap;

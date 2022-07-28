@@ -4,6 +4,7 @@
   line-height: lh(92, 72);
   letter-spacing: rem(1);
   text-transform: uppercase;
+  color: var(--color-ebonyClay);
 
   @include small-tablet {
     font-size: rem(56);

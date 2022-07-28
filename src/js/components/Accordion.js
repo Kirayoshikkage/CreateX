@@ -1,3 +1,5 @@
+import debounce from '../helpers/debounce';
+
 export default class Accordion {
   constructor(container) {
     this._container = document.querySelector(container);
@@ -7,6 +9,8 @@ export default class Accordion {
 
   init() {
     this._setsEventListenersTriggers();
+
+    this._initUpdate();
   }
 
   _setsEventListenersTriggers() {
@@ -51,12 +55,16 @@ export default class Accordion {
   }
 
   _closesActiveAccordion() {
-    const activeAccordion = Array.from(this._accordions)
-      .find((accordion) => this._isOpen(accordion));
+    const activeAccordion = this._getActiveAccordion();
 
     if (!activeAccordion) return;
 
     this._close(activeAccordion);
+  }
+
+  _getActiveAccordion() {
+    return Array.from(this._accordions)
+      .find((accordion) => this._isOpen(accordion));
   }
 
   _setsStyleVisibility(accordion) {
@@ -78,5 +86,21 @@ export default class Accordion {
     const accordionBody = accordion.querySelector('.accordion__body');
 
     accordionBody.style.maxHeight = '0';
+  }
+
+  _initUpdate() {
+    const update = debounce(() => {
+      this._update();
+    }, 500);
+
+    window.addEventListener('resize', update);
+  }
+
+  _update() {
+    const activeElement = this._getActiveAccordion();
+
+    if (!activeElement) return;
+
+    this._setsStyleVisibility(activeElement);
   }
 }

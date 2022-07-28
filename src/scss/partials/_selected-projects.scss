@@ -1,7 +1,14 @@
 .selected-projects {
+  @extend .projects;
+
+  /* stylelint-disable-next-line order/order */
   padding: rem(120) 0;
 
   .title {
     max-width: rem(705);
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0;
   }
 }

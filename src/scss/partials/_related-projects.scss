@@ -1,4 +1,7 @@
 .related-projects {
+  @extend .projects;
+
+  /* stylelint-disable-next-line order/order */
   padding: rem(154) 0 rem(100);
 
   @include small-tablet {

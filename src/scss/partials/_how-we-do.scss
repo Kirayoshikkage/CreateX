@@ -1,6 +1,11 @@
 .how-we-do {
   padding: rem(90) 0 rem(120);
 
+  .title {
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
   &__list {
     counter-reset: step;
     display: grid;
@@ -46,8 +51,17 @@
     }
   }
 
-  .caption {
+  &__subtitle {
     margin: rem(16) 0 rem(8);
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-m;
+  }
+
+  &__text {
+    color: var(--color-stormGray);
+
+    @extend .text-size-xs;
   }
 
   @include small-tablet {

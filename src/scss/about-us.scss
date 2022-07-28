@@ -1,0 +1,27 @@
+@import './common';
+
+// Vendor
+
+@import './vendor/swiper';
+
+// Components
+
+@import './components/crumbs';
+@import './components/quote';
+@import './components/our-qualities';
+@import './components/buttons-slider';
+@import './components/partners-list';
+@import './components/card-employee';
+
+// Partials
+
+@import './partials/hero';
+@import './partials/statistics';
+@import './partials/quotation';
+@import './partials/our-values';
+@import './partials/about-us-our-values';
+@import './partials/our-history';
+@import './partials/partners';
+@import './partials/about-us-partners';
+@import './partials/our-team';
+@import './partials/we-work-worldwide';

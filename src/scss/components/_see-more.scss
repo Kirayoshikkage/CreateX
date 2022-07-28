@@ -4,8 +4,19 @@
   justify-content: center;
   gap: rem(40);
 
+  &__title {
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-l;
+  }
+
   .button {
     flex-shrink: 0;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+
+    @extend .button_size-large;
+    @extend .button_animation-dark-style;
   }
 
   @include mobile {

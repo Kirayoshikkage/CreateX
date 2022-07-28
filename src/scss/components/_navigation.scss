@@ -2,9 +2,6 @@
   &__link {
     outline: none;
     border-bottom: rem(2) solid transparent;
-    font-weight: 700;
-    font-size: var(--fz-16);
-    line-height: lh(26, 16);
     color: var(--color-mako);
     transition-property: color, border-color;
     transition-duration: $transitionDuration;
@@ -22,5 +19,8 @@
         color: var(--color-radicalRed);
       }
     }
+
+    @extend .text-size-xs;
+    @extend .text-bold;
   }
 }

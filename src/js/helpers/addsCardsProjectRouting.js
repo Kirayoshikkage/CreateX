@@ -5,7 +5,7 @@ export default function addsCardsProjectRouting() {
     document.querySelectorAll('.card-project'),
     'Enter',
     (currentTarget) => {
-      const link = currentTarget.querySelector('.card-project__button');
+      const link = currentTarget.querySelector('.button');
       const linkHref = link.getAttribute('href');
 
       window.location.href = linkHref;

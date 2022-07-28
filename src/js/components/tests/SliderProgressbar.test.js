@@ -147,5 +147,25 @@ describe('Тестирование прогрессбара слайдера', (
         sut.setsElementsEventListener(123, 10);
       }).toThrow();
     });
+
+    it('Проверяет активен ли элемент, элемент передан', () => {
+      const sut = new SliderProgressbar('.slider-progressbar__list', 1);
+      sut.init();
+      const element = sut.getElementOnIndex(0);
+      sut.makesElementActive(element);
+
+      const rezult = sut.elementIsActive(element);
+
+      expect(rezult).toBe(true);
+    });
+
+    it('Проверяет активен ли элемент, элемент не передан', () => {
+      const sut = new SliderProgressbar('.slider-progressbar__list', 1);
+      sut.init();
+
+      expect(() => {
+        sut.elementIsActive();
+      }).toThrow();
+    });
   });
 });

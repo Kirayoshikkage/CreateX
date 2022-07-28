@@ -3,13 +3,19 @@
     display: inline-block;
     margin-right: rem(16);
     text-transform: uppercase;
+    color: var(--color-white);
+
+    @extend .text-size-xs;
   }
 
-  &__button {
+  .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: rem(8);
+    background-color: var(--color-primary);
+
+    @extend .button_animation-dark-style;
   }
 
   &__icon {

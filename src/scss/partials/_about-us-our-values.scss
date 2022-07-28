@@ -1,0 +1,14 @@
+[data-page='about-us'] {
+  .our-values {
+    padding: rem(80) 0 rem(90);
+    background-color: var(--color-porcelain);
+
+    @include small-tablet {
+      padding: rem(40) 0 rem(45);
+    }
+  }
+
+  .our-qualities {
+    margin: 0;
+  }
+}

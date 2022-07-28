@@ -1,13 +1,5 @@
 .desc {
-  font-weight: 400;
-  font-size: rem(18);
-  line-height: lh(27, 18);
+  color: var(--color-stormGray);
 
-  &_center {
-    text-align: center;
-  }
-
-  @include mobile {
-    font-size: rem(16);
-  }
+  @extend .text-size-s;
 }

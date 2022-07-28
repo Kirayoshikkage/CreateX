@@ -2,6 +2,13 @@
   padding: rem(80) 0 rem(85);
   background-color: var(--color-porcelain);
 
+  .title {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
   @include small-tablet {
     padding: rem(40) 0 rem(42.5);
   }

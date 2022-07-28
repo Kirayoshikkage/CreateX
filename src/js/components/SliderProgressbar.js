@@ -17,6 +17,10 @@ export default class SliderProgressbar {
     element.classList.add('slider-progressbar__item_inactive');
   }
 
+  elementIsActive(element = null) {
+    return element.classList.contains('slider-progressbar__item_active');
+  }
+
   init() {
     this._insertsElementsIntoTheContainer();
 

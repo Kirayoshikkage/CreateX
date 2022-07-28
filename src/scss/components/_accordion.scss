@@ -10,7 +10,7 @@
   }
 
   &__trigger {
-    @include color-animation('.subtitle');
+    @include color-animation('.accordion__subtitle');
 
     position: relative;
     text-align: left;
@@ -54,6 +54,13 @@
     }
   }
 
+  &__subtitle {
+    font-weight: 700;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-l;
+  }
+
   &__body {
     overflow: hidden;
     max-height: 0;
@@ -64,8 +71,14 @@
     padding-top: rem(12);
   }
 
+  &__text {
+    color: var(--color-stormGray);
+
+    @extend .text-size-xs;
+  }
+
   @include mobile {
-    .subtitle {
+    &__subtitle {
       font-size: 1.2rem;
     }
   }

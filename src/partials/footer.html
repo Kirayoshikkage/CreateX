@@ -2,7 +2,7 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__item">
-        <a class="logo">
+        <a class="logo" tabindex="-1">
           <img
             src="img/footer-logo.svg"
             alt="CreateX"
@@ -73,7 +73,7 @@
             </a>
           </li>
         </ul>
-        <p class="text-reset text footer__text">
+        <p class="text-reset footer__text">
           Createx Construction Bureau has been successfully operating in the USA
           construction market since 2000. We are proud to offer you quality
           construction and exemplary service. Our mission is to set the highest
@@ -81,13 +81,10 @@
         </p>
       </div>
       <div class="footer__item footer__item_touch">
-        <h3 class="text-reset mgb-xs-24 subtitle color-white">
+        <h3 class="text-reset footer__subtitle mgb-xs-24">
           Let’s stay in touch
         </h3>
-        <form
-          class="newsletter-subscription-form form form_size-l form_style-dark form_primary-animation"
-          action="#"
-        >
+        <form class="newsletter-subscription-form form" action="#">
           <label class="form__label">
             <input
               class="input-reset form__input form__input_email"
@@ -97,40 +94,37 @@
             />
             <span class="validate-error-message"></span>
           </label>
-          <button
-            class="btn-reset button button_size-regular button_color-white button_background-primary button_animation-dark-style form__button"
-            type="submit"
-          >
+          <button class="btn-reset button form__button" type="submit">
             subscribe
           </button>
         </form>
-        <p class="text-reset text footer__text">
+        <p class="text-reset footer__text">
           *Subscribe to our newsletter to receive communications and early
           updates from Createx Construction Bureau.
         </p>
       </div>
       <div class="footer__item">
         <div class="head-office">
-          <h3 class="text-reset text color-white head-office__subtitle">
-            Head office
-          </h3>
+          <h3 class="text-reset head-office__subtitle">Head office</h3>
           <div class="head-office__content">
-            <address class="text-reset text color-white head-office__address">
+            <address class="text-reset head-office__text head-office__address">
               Address:
-              <span class="head-office__span"
-                >8502 Preston Rd. Inglewood, New York</span
-              >
+              <span class="head-office__span">
+                8502 Preston Rd. Inglewood, New York
+              </span>
             </address>
             <a
-              class="text-reset text color-white head-office__tel"
+              class="text-reset head-office__text head-office__tel"
               href="tel:+4055550128"
             >
-              Call: <span class="head-office__span">(405) 555-0128</span>
+              Call:
+              <span class="head-office__span">(405) 555-0128</span>
             </a>
             <a
-              class="text-reset text color-white head-office__email"
+              class="text-reset head-office__text head-office__email"
               href="mailto:hello@createx.com"
-              >Email:
+            >
+              Email:
               <span class="head-office__span">hello@createx.com</span>
             </a>
           </div>
@@ -139,46 +133,32 @@
       <div class="footer__item">
         <ul class="list-reset footer-menu">
           <li class="footer-menu__item">
-            <h3 class="text-reset text color-white footer-menu__subtitle">
-              WHO WE ARE
-            </h3>
+            <h3 class="text-reset footer-menu__subtitle">WHO WE ARE</h3>
             <ul class="list-reset footer-submenu">
               <li class="footer-submenu__item">
-                <a class="text-reset text footer-submenu__link" href="#">
-                  About us
-                </a>
+                <a class="text-reset footer-submenu__link" href="#">About us</a>
               </li>
               <li class="footer-submenu__item">
-                <a class="text-reset text footer-submenu__link" href="#">
+                <a class="text-reset footer-submenu__link" href="#">
                   Available Positions
                 </a>
               </li>
               <li class="footer-submenu__item">
-                <a class="text-reset text footer-submenu__link" href="#">
-                  Contacts
-                </a>
+                <a class="text-reset footer-submenu__link" href="#">Contacts</a>
               </li>
             </ul>
           </li>
           <li class="footer-menu__item">
-            <h3 class="text-reset text color-white footer-menu__subtitle">
-              OUR EXPERIENCE
-            </h3>
+            <h3 class="text-reset footer-menu__subtitle">OUR EXPERIENCE</h3>
             <ul class="list-reset footer-submenu">
               <li class="footer-submenu__item">
-                <a class="text-reset text footer-submenu__link" href="#">
-                  Services
-                </a>
+                <a class="text-reset footer-submenu__link" href="#">Services</a>
               </li>
               <li class="footer-submenu__item">
-                <a class="text-reset text footer-submenu__link" href="#">
-                  Work
-                </a>
+                <a class="text-reset footer-submenu__link" href="#">Work</a>
               </li>
               <li class="footer-submenu__item">
-                <a class="text-reset text footer-submenu__link" href="#">
-                  News
-                </a>
+                <a class="text-reset footer-submenu__link" href="#">News</a>
               </li>
             </ul>
           </li>
@@ -195,13 +175,8 @@
       </div>
       <div class="footer__item">
         <div class="scroll-top">
-          <span class="text-reset text color-white scroll-top__text"
-            >go to top
-          </span>
-          <a
-            class="btn-reset button button_background-primary button_animation-dark-style scroll-top__button smooth-scroll"
-            href="#header"
-          >
+          <span class="text-reset scroll-top__text">go to top</span>
+          <a class="btn-reset button smooth-scroll" href="#header">
             <svg class="scroll-top__icon">
               <use xlink:href="img/sprite.svg#up-chevron"></use>
             </svg>

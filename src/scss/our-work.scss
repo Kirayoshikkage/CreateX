@@ -1,0 +1,20 @@
+@import './common';
+
+// Vendor
+
+@import './vendor/swiper';
+
+// Components
+
+@import './components/crumbs';
+@import './components/buttons-slider';
+@import './components/card-project';
+@import './components/review';
+@import './components/partners-list';
+
+// Partials
+
+@import './partials/hero';
+@import './partials/our-work';
+@import './partials/reviews';
+@import './partials/our-clients';

@@ -1,5 +1,6 @@
 .card-project {
   outline: none;
+  overflow: hidden;
   border-radius: rem(4);
   height: 100%;
   box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
@@ -8,27 +9,12 @@
     0 rem(80) rem(80) rem(-20) rgba(154, 156, 165, 8%);
   background-color: var(--color-white);
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: rem(16) rem(20) rem(24);
-  }
-
-  &__button-container {
-    overflow: hidden;
-    margin-top: 0;
-    max-height: 0;
-    transition-property: max-height, margin;
-    transition-duration: $transitionDuration;
-  }
-
-  &__button {
-    display: inline-block;
-    text-transform: uppercase;
+  picture {
+    display: block;
   }
 
   &__img {
+    display: block;
     width: 100%;
     min-height: rem(345);
     max-height: rem(345);
@@ -45,6 +31,45 @@
       min-height: rem(240);
       max-height: rem(240);
     }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(16) rem(20) rem(24);
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-m;
+  }
+
+  &__text {
+    text-align: center;
+    color: var(--color-stormGray);
+
+    @extend .text-size-xxs;
+  }
+
+  &__button-container {
+    overflow: hidden;
+    margin-top: 0;
+    max-height: 0;
+    transition-property: max-height, margin;
+    transition-duration: $transitionDuration;
+  }
+
+  .button {
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--color-primary);
+
+    @extend .button_size-regular;
+    @extend .button_border-primary;
+    @extend .button_animation-dark-style;
   }
 
   @mixin animation {
@@ -65,8 +90,11 @@
     }
 
     .card-project__button-container {
-      margin-top: rem(22);
-      max-height: rem(46);
+      // Если поставить 24 , то элементы под карточками будут "прыгать" в firefoxe
+      margin-top: rem(23.9);
+
+      // Если поставить 44 , то в хроме не будет видно нижний бордер
+      max-height: rem(44.1);
     }
   }
 
@@ -75,7 +103,7 @@
     @include animation;
 
     @include mouse-device {
-      .card-project__button {
+      .button {
         border-color: transparent;
         color: var(--color-white);
         background-color: var(--color-mako);

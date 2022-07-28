@@ -5,19 +5,21 @@
     width: rem(24);
     height: rem(24);
 
-    @include mouse-device {
-      &:hover,
-      &:focus {
-        .social__icon {
-          fill: var(--color-primary);
+    &_animation-style-primary {
+      @include mouse-device {
+        &:hover,
+        &:focus {
+          .social__icon {
+            fill: var(--color-primary);
+          }
         }
       }
-    }
 
-    @include touch-device {
-      &:active {
-        .social__icon {
-          fill: var(--color-radicalRed);
+      @include touch-device {
+        &:active {
+          .social__icon {
+            fill: var(--color-radicalRed);
+          }
         }
       }
     }

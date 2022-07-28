@@ -2,6 +2,11 @@
   padding: rem(85) 0 rem(121);
   background-color: var(--color-porcelain);
 
+  .title {
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: minmax(0, rem(600)) minmax(0, rem(495));
@@ -35,6 +40,10 @@
     position: absolute;
     right: 0;
     bottom: 0;
+
+    &__button {
+      @extend .buttons-slider__button_style-primary;
+    }
   }
 
   &__img {

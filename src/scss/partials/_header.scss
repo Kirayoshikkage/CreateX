@@ -1,6 +1,4 @@
 .header {
-  position: relative;
-  z-index: 101;
   padding: rem(22) 0;
 
   .container {
@@ -11,12 +9,8 @@
     row-gap: rem(20);
   }
 
-  .burger-trigger {
-    display: none;
-  }
-
   .logo {
-    flex-shrink: 0;
+    position: relative;
 
     @include small-tablet {
       position: absolute;
@@ -50,10 +44,16 @@
 
   &__group {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
     gap: rem(36);
 
     @include laptop {
       gap: rem(16);
+    }
+
+    @include small-tablet {
+      max-width: rem(152);
     }
 
     @include mobile {
@@ -95,9 +95,26 @@
     }
   }
 
+  .burger-trigger {
+    display: none;
+  }
+
+  .logo,
+  .navigation,
+  &__group {
+    z-index: 101;
+    flex-shrink: 0;
+  }
+
   @include small-tablet {
     .burger-trigger {
       display: grid;
     }
+  }
+}
+
+body:not([data-page='index'], [data-page='project']) {
+  .header {
+    background-color: rgb(244, 245, 246);
   }
 }

@@ -1,0 +1,10 @@
+.similar-projects {
+  @extend .projects;
+
+  /* stylelint-disable-next-line order/order */
+  padding: rem(180) 0 rem(120);
+
+  @include small-tablet {
+    padding: rem(60) 0;
+  }
+}

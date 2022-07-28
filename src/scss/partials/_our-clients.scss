@@ -1,0 +1,10 @@
+.our-clients {
+  padding: rem(180) 0 rem(110);
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+}

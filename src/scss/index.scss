@@ -1,0 +1,32 @@
+@import './common';
+
+// Vendor
+
+@import './vendor/swiper';
+
+// Components
+
+@import './components/buttons-slider';
+@import './components/slider-progressbar';
+@import './components/our-qualities';
+@import './components/question';
+@import './components/cards-services';
+@import './components/see-more';
+@import './components/card-project';
+@import './components/partners-list';
+@import './components/review';
+@import './components/circle-progressbar';
+@import './components/news';
+
+// Partials
+
+@import './partials/index-hero';
+@import './partials/construction-bureau';
+@import './partials/our-values';
+@import './partials/our-services';
+@import './partials/projects';
+@import './partials/selected-projects';
+@import './partials/partners';
+@import './partials/reviews';
+@import './partials/facts-figures';
+@import './partials/recent-news';

@@ -2,12 +2,12 @@
   padding: rem(48) rem(60);
   background-color: var(--color-white);
 
-  .subtitle {
+  &__title {
     margin: 0 0 rem(32);
+    text-align: center;
+    color: var(--color-ebonyClay);
 
-    @include mobile {
-      margin: 0 0 rem(24);
-    }
+    @extend .text-size-l;
   }
 
   .form {
@@ -16,6 +16,11 @@
     align-items: flex-end;
     gap: rem(24);
 
+    @extend .form_size-l;
+    @extend .form_style-light;
+    @extend .form_primary-animation;
+
+    /* stylelint-disable-next-line order/order */
     &__label {
       flex: 1 1 auto;
 
@@ -53,10 +58,14 @@
   }
 
   @include small-tablet {
-    padding: rem(24) rem(30);
+    padding: rem(42) rem(30);
   }
 
   @include mobile {
     padding: 1rem;
+
+    &__title {
+      margin: 0 0 rem(24);
+    }
   }
 }

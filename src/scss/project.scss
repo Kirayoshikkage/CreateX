@@ -1,0 +1,21 @@
+@import './common';
+
+// Vendor
+
+@import './vendor/swiper';
+
+// Components
+
+@import './components/crumbs';
+@import './components/buttons-slider';
+@import './components/characteristics-project';
+@import './components/list-statements';
+@import './components/see-more';
+@import './components/card-project';
+
+// Partials
+
+@import './partials/project';
+@import './partials/constructive-decisions';
+@import './partials/projects';
+@import './partials/similar-projects';

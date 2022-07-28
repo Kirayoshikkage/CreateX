@@ -1,6 +1,19 @@
 .our-values {
   padding: rem(90) 0 rem(60);
 
+  .title {
+    text-align: center;
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
   .our-qualities {
     margin-bottom: rem(120);
 

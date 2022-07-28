@@ -1,13 +1,5 @@
 .title {
-  font-weight: 700;
-  font-size: rem(46);
-  line-height: lh(60, 46);
+  color: var(--color-ebonyClay);
 
-  &_center {
-    text-align: center;
-  }
-
-  @include mobile {
-    font-size: rem(32);
-  }
+  @extend .text-size-xl;
 }

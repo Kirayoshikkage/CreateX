@@ -3,13 +3,6 @@
   /* stylelint-disable-next-line declaration-empty-line-before */
   z-index: 100;
 
-  &[data-open='true'] {
-    .burger-menu__body {
-      opacity: 1;
-      transform: translate(0);
-    }
-  }
-
   &__body {
     overflow: hidden;
     padding: rem(100) 1rem 1rem;
@@ -22,7 +15,7 @@
     @include mobile {
       padding: rem(86) 1rem rem(52);
       height: 100%;
-      max-width: 50%;
+      max-width: 57%;
       transform: translateX(-10%);
     }
   }
@@ -73,6 +66,13 @@
       &__contact {
         display: none;
       }
+    }
+  }
+
+  &[data-open='true'] {
+    .burger-menu__body {
+      opacity: 1;
+      transform: translate(0);
     }
   }
 

@@ -70,7 +70,7 @@
         fill: var(--color-white);
       }
 
-      .caption {
+      .cards-services__title {
         color: var(--color-white);
       }
     }
@@ -98,13 +98,17 @@
     transition-duration: $transitionDuration;
   }
 
-  .caption {
+  &__title {
+    font-weight: 700;
     text-align: center;
+    color: var(--color-ebonyClay);
     transition-property: color;
     transition-duration: $transitionDuration;
+
+    @extend .text-size-m;
   }
 
-  .caption,
+  &__title,
   &__icon {
     position: relative;
     z-index: 2;

@@ -61,6 +61,8 @@ export default class Alert {
   open() {
     this._isOpen = true;
 
+    this._addsPaddingInsteadOfScroll(document.body);
+
     this._setsStyleVisibility();
 
     this._switchesBlockScroll();
@@ -70,6 +72,13 @@ export default class Alert {
     this._changesAttrDataOpenAtWindow();
 
     this._blocksFocus();
+  }
+
+  _addsPaddingInsteadOfScroll(element) {
+    const padding = `${window.innerWidth - document.body.offsetWidth}px`;
+
+    // eslint-disable-next-line no-param-reassign
+    element.style.paddingRight = padding;
   }
 
   _setsStyleVisibility() {
@@ -133,6 +142,8 @@ export default class Alert {
     this._changesAttrDataOpenAtWindow();
 
     this._unblocksFocus();
+
+    this._removesScrollPadding(document.body);
   }
 
   _setsStyleHiding() {
@@ -150,6 +161,11 @@ export default class Alert {
     if (!this._focusLock) return;
 
     this._focusLock.unblocksFocus();
+  }
+
+  _removesScrollPadding(element) {
+    // eslint-disable-next-line no-param-reassign
+    element.style.paddingRight = 0;
   }
 
   isOpen() {

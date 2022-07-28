@@ -1,6 +1,5 @@
 .buttons-slider {
   display: flex;
-  flex-direction: row-reverse;
 
   &__button {
     position: relative;
@@ -8,11 +7,12 @@
     right: 0;
     top: 0;
     bottom: 0;
+    margin: 0;
     outline: none;
     border-radius: 100%;
     width: rem(48);
     height: rem(48);
-    transition-property: background, border;
+    transition-property: background, opacity, border;
     transition-duration: $transitionDuration;
 
     &::after {
@@ -23,74 +23,45 @@
       transform: rotate(180deg);
     }
 
-    &_bg-primary {
-      &:not(.swiper-button-disabled) {
-        fill: var(--color-white);
-        background-color: var(--color-primary);
-      }
+    &_style-light {
+      background-color: var(--color-white);
 
       &.swiper-button-disabled {
-        fill: var(--color-ebonyClay);
-        opacity: 1;
+        opacity: 0.5;
+      }
+
+      @include mouse-device {
+        &:hover,
+        &:focus {
+          fill: var(--color-white);
+          background-color: var(--color-primary);
+        }
       }
     }
 
-    &_bg-white {
+    &_style-primary {
       fill: var(--color-ebonyClay);
 
       &:not(.swiper-button-disabled) {
-        background-color: var(--color-white);
+        fill: var(--color-white);
+        background-color: var(--color-primary);
+
+        @include touch-device {
+          background-color: var(--color-radicalRed);
+        }
       }
 
       &.swiper-button-disabled {
-        background-color: rgba(255, 255, 255, 25%);
         opacity: 1;
       }
-    }
 
-    &_animation-style-primary {
       @include mouse-device {
         &:hover,
         &:focus {
-          background-color: var(--color-primary);
+          background-color: var(--color-ebonyClay);
 
-          .buttons-slider__icon {
+          &.swiper-button-disabled {
             fill: var(--color-white);
-          }
-        }
-      }
-
-      @include touch-device {
-        &:focus {
-          background-color: var(--color-radicalRed);
-
-          .buttons-slider__icon {
-            fill: var(--color-white);
-          }
-        }
-      }
-    }
-
-    &_animation-style-light {
-      @include mouse-device {
-        &:hover,
-        &:focus {
-          border: rem(1) solid var(--color-primary);
-          background-color: transparent;
-
-          .buttons-slider__icon {
-            fill: var(--color-primary);
-          }
-        }
-      }
-
-      @include touch-device {
-        &:focus {
-          border: rem(1) solid var(--color-radicalRed);
-          background-color: transparent;
-
-          .buttons-slider__icon {
-            fill: var(--color-radicalRed);
           }
         }
       }
