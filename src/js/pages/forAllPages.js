@@ -11,7 +11,11 @@ export default function forAllPage() {
     container: '.burger-menu',
     trigger: '.header .burger-trigger',
     breakpoints: {
-      768: [() => burgerMenu.close()],
+      768: [() => {
+        if (burgerMenu.isOpen()) {
+          burgerMenu.close();
+        }
+      }],
     },
   });
   burgerMenu.init();

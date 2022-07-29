@@ -60,7 +60,6 @@ const tunesHeroSlider = function () {
   });
 };
 
-// eslint-disable-next-line func-names
 const tunesProjectsSlider = function (selector) {
   const slider = `${selector} .swiper`;
   const buttonNext = `${selector} .swiper-button-next`;

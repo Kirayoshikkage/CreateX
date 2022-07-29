@@ -177,8 +177,30 @@ function tunesValidationNewsletterSubscriptionForm() {
   });
 }
 
+function tunesValidationSubscribeModalForm(calledOnSuccessfulSubmission) {
+  const selectorForm = '.subscribe-form';
+  const feedbackFormValidation = new ValidationForm(selectorForm);
+
+  feedbackFormValidation.init();
+
+  validatesNameField(feedbackFormValidation, selectorForm);
+
+  validatesEmailField(feedbackFormValidation, selectorForm);
+
+  feedbackFormValidation.submit(() => {
+    if (feedbackFormValidation.isValid()) {
+      feedbackFormValidation.getForm().reset();
+
+      calledOnSuccessfulSubmission();
+
+      showsDeliveryStatusNotification();
+    }
+  });
+}
+
 export {
   tunesValidationQuestionForm,
   tunesValidationFeedbackForm,
   tunesValidationNewsletterSubscriptionForm,
+  tunesValidationSubscribeModalForm,
 };

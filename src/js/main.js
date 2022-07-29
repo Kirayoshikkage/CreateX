@@ -4,6 +4,7 @@ import interiorDesign from './pages/interior-design';
 import ourWork from './pages/our-work';
 import project from './pages/project';
 import aboutUs from './pages/about-us';
+import availablePositions from './pages/available-positions';
 import showsErrorNotification from './helpers/showsErrorNotification';
 
 const { page } = document.body.dataset;
@@ -21,6 +22,8 @@ function app() {
     project();
   } else if (page === 'about-us') {
     aboutUs();
+  } else if (page === 'available-positions') {
+    availablePositions();
   }
 }
 

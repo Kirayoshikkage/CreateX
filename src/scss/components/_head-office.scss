@@ -7,7 +7,7 @@
     @extend .text-size-xs;
   }
 
-  &__content {
+  &__list {
     display: flex;
     flex-direction: column;
     gap: rem(4);

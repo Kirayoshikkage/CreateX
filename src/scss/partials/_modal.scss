@@ -1,16 +1,10 @@
 .modal {
   @include alert;
+
   z-index: 110;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &[data-open='true'] {
-    .modal__body {
-      opacity: 1;
-      transform: translate(0);
-    }
-  }
 
   &__body {
     margin: 0 1rem;
@@ -56,6 +50,11 @@
         }
       }
     }
+
+    @include mobile {
+      right: rem(8);
+      top: rem(8);
+    }
   }
 
   &__icon {
@@ -63,6 +62,18 @@
     height: 100%;
     fill: var(--color-stormGray);
     transition: fill $transitionDuration;
+  }
+
+  &__subtitle {
+    @extend .text-size-l;
+    @extend .mgb-xs-24;
+  }
+
+  &[data-open='true'] {
+    .modal__body {
+      opacity: 1;
+      transform: translate(0);
+    }
   }
 }
 
@@ -138,6 +149,84 @@
         left: 50%;
         top: 0;
         transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+.subscribe-modal {
+  &__body {
+    overflow: auto;
+    height: auto;
+    max-width: rem(486);
+    max-height: 100%;
+
+    @include mobile {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    @media (max-width: 425px) {
+      padding: rem(26) 1rem;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    @extend .form_size-l;
+    @extend .form_style-light;
+    @extend .form_primary-animation;
+  }
+
+  .button {
+    margin: rem(16) 0 0;
+    color: var(--color-white);
+
+    @extend .button_size-regular;
+    @extend .button_background-primary;
+    @extend .button_animation-dark-style;
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (max-height: 500px) {
+    &__body {
+      width: 100%;
+      max-width: 50%;
+    }
+
+    &__content {
+      padding: 1rem;
+    }
+
+    .modal__subtitle {
+      margin: 0 1rem 1rem 0;
+      font-size: 1rem;
+    }
+
+    .modal__close {
+      right: rem(8);
+      top: rem(8);
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 767.98px) and (max-height: 500px) {
+    &__body {
+      max-width: 100%;
+    }
+
+    .form {
+      flex-flow: row wrap;
+
+      &__label {
+        flex: 1 1 calc(50% - rem(24));
+      }
+
+      &__button {
+        flex: 1 1 100%;
       }
     }
   }

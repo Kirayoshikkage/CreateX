@@ -28,43 +28,10 @@
     @extend .text-size-m;
   }
 
-  &__list {
+  .tags {
     display: flex;
     flex-wrap: wrap;
     gap: rem(5) rem(24);
-  }
-
-  &__item {
-    position: relative;
-
-    &_flex {
-      display: flex;
-      align-items: center;
-    }
-
-    &:not(:last-child)::before {
-      content: '';
-      position: absolute;
-      right: rem(-13);
-      top: 50%;
-      border-left: rem(1) solid var(--color-stormGray);
-      border-radius: rem(4);
-      height: 70%;
-      transform: translateY(-50%);
-    }
-  }
-
-  &__tag {
-    color: var(--color-stormGray);
-
-    @extend .text-size-xxs;
-  }
-
-  &__chat {
-    margin-right: rem(8);
-    width: rem(16);
-    height: rem(16);
-    fill: var(--color-stormGray);
   }
 
   &__text {

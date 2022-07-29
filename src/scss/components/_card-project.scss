@@ -64,7 +64,6 @@
 
   .button {
     display: inline-block;
-    text-transform: uppercase;
     color: var(--color-primary);
 
     @extend .button_size-regular;

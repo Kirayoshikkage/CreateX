@@ -2,7 +2,7 @@
   position: relative;
   padding-top: rem(80);
   padding-bottom: rem(180);
-  background-color: rgba(244, 245, 246, 1);
+  background-color: rgb(244, 245, 246);
 
   &::before {
     content: '';
@@ -42,7 +42,9 @@
   }
 }
 
-@each $page in services, interior-design, our-work, about-us {
+@each $page in services, interior-design, our-work, about-us,
+  available-positions
+{
   [data-page='#{$page}'] {
     .hero::before {
       @include image-set('../img/#{$page}-hero-bg');
@@ -59,5 +61,15 @@
 [data-page='our-work'] {
   .hero {
     margin-bottom: rem(-60);
+  }
+}
+
+[data-page='available-positions'] {
+  .hero {
+    padding-bottom: rem(145);
+
+    &::before {
+      height: 100%;
+    }
   }
 }

@@ -10,6 +10,10 @@
       margin-bottom: rem(120);
       gap: rem(20);
 
+      li {
+        min-height: rem(154);
+      }
+
       @include mobile {
         grid-template-columns: repeat(auto-fit, minmax(rem(120), 1fr));
         margin-bottom: rem(48);
@@ -23,7 +27,8 @@
       justify-content: center;
       border-radius: rem(4);
       padding: 1rem;
-      min-height: rem(154);
+      width: 100%;
+      height: 100%;
       box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
         0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
         0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
