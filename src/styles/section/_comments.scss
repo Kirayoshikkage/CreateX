@@ -1,0 +1,33 @@
+.comments {
+  padding: rem(40) 0 rem(60);
+
+  &__content {
+    margin: 0 auto;
+    max-width: rem(810);
+  }
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(60);
+
+    @include mobile {
+      gap: rem(32);
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(20) 0 rem(30);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 600px) {
+    padding: rem(20) 0 rem(30);
+  }
+}

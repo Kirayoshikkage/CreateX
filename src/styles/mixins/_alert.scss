@@ -1,0 +1,19 @@
+@mixin alert {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  transition-property: visibility, opacity, background;
+  transition-duration: $transitionDuration;
+
+  &[data-open='true'] {
+    background-color: rgba(30, 33, 44, 0.5);
+  }
+
+  &__body {
+    background-color: var(--color-white);
+  }
+}

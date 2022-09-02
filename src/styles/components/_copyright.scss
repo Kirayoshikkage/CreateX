@@ -1,0 +1,15 @@
+.copyright {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: rem(12);
+  line-height: lh(18, 12);
+  color: var(--color-white);
+
+  &__icon {
+    margin: 0 rem(5);
+    width: rem(16);
+    height: rem(16);
+    fill: var(--color-primary);
+  }
+}

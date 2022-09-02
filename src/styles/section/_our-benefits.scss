@@ -1,0 +1,72 @@
+.our-benefits {
+  padding: rem(80) 0 0;
+  background-color: var(--color-ebonyClay);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    text-align: center;
+    color: var(--color-white);
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  .our-qualities {
+    margin: 0 0 rem(130);
+
+    &__item {
+      @each $values in fixed-terms, qualified-workers, supervision-control {
+        &_#{$values}::before {
+          background-image: url('../img/#{$values}.svg');
+        }
+      }
+    }
+
+    &__subtitle {
+      color: var(--color-white);
+    }
+
+    @include small-tablet {
+      margin: 0 0 rem(65);
+    }
+  }
+
+  .button {
+    align-self: center;
+    margin-bottom: rem(-26);
+    padding: rem(16) rem(112);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+
+    @extend .button_animation-light-style;
+
+    /* stylelint-disable-next-line order/order */
+    @include mobile {
+      padding: rem(16) rem(32);
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(40) 0 0;
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
+    padding: rem(40) 0 0;
+
+    .our-qualities {
+      margin: 0 0 rem(65);
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.our-offices {
+  padding: rem(80) 0 rem(60);
+  background-color: var(--color-porcelain);
+
+  .title {
+    margin: 0 0 rem(24);
+    text-align: center;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem(40);
+  }
+
+  &__item {
+    position: relative;
+    flex: 0 1 rem(250);
+
+    @include mobile {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(40) 0 rem(30);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 600px) {
+    padding: rem(40) 0 rem(30);
+
+    .desc {
+      margin: 0 0 rem(24);
+    }
+  }
+}

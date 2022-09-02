@@ -1,0 +1,57 @@
+.recent-news {
+  padding: rem(90) 0 rem(120);
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  &__list {
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-template-columns: 57.32% 40.24%;
+    margin-bottom: rem(80);
+    gap: rem(30);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      text-align: center;
+
+      .tags {
+        justify-content: center;
+      }
+    }
+
+    @include mobile {
+      margin: 0 0 rem(40);
+    }
+  }
+
+  &__item {
+    &_large {
+      grid-row: span 2;
+
+      @include tablet {
+        grid-row: span 1;
+      }
+    }
+  }
+
+  @each $news in building-stable-loss, construction-assistance,
+    types-flooring-materials
+  {
+    .news[data-news='#{$news}']::before {
+      background-image: url('../img/#{$news}__desctop.webp');
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(45) 0 rem(60);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(45) 0 rem(60);
+  }
+}

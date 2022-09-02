@@ -1,0 +1,18 @@
+.selected-projects {
+  @extend .projects;
+
+  /* stylelint-disable-next-line order/order */
+  padding: rem(120) 0;
+
+  .title {
+    max-width: rem(705);
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0;
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(60) 0;
+  }
+}

@@ -1,0 +1,34 @@
+.employee-benefits {
+  padding: rem(90) 0 rem(180);
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  .our-qualities {
+    &__item {
+      @each $values in brain, stairs, money {
+        &_icon-#{$values}::before {
+          background-image: url('../img/#{$values}.svg');
+        }
+      }
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(45) 0 rem(90);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(45) 0 rem(90);
+  }
+}

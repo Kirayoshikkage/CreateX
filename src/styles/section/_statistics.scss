@@ -1,0 +1,77 @@
+.statistics {
+  padding: rem(120) 0;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(rem(240), 1fr));
+    gap: rem(86);
+
+    @include small-tablet {
+      gap: rem(24);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(auto-fit, minmax(rem(150), 1fr));
+    }
+
+    @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
+      gap: rem(24);
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-top: rem(68);
+    text-align: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: rem(48);
+      height: rem(48);
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+
+      @include mobile {
+        width: rem(32);
+        height: rem(32);
+      }
+    }
+
+    @each $values in recommendation, painting, helmet, pantone {
+      &_icon-#{$values}::before {
+        background-image: url('../img/icon-#{$values}.svg');
+      }
+    }
+
+    @include mobile {
+      padding-top: rem(45);
+    }
+  }
+
+  &__value {
+    margin: 0 0 rem(8);
+    font-weight: 700;
+    color: var(--color-primary);
+
+    @extend .text-size-xl;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-xxs;
+  }
+
+  @include small-tablet {
+    padding: rem(40) 0;
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
+    padding: rem(40) 0;
+  }
+}

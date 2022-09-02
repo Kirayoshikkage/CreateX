@@ -1,0 +1,53 @@
+.our-values {
+  padding: rem(90) 0 rem(60);
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  .our-qualities {
+    margin-bottom: rem(120);
+
+    &__item {
+      @each $values in quality, safety, comfort {
+        &_#{$values}::before {
+          background-image: url('../img/#{$values}.svg');
+        }
+      }
+    }
+
+    @include small-tablet {
+      margin-bottom: rem(60);
+    }
+  }
+
+  .question {
+    position: relative;
+    margin-bottom: rem(-150);
+
+    @include small-tablet {
+      margin-bottom: rem(-75);
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(45) 0 rem(30);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding-top: rem(45);
+
+    .our-qualities {
+      margin-bottom: rem(60);
+    }
+  }
+}

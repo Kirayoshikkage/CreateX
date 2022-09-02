@@ -1,0 +1,177 @@
+.pricing {
+  padding: rem(80) 0 0;
+  background-image: url('../img/bg-plan-desctop.webp');
+  background-position: left top -340px;
+  background-repeat: no-repeat;
+  background-color: var(--color-porcelain);
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  .buttons-slider {
+    justify-content: flex-end;
+    margin: 0 0 rem(24);
+
+    /* stylelint-disable-next-line order/order */
+    &__button {
+      @extend .buttons-slider__button_style-primary;
+    }
+  }
+
+  .swiper {
+    padding-bottom: rem(80);
+
+    @include small-tablet {
+      padding-bottom: rem(40);
+    }
+
+    @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
+      padding-bottom: rem(40);
+    }
+  }
+
+  &__table {
+    border-radius: rem(4);
+    border-spacing: 0;
+    width: 100%;
+    box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
+      0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
+      0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
+      0 rem(30) rem(80) rem(-20) rgba(154, 156, 165, 8%);
+    background-color: var(--color-white);
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--color-porcelain);
+  }
+
+  &__subtitle {
+    vertical-align: bottom;
+    padding: rem(32) rem(24) rem(24);
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-l;
+
+    /* stylelint-disable-next-line order/order */
+    &:not(:first-child) {
+      text-transform: uppercase;
+    }
+
+    &:first-child {
+      text-align: left;
+
+      @extend .text-size-m;
+
+      @media (max-width: 425px) {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      padding: 1rem rem(8);
+      font-size: rem(20);
+    }
+
+    @media (max-width: 425px) {
+      display: block;
+      padding: 1rem 0;
+      width: 100%;
+    }
+  }
+
+  &__price-tag {
+    display: block;
+    color: var(--color-stormGray);
+
+    @extend .text-size-s;
+  }
+
+  &__cell {
+    padding: rem(16) rem(24);
+
+    &_button {
+      padding: rem(32) rem(24);
+      text-align: end;
+    }
+
+    &:not(:first-child) {
+      width: rem(180);
+      text-align: center;
+
+      @media (max-width: 425px) {
+        width: 100%;
+      }
+    }
+
+    @include mobile {
+      padding: 1rem rem(8);
+    }
+
+    @media (max-width: 425px) {
+      display: block;
+      padding: rem(4) 0;
+      width: 100%;
+      text-align: center;
+
+      &_button {
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  &__text {
+    color: var(--color-mako);
+
+    @extend .text-size-xs;
+  }
+
+  .button {
+    color: var(--color-primary);
+
+    @extend .button_size-regular;
+    @extend .button_border-primary;
+    @extend .button_animation-dark-style;
+  }
+
+  @include small-tablet {
+    background-image: url('../img/bg-plan-mobile.webp');
+    background-position: left -250px top -300px;
+  }
+
+  @include mobile {
+    padding: rem(40) 0 0;
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (max-height: 500px) {
+    &__subtitle {
+      padding: rem(8);
+      font-size: rem(20);
+    }
+
+    &__cell {
+      padding: rem(8);
+
+      &_button {
+        padding: 1rem rem(8);
+      }
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) and (max-height: 500px) {
+    padding: rem(40) 0 0;
+
+    .desc {
+      margin: 0 0 rem(24);
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.slider-progressbar {
+  &__list {
+    counter-reset: slide;
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(4);
+  }
+
+  &__item {
+    position: relative;
+    flex: 1 1 auto;
+    border-bottom: rem(2) solid rgba(255, 255, 255, 50%);
+    padding-bottom: rem(12);
+    cursor: pointer;
+
+    &::before {
+      counter-increment: slide;
+      content: '0' counter(slide);
+      font-weight: 700;
+      font-size: rem(28);
+      line-height: lh(42, 28);
+      color: var(--color-white);
+      opacity: 0.5;
+      transition: opacity 600ms;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: rem(-2);
+      overflow: hidden;
+      border-bottom: rem(2) solid var(--color-white);
+      height: rem(2);
+      animation-duration: 600ms;
+      animation-delay: 0s;
+      animation-timing-function: ease;
+      animation-direction: normal;
+      animation-fill-mode: forwards;
+    }
+
+    &_active {
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        animation-name: line;
+      }
+
+      @keyframes line {
+        0% {
+          width: 0;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+    }
+
+    &_inactive {
+      &::before {
+        opacity: 0.5;
+      }
+
+      &::after {
+        animation-name: line-reverse;
+      }
+
+      @keyframes line-reverse {
+        0% {
+          width: 100%;
+        }
+
+        100% {
+          width: 0;
+        }
+      }
+    }
+  }
+}

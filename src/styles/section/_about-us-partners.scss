@@ -1,0 +1,21 @@
+[data-page='about-us'] {
+  .partners {
+    padding: rem(120) 0 rem(90);
+    background: none;
+
+    .desc {
+      text-align: center;
+
+      @extend .mgb-sm-60;
+      @extend .mgb-xs-24;
+    }
+
+    @include small-tablet {
+      padding: rem(60) 0 rem(45);
+    }
+
+    @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+      padding: rem(60) 0 rem(45);
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.find-us-at {
+  padding: rem(60) 0 rem(95);
+  background-color: var(--color-porcelain);
+
+  .title {
+    margin: 0 0 rem(24);
+    text-align: center;
+  }
+
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(24);
+
+    &__link {
+      width: rem(32);
+      height: rem(32);
+
+      @mixin animation {
+        .social__icon {
+          &_whatsapp {
+            fill: #4caf50;
+          }
+
+          &_messanger {
+            fill: #0080f7;
+          }
+
+          &_facebook {
+            fill: #0035bb;
+          }
+
+          &_twitter {
+            fill: #1c9cea;
+          }
+
+          &_youtube {
+            fill: #f70000;
+          }
+        }
+      }
+
+      /* stylelint-disable-next-line order/order */
+      @include mouse-device {
+        &:hover,
+        &:focus {
+          @include animation;
+        }
+      }
+
+      @include touch-device {
+        &:active {
+          @include animation;
+        }
+      }
+    }
+
+    &__icon {
+      fill: var(--color-stormGray);
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(30) 0 rem(47.5);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 600px) {
+    padding: rem(30) 0 rem(47.5);
+
+    .title {
+      margin: 0 0 rem(24);
+    }
+  }
+}

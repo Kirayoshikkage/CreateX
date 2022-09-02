@@ -1,0 +1,19 @@
+.partners {
+  padding: rem(80) 0 rem(85);
+  background-color: var(--color-porcelain);
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  @include small-tablet {
+    padding: rem(40) 0 rem(42.5);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(40) 0 rem(42.5);
+  }
+}

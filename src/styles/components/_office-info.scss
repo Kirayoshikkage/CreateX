@@ -1,0 +1,31 @@
+.office-info {
+  &__subtitle {
+    margin: 0 0 rem(13);
+    text-transform: uppercase;
+    color: var(--color-white);
+
+    @extend .text-size-xs;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+  }
+
+  &__text {
+    @extend .text-size-xs;
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__span {
+    transition: color $transitionDuration;
+  }
+
+  a {
+    @include color-animation('.office-info__span');
+  }
+}

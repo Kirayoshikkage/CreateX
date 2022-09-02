@@ -1,0 +1,33 @@
+.custom-checkbox {
+  @include custom-checkbox;
+
+  .custom-checkbox__content {
+    transition: color $transitionDuration;
+  }
+
+  @include mouse-device {
+    &:hover,
+    &:focus {
+      .custom-checkbox__content {
+        color: var(--color-primary);
+
+        &::before {
+          border-color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  @include touch-device {
+    &:hover,
+    &:focus {
+      .custom-checkbox__content {
+        color: var(--color-radicalRed);
+
+        &::before {
+          border-color: var(--color-radicalRed);
+        }
+      }
+    }
+  }
+}

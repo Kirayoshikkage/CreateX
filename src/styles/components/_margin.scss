@@ -1,0 +1,17 @@
+.mgb {
+  @include xs {
+    &-xs-24 {
+      margin-bottom: rem(24);
+    }
+  }
+
+  @include sm {
+    &-sm-60 {
+      margin-bottom: rem(60);
+    }
+
+    &-sm-24 {
+      margin-bottom: rem(24);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.reply {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+
+  &__icon {
+    width: rem(16);
+    height: rem(16);
+    fill: var(--color-stormGray);
+  }
+
+  &__text {
+    color: var(--color-stormGray);
+
+    @extend .text-size-xxs;
+  }
+}

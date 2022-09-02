@@ -1,0 +1,60 @@
+.our-team {
+  padding: rem(90) 0 rem(120);
+  background-image: url('../img/bg-plan-desctop.webp');
+  background-position: top 100px left;
+  background-repeat: no-repeat;
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+  }
+
+  .buttons-slider {
+    justify-content: flex-end;
+
+    @extend .mgb-xs-24;
+
+    /* stylelint-disable-next-line order/order */
+    &__button {
+      @extend .buttons-slider__button_style-primary;
+    }
+  }
+
+  .swiper {
+    margin-bottom: rem(80);
+
+    @include small-tablet {
+      margin-bottom: rem(40);
+    }
+  }
+
+  &__link {
+    border-bottom: rem(2) solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  @include small-tablet {
+    padding: rem(45) 0 rem(60);
+    background: none;
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(45) 0 rem(60);
+    background: none;
+
+    .swiper {
+      margin-bottom: rem(40);
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) {
+    .title + .desc {
+      margin: 0 0 rem(24);
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.how-we-do {
+  padding: rem(90) 0 rem(120);
+
+  .title {
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  &__list {
+    counter-reset: step;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(rem(225), 1fr));
+    gap: rem(30);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+
+    @media (orientation: landscape) and (max-width: 575.98px) {
+      grid-template-columns: repeat(auto-fit, minmax(rem(225), 1fr));
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &::before {
+      counter-increment: step;
+      content: '0' counter(step);
+      font-weight: 700;
+      font-size: rem(46);
+      line-height: lh(60, 46);
+      color: var(--color-iron);
+    }
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: rem(30);
+      border-bottom: rem(1) dashed var(--color-iron);
+      width: calc(100% - rem(76));
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    margin: rem(16) 0 rem(8);
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-m;
+  }
+
+  &__text {
+    color: var(--color-stormGray);
+
+    @extend .text-size-xs;
+  }
+
+  @include small-tablet {
+    padding: rem(45) 0 rem(60);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(45) 0 rem(60);
+  }
+}

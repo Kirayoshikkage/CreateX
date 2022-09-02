@@ -1,0 +1,139 @@
+.categories {
+  padding: rem(120) 0 rem(160);
+
+  .title {
+    margin: 0 0 rem(20);
+    text-align: center;
+  }
+
+  .tabs {
+    &__triggers {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 0 rem(60);
+
+      li {
+        flex: 1 1 auto;
+      }
+    }
+
+    &__trigger {
+      border: rem(1) solid transparent;
+      border-radius: rem(4);
+      padding: rem(10);
+      width: 100%;
+      color: var(--color-manatee);
+      transition-property: color, border-color;
+      transition-duration: $transitionDuration;
+
+      @extend .text-size-xs;
+
+      /* stylelint-disable-next-line order/order */
+      &_active {
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+      }
+
+      @include mouse-device {
+        &:hover,
+        &:focus {
+          border-bottom-color: var(--color-primary);
+          color: var(--color-primary);
+        }
+      }
+    }
+
+    &__empty-message {
+      display: none;
+      font-size: rem(36);
+      text-align: center;
+      color: var(--color-manatee);
+    }
+
+    .swiper-wrapper {
+      margin-bottom: rem(45);
+      height: rem(1121);
+    }
+
+    .swiper-slide {
+      /* stylelint-disable-next-line declaration-no-important */
+      height: calc((100% - 45px) / 2) !important;
+      box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
+        0 rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
+        0 rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
+        0 rem(80) rem(80) rem(-20) rgba(154, 156, 165, 8%);
+    }
+
+    .news {
+      height: auto;
+      box-shadow: none;
+
+      @include tablet {
+        text-align: center;
+
+        .tags {
+          justify-content: center;
+        }
+      }
+
+      @include mobile {
+        &_xs-size-xl {
+          padding-top: rem(260);
+
+          &::before {
+            height: rem(260);
+          }
+        }
+      }
+
+      @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) and (max-height: 500px) {
+        &_xs-size-xl {
+          padding-top: rem(200);
+
+          &::before {
+            height: rem(200);
+          }
+        }
+      }
+
+      @media (orientation: landscape) and (max-width: 575.98px) {
+        &_xs-size-xl {
+          padding-top: rem(140);
+
+          &::before {
+            height: rem(140);
+          }
+        }
+      }
+    }
+
+    @each $news in building-stable-loss, construction-assistance,
+      types-flooring-materials, difference-digger-excavator,
+      construction-hand-tools, top-construction-trends
+    {
+      .news[data-news='#{$news}']::before {
+        background-image: url('../img/#{$news}__desctop.webp');
+
+        @include mobile {
+          background-image: url('../img/#{$news}__mobile.webp');
+        }
+      }
+    }
+
+    .buttons-slider {
+      justify-content: center;
+
+      &__button {
+        @extend .buttons-slider__button_style-primary;
+      }
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0 rem(80);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(60) 0 rem(80);
+  }
+}

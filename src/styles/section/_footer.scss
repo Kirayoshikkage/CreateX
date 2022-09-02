@@ -1,0 +1,181 @@
+.footer {
+  padding: rem(80) 0;
+  background-color: var(--color-ebonyClay);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(60);
+  }
+
+  &__item {
+    &_touch {
+      max-width: rem(495);
+    }
+
+    &:nth-child(even) {
+      justify-self: end;
+
+      @include small-tablet {
+        justify-self: center;
+      }
+    }
+
+    @include small-tablet {
+      &:last-child {
+        justify-self: end;
+      }
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    margin-right: rem(60);
+
+    @include tablet {
+      margin: 0 0 rem(16);
+    }
+  }
+
+  .social {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-bottom: rem(24);
+    gap: 1rem;
+
+    &__link {
+      @extend .social__link_animation-style-primary;
+    }
+
+    @include tablet {
+      display: flex;
+    }
+
+    @include small-tablet {
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    color: rgba(255, 255, 255, 60%);
+
+    @extend .text-size-xxs;
+  }
+
+  &__subtitle {
+    font-size: rem(24);
+    line-height: lh(36, 24);
+    color: var(--color-white);
+
+    @extend .text-size-m;
+  }
+
+  .form {
+    display: flex;
+    margin: 0 0 rem(24);
+
+    @extend .form_size-l;
+    @extend .form_style-dark;
+    @extend .form_primary-animation;
+
+    /* stylelint-disable-next-line order/order */
+    &__label {
+      flex: 1 1 rem(233);
+    }
+
+    &__input {
+      border-radius: rem(4) 0 0 rem(4);
+      color: var(--color-white);
+    }
+
+    &__button {
+      border-radius: 0 rem(4) rem(4) 0;
+      color: var(--color-white);
+      background-color: var(--color-primary);
+
+      @extend .button_size-regular;
+      @extend .button_animation-dark-style;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: rem(20);
+
+      &__label {
+        flex: 1 1 auto;
+      }
+
+      &__input {
+        border-radius: rem(4);
+      }
+
+      &__button {
+        border-radius: rem(4);
+      }
+    }
+  }
+
+  .office-info {
+    &__text {
+      color: var(--color-white);
+    }
+
+    &__span {
+      color: rgba(255, 255, 255, 60%);
+    }
+  }
+
+  .footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: rem(30) rem(124);
+
+    &__subtitle {
+      margin: 0 0 rem(13);
+      text-transform: uppercase;
+      color: var(--color-white);
+
+      @extend .text-size-xs;
+    }
+
+    @include tablet {
+      gap: rem(30);
+    }
+
+    @media (max-width: 320px) {
+      justify-content: center;
+    }
+  }
+
+  .footer-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+
+    &__link {
+      color: rgba(255, 255, 255, 60%);
+
+      @extend .text-size-xs;
+
+      /* stylelint-disable-next-line order/order */
+      @include color-animation;
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: rem(30);
+    }
+  }
+
+  @include mobile {
+    .copyright {
+      justify-content: center;
+    }
+  }
+}

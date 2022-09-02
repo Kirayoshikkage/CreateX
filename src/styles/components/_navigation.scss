@@ -1,0 +1,26 @@
+.navigation {
+  &__link {
+    outline: none;
+    border-bottom: rem(2) solid transparent;
+    color: var(--color-mako);
+    transition-property: color, border-color;
+    transition-duration: $transitionDuration;
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        color: var(--color-radicalRed);
+      }
+    }
+
+    @extend .text-size-xs;
+    @extend .text-bold;
+  }
+}

@@ -1,0 +1,16 @@
+.validate-error-message {
+  position: absolute;
+  left: 0;
+  bottom: rem(-4);
+  font-size: rem(12);
+  color: var(--color-danger);
+  opacity: 0;
+  transform: translateY(75%);
+  transition-property: opacity, transform;
+  transition-duration: $transitionDuration;
+
+  &_show {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+}

@@ -1,0 +1,51 @@
+.means-of-communication {
+  outline: none;
+
+  &__icon {
+    width: rem(40);
+    height: rem(40);
+    fill: var(--color-primary);
+  }
+
+  &__text {
+    color: var(--color-mako);
+
+    @extend .text-size-xxs;
+    @extend .text-bold;
+  }
+
+  &__contact {
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-s;
+  }
+
+  &__text,
+  &__contact {
+    transition-property: color;
+    transition-duration: $transitionDuration;
+  }
+
+  @include mouse-device {
+    &:hover,
+    &:focus {
+      .means-of-communication__text,
+      .means-of-communication__contact {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  @include touch-device {
+    &:active {
+      .means-of-communication__text,
+      .means-of-communication__contact {
+        color: var(--color-primary);
+      }
+
+      .means-of-communication__icon {
+        fill: var(--color-radicalRed);
+      }
+    }
+  }
+}

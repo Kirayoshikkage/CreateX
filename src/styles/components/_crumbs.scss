@@ -1,0 +1,32 @@
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem rem(22);
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child)::before {
+      content: '/';
+      position: absolute;
+      right: rem(-14);
+      top: rem(1);
+      color: var(--color-manatee);
+    }
+
+    &:last-child {
+      .crumbs__link {
+        color: var(--color-manatee);
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__link {
+    font-size: rem(14);
+    line-height: lh(21, 14);
+    color: var(--color-ebonyClay);
+
+    @include color-animation;
+  }
+}

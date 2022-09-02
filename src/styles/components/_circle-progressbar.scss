@@ -1,0 +1,58 @@
+.circle-progressbar {
+  &__circle {
+    position: relative;
+    margin-bottom: rem(20);
+    width: rem(148);
+    height: rem(148);
+
+    @each $color in seaBuckthorn, radicalRed, cornflowerBlue, caribbeanGreen {
+      &_#{$color} {
+        .circle-progressbar__line {
+          stroke: var(--color-#{$color});
+        }
+
+        .circle-progressbar__line-progress {
+          stroke: var(--color-#{$color});
+        }
+      }
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__line {
+    stroke: var(--color-ebonyClay);
+    opacity: 0.3;
+  }
+
+  &__line-progress {
+    stroke: var(--color-ebonyClay);
+    transform: rotate(-90deg) translateX(20px);
+    transform-origin: center;
+  }
+
+  &__value {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-weight: 700;
+    font-size: rem(32);
+    line-height: lh(48, 32);
+    color: var(--color-ebonyClay);
+    transform: translate(-50%, -50%);
+  }
+
+  &__text {
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-xxs;
+  }
+}

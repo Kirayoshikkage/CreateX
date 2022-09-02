@@ -1,0 +1,55 @@
+.our-services {
+  padding: rem(180) 0 rem(80);
+  background-color: var(--color-porcelain);
+
+  .title {
+    text-align: center;
+
+    @extend .mgb-xs-24;
+  }
+
+  .desc {
+    text-align: center;
+
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+  }
+
+  .cards-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: rem(80);
+    gap: rem(30);
+
+    &__item {
+      flex: 0 1 rem(285);
+      min-height: rem(285);
+
+      @include small-tablet {
+        flex: 1 1 calc(50% - rem(30));
+      }
+
+      @include mobile {
+        flex: 1 1 100%;
+      }
+
+      @media (orientation: landscape) and (max-width: 767.98px) {
+        flex: 0 1 calc(50% - rem(30));
+        min-height: rem(185);
+      }
+    }
+
+    @include mobile {
+      margin-bottom: rem(40);
+    }
+  }
+
+  @include tablet {
+    padding: rem(120) 0 rem(80);
+  }
+
+  @include small-tablet {
+    padding: rem(90) 0 rem(40);
+  }
+}

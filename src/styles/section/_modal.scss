@@ -1,0 +1,348 @@
+.modal {
+  @include alert;
+
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+
+  &__body {
+    border-radius: rem(4);
+    background-color: var(--color-white);
+    opacity: 0;
+    transform: translateY(-50%);
+    transition-property: opacity, transform;
+    transition-duration: $transitionDuration;
+  }
+
+  &__content {
+    position: relative;
+    padding: rem(48);
+  }
+
+  &__close {
+    position: absolute;
+    right: rem(24);
+    top: rem(24);
+    border-bottom: rem(2) solid transparent;
+    width: rem(24);
+    height: rem(24);
+    transition: border-color $transitionDuration;
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        border-bottom-color: var(--color-primary);
+
+        .modal__icon {
+          fill: var(--color-primary);
+        }
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        border-bottom-color: var(--color-radicalRed);
+
+        .modal__icon {
+          fill: var(--color-radicalRed);
+        }
+      }
+    }
+
+    @include mobile {
+      right: rem(8);
+      top: rem(8);
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-stormGray);
+    transition: fill $transitionDuration;
+  }
+
+  &__subtitle {
+    @extend .text-size-l;
+    @extend .mgb-xs-24;
+  }
+
+  &[data-open='true'] {
+    .modal__body {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+}
+
+.modal-successful-sending {
+  &_success {
+    .modal-successful-sending__status {
+      &_success {
+        display: block;
+      }
+
+      &_error {
+        display: none;
+      }
+    }
+  }
+
+  &_error {
+    .modal-successful-sending__status {
+      &_success {
+        display: none;
+      }
+
+      &_error {
+        display: block;
+      }
+    }
+  }
+
+  &__body {
+    max-width: rem(700);
+  }
+
+  &__status {
+    position: relative;
+    display: none;
+    padding-left: rem(60);
+    font-weight: 700;
+    font-size: rem(24);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: rem(48);
+      height: rem(48);
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translateY(-50%);
+    }
+
+    &_success {
+      color: var(--color-caribbeanGreen);
+
+      &::before {
+        background-image: url('../img/success.svg');
+      }
+    }
+
+    &_error {
+      color: var(--color-danger);
+
+      &::before {
+        background-image: url('../img/error.svg');
+      }
+    }
+
+    @include mobile {
+      padding: rem(60) 0 0;
+      text-align: center;
+
+      &::before {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+.subscribe-modal {
+  &__body {
+    overflow: auto;
+    height: auto;
+    max-width: rem(486);
+    max-height: 100%;
+
+    @include mobile {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    @media (max-width: 425px) {
+      padding: rem(26) 1rem;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    @extend .form_size-l;
+    @extend .form_style-light;
+    @extend .form_primary-animation;
+  }
+
+  .button {
+    margin: rem(16) 0 0;
+    color: var(--color-white);
+
+    @extend .button_size-regular;
+    @extend .button_background-primary;
+    @extend .button_animation-dark-style;
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (max-height: 500px) {
+    &__body {
+      width: 100%;
+      max-width: 50%;
+    }
+
+    &__content {
+      padding: 1rem;
+    }
+
+    .modal__subtitle {
+      margin: 0 1rem 1rem 0;
+      font-size: 1rem;
+    }
+
+    .modal__close {
+      right: rem(8);
+      top: rem(8);
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 767.98px) and (max-height: 500px) {
+    &__body {
+      max-width: 100%;
+    }
+
+    .form {
+      flex-flow: row wrap;
+
+      &__label {
+        flex: 1 1 calc(50% - rem(24));
+      }
+
+      &__button {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
+.cv-modal {
+  width: 100%;
+  height: 100%;
+
+  &__body {
+    overflow: auto;
+    width: 100%;
+    height: auto;
+    max-width: rem(486);
+    max-height: 100%;
+  }
+
+  &__content {
+    @include mobile {
+      padding: rem(24);
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: rem(24);
+
+    @extend .form_size-l;
+    @extend .form_style-light;
+    @extend .form_primary-animation;
+
+    /* stylelint-disable-next-line order/order */
+    &__file-container {
+      position: relative;
+    }
+  }
+
+  .select {
+    position: relative;
+    z-index: 1;
+
+    &__trigger {
+      padding: rem(10.5) 1rem;
+    }
+
+    &__chosen {
+      @extend .text-size-xxs;
+    }
+
+    &__body {
+      position: absolute;
+      width: 100%;
+    }
+
+    &__list {
+      overflow: auto;
+      height: rem(108);
+    }
+
+    &__item {
+      @extend .text-size-xxs;
+    }
+  }
+
+  .custom-file-text {
+    font-size: rem(14);
+    line-height: lh(21, 14);
+  }
+
+  .button {
+    margin: rem(8) 0 0;
+    color: var(--color-white);
+
+    @extend .button_size-regular;
+    @extend .button_background-primary;
+    @extend .button_animation-dark-style;
+  }
+
+  @media (orientation: landscape) and (min-width: 568px) and (max-height: 850px) {
+    &__body {
+      max-width: rem(600);
+    }
+
+    .form {
+      flex-flow: row wrap;
+
+      &__label {
+        flex: 1 1 calc(50% - rem(24));
+
+        &_textarea {
+          flex: 1 1 100%;
+        }
+      }
+
+      &__button {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) and (max-height: 500px) {
+    &__content {
+      padding: rem(24);
+    }
+
+    .modal__close {
+      right: rem(8);
+      top: rem(8);
+    }
+  }
+}

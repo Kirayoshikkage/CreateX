@@ -1,0 +1,34 @@
+.social {
+  &__link {
+    display: block;
+    outline: none;
+    width: rem(24);
+    height: rem(24);
+
+    &_animation-style-primary {
+      @include mouse-device {
+        &:hover,
+        &:focus {
+          .social__icon {
+            fill: var(--color-primary);
+          }
+        }
+      }
+
+      @include touch-device {
+        &:active {
+          .social__icon {
+            fill: var(--color-radicalRed);
+          }
+        }
+      }
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-white);
+    transition: fill $transitionDuration;
+  }
+}

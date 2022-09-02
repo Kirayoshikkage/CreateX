@@ -1,0 +1,65 @@
+.reviews {
+  padding: rem(85) 0 rem(121);
+  background-color: var(--color-porcelain);
+
+  .title {
+    @extend .mgb-sm-60;
+    @extend .mgb-xs-24;
+
+    @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) and (max-height: 500px) {
+      margin: 0 0 rem(24);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, rem(600)) minmax(0, rem(495));
+    gap: rem(60) rem(135);
+
+    @include tablet {
+      grid-template-columns: 100%;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &_img {
+      overflow: hidden;
+      margin-bottom: rem(-180);
+      border-radius: rem(4);
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  .review__name,
+  .review__job {
+    padding-right: 6.75rem;
+  }
+
+  .buttons-slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    &__button {
+      @extend .buttons-slider__button_style-primary;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include small-tablet {
+    padding: rem(42.5) 0 rem(60);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
+    padding: rem(42.5) 0 rem(60);
+  }
+}

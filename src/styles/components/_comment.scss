@@ -1,0 +1,54 @@
+.comment {
+  &__grid {
+    display: flex;
+    gap: rem(30);
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+
+  &__item {
+    &:nth-child(1) {
+      flex: 0 0 rem(150);
+
+      @include mobile {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  &__name {
+    margin: 0 0 rem(8);
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-s;
+  }
+
+  &__time {
+    color: var(--color-stormGray);
+
+    @extend .text-size-xxs;
+  }
+
+  &__text {
+    margin: 0 0 1rem;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-xs;
+  }
+
+  &__link {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .reply {
+    @include mobile {
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,137 @@
+%form-text-xl {
+  font-size: rem(16);
+  line-height: lh(26, 16);
+}
+
+%form-text-l {
+  font-size: rem(14);
+  line-height: lh(21, 14);
+}
+
+%form-text-m {
+  font-size: rem(12);
+  line-height: lh(18, 12);
+}
+
+.form {
+  &__label {
+    position: relative;
+  }
+
+  &__text {
+    display: block;
+    margin: 0 0 rem(8);
+    color: var(--color-mako);
+  }
+
+  &__input {
+    border-radius: rem(4);
+    width: 100%;
+    background-image: url('../img/danger.svg');
+    background-position: center right rem(16);
+    background-size: 0 0;
+    background-repeat: no-repeat;
+
+    &::placeholder {
+      font-size: inherit;
+      line-height: inherit;
+      color: var(--color-manatee);
+    }
+
+    &_textarea {
+      resize: none;
+    }
+  }
+
+  &__input.validate-error {
+    /* stylelint-disable-next-line declaration-no-important */
+    border-color: var(--color-danger) !important;
+    /* stylelint-disable-next-line declaration-no-important */
+    background-size: rem(16) rem(16) !important;
+  }
+
+  &__radio {
+    cursor: pointer;
+  }
+
+  &_size-xl {
+    .form__input {
+      padding: rem(12) rem(16);
+
+      @extend %form-text-xl;
+    }
+
+    .form__text {
+      @extend %form-text-xl;
+    }
+  }
+
+  &_size-l {
+    .form__input {
+      padding: rem(10.5) rem(16);
+
+      @extend %form-text-l;
+    }
+
+    .form__text {
+      @extend %form-text-l;
+    }
+  }
+
+  &_size-m {
+    .form__input {
+      padding: rem(8) rem(12);
+
+      @extend %form-text-m;
+    }
+
+    .form__text {
+      @extend %form-text-m;
+    }
+  }
+
+  &_style-light {
+    .form__input {
+      border: rem(1) solid var(--color-iron);
+      color: var(--color-ebonyClay);
+      background-color: var(--color-athensGray);
+
+      &::placeholder {
+        color: var(--color-manatee);
+      }
+    }
+  }
+
+  &_style-dark {
+    .form__input {
+      border: rem(1) solid rgba(255, 255, 255, 20%);
+      background-color: rgba(255, 255, 255, 20%);
+
+      &::placeholder {
+        color: var(--color-manatee);
+      }
+    }
+  }
+
+  &_primary-animation {
+    .form__input {
+      transition-property: background, border-color;
+      transition-duration: $transitionDuration;
+
+      @include mouse-device {
+        &:hover,
+        &:focus {
+          border-color: var(--color-primary);
+          background-color: rgba(255, 90, 48, 20%);
+        }
+      }
+
+      @include touch-device {
+        &:focus {
+          border-color: var(--color-radicalRed);
+          background-color: rgba(245, 47, 110, 20%);
+        }
+      }
+    }
+  }
+}

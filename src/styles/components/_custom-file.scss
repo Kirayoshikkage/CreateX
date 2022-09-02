@@ -1,0 +1,52 @@
+.custom-file {
+  &__input {
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    cursor: pointer;
+    gap: rem(12);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: rem(24);
+    height: rem(24);
+    fill: var(--color-primary);
+  }
+
+  &__text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--color-mako);
+    transition: color $transitionDuration;
+  }
+}
+
+@include mouse-device {
+  .custom-file__input:focus + .custom-file__label .custom-file__text,
+  .custom-file__input + .custom-file__label:hover .custom-file__text {
+    color: var(--color-primary);
+  }
+}
+
+@include touch-device {
+  .custom-file__input:active + .custom-file__label {
+    .custom-file__text {
+      color: var(--color-radicalRed);
+    }
+
+    .custom-file__icon {
+      fill: var(--color-radicalRed);
+    }
+  }
+}

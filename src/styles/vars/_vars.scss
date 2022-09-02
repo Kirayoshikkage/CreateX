@@ -1,0 +1,37 @@
+:root {
+  /*
+  *
+  * Colors
+  *
+  */
+  --color-white: #fff;
+  --color-primary: #ff5a30;
+  --color-stormGray: #787a80;
+  --color-mako: #424551;
+  --color-porcelain: #f4f5f6;
+  --color-manatee: #9a9ca5;
+  --color-iron: #d7dadd;
+  --color-athensGray: #e5e8ed;
+  --color-cornflowerBlue: #5a87fc;
+  --color-radicalRed: #f52f6e;
+  --color-seaBuckthorn: #f89828;
+  --color-caribbeanGreen: #03cea4;
+  --color-ebonyClay: #1e212c;
+  --color-danger: #ff4242;
+
+  /*
+  *
+  * Font-Family
+  *
+  */
+  --ff-ubuntu: 'Ubuntu';
+  --ff-lato: 'Lato';
+}
+
+/*
+  *
+  * Transition Duration
+  *
+  */
+
+$transitionDuration: 0.4s;

@@ -1,0 +1,97 @@
+.quotation {
+  padding: rem(120) 0;
+  background-image: url('../img/bg-plan-desctop.webp');
+  background-position: top right -200px;
+  background-repeat: no-repeat;
+
+  .container {
+    display: flex;
+    width: 100%;
+  }
+
+  .quotation__item {
+    &_img {
+      flex: 0 1 rem(525);
+      overflow: hidden;
+      border-radius: rem(4);
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &_quote {
+      position: relative;
+      left: rem(-30);
+      bottom: rem(100);
+      flex: 1 1 rem(735);
+      padding: rem(80) rem(105) rem(80) rem(77);
+      box-shadow: 0 rem(4) rem(4) rem(-4) rgba(30, 33, 44, 3%),
+        rem(0) rem(12) rem(10) rem(-6) rgba(154, 156, 165, 4%),
+        rem(0) rem(30) rem(24) rem(-10) rgba(154, 156, 165, 5%),
+        rem(0) rem(80) rem(80) rem(-20) rgba(154, 156, 165, 8%);
+      background-color: var(--color-white);
+
+      @include tablet {
+        padding: 0 rem(24) rem(24);
+      }
+
+      @include mobile {
+        padding: 0 rem(12) rem(12);
+      }
+    }
+  }
+
+  .quote {
+    background-image: url('../img/signature.svg');
+    background-position: bottom right;
+    background-size: rem(106) rem(68);
+    background-repeat: no-repeat;
+
+    blockquote {
+      margin: 0 0 rem(60);
+
+      @include mobile {
+        margin: 0 0 rem(48);
+      }
+
+      @media (orientation: landscape) and (max-width: 575.98px) {
+        margin: 0 0 rem(24);
+      }
+    }
+
+    figcaption {
+      padding-right: rem(116);
+    }
+
+    &__cite {
+      display: block;
+    }
+
+    @include mobile {
+      background-size: rem(53) rem(34);
+
+      figcaption {
+        padding-right: rem(66);
+      }
+    }
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px),
+    (max-width: 767.98px) {
+    padding: rem(40) 0;
+    background: none;
+
+    .quotation__item {
+      &_img {
+        display: none;
+      }
+
+      &_quote {
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

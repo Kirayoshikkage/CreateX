@@ -1,0 +1,67 @@
+.we-offer {
+  padding: rem(120) 0 rem(90);
+
+  .container {
+    display: grid;
+    grid-template:
+      'img title' auto
+      'img accordion' 1fr / 1fr 1fr;
+    gap: rem(48);
+
+    @include tablet {
+      gap: rem(36);
+    }
+
+    @include small-tablet {
+      grid-template:
+        'title'
+        'accordion'
+        'img';
+      text-align: center;
+    }
+  }
+
+  &__item {
+    &_img {
+      grid-area: img;
+    }
+
+    &_title {
+      grid-area: title;
+    }
+
+    &_accordion {
+      grid-area: accordion;
+    }
+  }
+
+  &__img {
+    border-radius: rem(4);
+    width: 100%;
+    height: 100%;
+
+    @include small-tablet {
+      max-height: rem(250);
+    }
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+
+    @include small-tablet {
+      &__item {
+        padding: 0 rem(28);
+      }
+    }
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0 rem(45);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+    padding: rem(60) 0 rem(45);
+  }
+}

@@ -1,0 +1,40 @@
+.projects {
+  .group {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: rem(60);
+
+    @include mobile {
+      flex-direction: column;
+      margin-bottom: rem(40);
+      gap: rem(24);
+    }
+  }
+
+  .buttons-slider__button {
+    @extend .buttons-slider__button_style-primary;
+  }
+
+  .swiper {
+    padding-bottom: rem(80);
+
+    @include mobile {
+      padding-bottom: rem(60);
+    }
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  @include small-tablet {
+    padding: rem(60) 0;
+  }
+
+  @include mobile {
+    .title {
+      align-self: flex-start;
+    }
+  }
+}

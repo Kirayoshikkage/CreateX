@@ -1,0 +1,48 @@
+.quote {
+  position: relative;
+  margin: 0;
+  padding-left: rem(58);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: rem(28);
+    height: rem(20);
+    background-image: url('../img/braces.svg');
+    background-size: rem(28) rem(28);
+    background-repeat: no-repeat;
+
+    @include mobile {
+      width: rem(14);
+      height: rem(14);
+      background-size: rem(14) rem(14);
+    }
+  }
+
+  &__text {
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-m;
+  }
+
+  &__author {
+    display: block;
+    font-weight: 700;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-xs;
+  }
+
+  &__cite {
+    font-style: normal;
+    color: var(--color-stormGray);
+
+    @extend .text-size-xxs;
+  }
+
+  @include mobile {
+    padding-left: rem(29);
+  }
+}

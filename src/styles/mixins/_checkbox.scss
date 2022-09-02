@@ -1,0 +1,67 @@
+@mixin custom-checkbox {
+  position: relative;
+  outline: none;
+
+  &__field {
+    appearance: none;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &__content {
+    display: block;
+    padding-left: rem(28);
+    font-size: rem(14);
+    line-height: lh(21, 14);
+    color: var(--color-stormGray);
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: rem(3);
+      border: rem(1) solid var(--color-manatee);
+      border-radius: rem(3);
+      width: rem(15);
+      height: rem(15);
+      box-sizing: border-box;
+      transition-property: background, border-color;
+      transition-duration: 0.3s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: rem(3);
+      width: rem(16);
+      height: rem(16);
+      box-sizing: border-box;
+      background-image: url('../img/check.svg');
+      background-position: center center;
+      background-size: rem(10) rem(8);
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  &__field:checked + &__content::after {
+    opacity: 1;
+  }
+
+  &__field:checked + &__content::before {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+  }
+
+  &__field:focus + &__content::before {
+    background-color: var(--color-primary);
+  }
+
+  &__field:disabled + &__content {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}

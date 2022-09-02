@@ -1,0 +1,51 @@
+.office {
+  &__subtitle {
+    color: var(--color-ebonyClay);
+
+    @extend .mgb-xs-24;
+    @extend .text-size-l;
+  }
+
+  &__address {
+    margin: 0 0 rem(4);
+    font-style: normal;
+    color: var(--color-ebonyClay);
+
+    @extend .text-size-xs;
+  }
+
+  &__link {
+    display: block;
+    margin: 0 0 rem(20);
+    outline: none;
+    text-decoration: underline;
+    color: var(--color-primary);
+    transition: color $transitionDuration;
+
+    @extend .text-size-xs;
+
+    /* stylelint-disable-next-line order/order */
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        color: var(--color-ebonyClay);
+      }
+    }
+
+    @include mouse-device {
+      &:active {
+        color: var(--color-radicalRed);
+      }
+    }
+  }
+
+  .office-info {
+    &__text {
+      color: var(--color-stormGray);
+    }
+
+    &__span {
+      color: var(--color-ebonyClay);
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.hero {
+  margin-bottom: rem(-100);
+  padding-top: rem(80);
+  padding-bottom: rem(233);
+  background-color: rgb(244, 245, 246);
+
+  .crumbs {
+    margin-bottom: rem(40);
+  }
+
+  .lead {
+    margin: 0 0 rem(48);
+    text-transform: capitalize;
+
+    @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) {
+      font-size: rem(46);
+    }
+  }
+
+  .group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem 2rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10) rem(24);
+  }
+
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(12);
+
+    /* stylelint-disable-next-line order/order */
+    &__icon {
+      fill: var(--color-stormGray);
+    }
+  }
+
+  @include small-tablet {
+    padding-top: rem(40);
+    padding-bottom: rem(153);
+  }
+
+  @media (orientation: landscape) and (max-width: 1023.98px) {
+    padding-top: rem(20);
+    padding-bottom: rem(153);
+  }
+}

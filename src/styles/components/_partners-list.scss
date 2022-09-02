@@ -1,0 +1,48 @@
+.partners-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(rem(120), 1fr));
+  gap: rem(40) rem(102);
+
+  &__item {
+    text-align: center;
+  }
+
+  &__link {
+    outline: none;
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        .partners-list__img {
+          filter: sepia(100%);
+        }
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        .partners-list__img {
+          filter: sepia(100%);
+        }
+      }
+    }
+  }
+
+  &__img {
+    width: rem(120);
+    height: rem(64);
+    transition: filter $transitionDuration;
+  }
+
+  @include tablet {
+    gap: rem(54);
+  }
+
+  @include mobile {
+    gap: rem(24);
+  }
+
+  @media (max-width: 320px) {
+    justify-items: center;
+  }
+}
