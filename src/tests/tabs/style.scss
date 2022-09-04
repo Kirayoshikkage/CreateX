@@ -1,0 +1,13 @@
+.tabs {
+  &__triggers {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  &__trigger {
+    padding: 0.5rem 1rem;
+  }
+}

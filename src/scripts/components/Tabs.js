@@ -1,7 +1,7 @@
 export default class Tabs {
   constructor(container, {
-    initialTab,
-    animation,
+    initialTab = null,
+    animation = null,
   } = {}) {
     this._container = document.querySelector(container);
     this._triggerContainer = this._container.querySelector('.tabs__triggers');
@@ -22,13 +22,20 @@ export default class Tabs {
     tabSwitching: [],
     showed: [],
     hiding: [],
-    _test: [],
   };
 
   init() {
+    this._throwsErrors();
+
     this._switchesTabs(this._initialTab);
 
     this._setsEventListenersTriggers();
+  }
+
+  _throwsErrors() {
+    if (typeof this._initialTab !== 'string') {
+      throw new Error('InitialTab wrong type');
+    }
   }
 
   _switchesTabs(tab) {
@@ -87,6 +94,8 @@ export default class Tabs {
       content.style.display = 'block';
     }
 
+    if (content === this._emptyMessage) return;
+
     this._dispatchEvent('showed', content);
   }
 
@@ -97,6 +106,8 @@ export default class Tabs {
       // eslint-disable-next-line no-param-reassign
       content.style.display = 'none';
     }
+
+    if (content === this._emptyMessage) return;
 
     this._dispatchEvent('hiding', content);
   }
@@ -142,6 +153,12 @@ export default class Tabs {
   }
 
   on(event, cb) {
+    if (typeof event !== 'string') throw new Error('Event wrong type');
+
+    if (typeof cb !== 'function') throw new Error('Cb wrong type');
+
+    if (!this._listEventListener[event]) throw new Error('There is no such event');
+
     this._listEventListener[event].push(cb);
   }
 }

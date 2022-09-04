@@ -14,8 +14,6 @@ ourWorkTabs.on('tabSwitching', () => {
   tabsSlider.update();
 });
 ourWorkTabs.on('showed', ([content]) => {
-  if (content.classList.contains('tabs__empty-message')) return;
-
   content?.classList.add('swiper-slide');
 });
 ourWorkTabs.on('hiding', ([content]) => {

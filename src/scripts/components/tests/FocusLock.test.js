@@ -2,6 +2,8 @@
  * @jest-environment jsdom
  */
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { jest } from '@jest/globals';
 import FocusLock from '../FocusLock';
 
 jest.useFakeTimers();
