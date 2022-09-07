@@ -10,6 +10,7 @@ export default function _common() {
   const burgerMenu = new BurgerMenu({
     container: '.burger-menu',
     trigger: '.header .burger-trigger',
+    body: '.burger-menu__body',
     breakpoints: {
       768: [() => {
         if (burgerMenu.isOpen()) {

@@ -9,6 +9,7 @@ focusLock.init();
 
 const modalSuccessfulSending = new Modal({
   container: '.modal-successful-sending',
+  body: '.modal__mody',
   focusLock,
 });
 modalSuccessfulSending.init();

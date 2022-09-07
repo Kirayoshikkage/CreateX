@@ -12,6 +12,7 @@ export default function showsErrorNotification() {
 
   const errorNotification = new Modal({
     container: '.error-notification',
+    body: 'modal__body',
     focusLock,
   });
   errorNotification.init();

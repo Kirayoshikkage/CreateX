@@ -3,12 +3,13 @@ import Alert from './Alert.js';
 export default class Modal extends Alert {
   constructor({
     container = null,
-    trigger = false,
-    animation = false,
-    focusLock = false,
+    body = null,
+    trigger = null,
+    animation = null,
+    focusLock = null,
   }) {
     super({
-      container, trigger, animation, focusLock,
+      container, body, trigger, animation, focusLock,
     });
 
     this._closeBtn = this._container.querySelector('.modal__close');

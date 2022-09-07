@@ -9,11 +9,11 @@
   transition-property: visibility, opacity, background;
   transition-duration: $transitionDuration;
 
-  &[data-open='true'] {
-    background-color: rgba(30, 33, 44, 0.5);
-  }
-
   &__body {
     background-color: var(--color-white);
+  }
+
+  &.active {
+    background-color: rgba(30, 33, 44, 50%);
   }
 }

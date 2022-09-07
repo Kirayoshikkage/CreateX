@@ -1,29 +1,39 @@
 export default class Alert {
   constructor({
     container = null,
-    trigger = false,
-    animation = false,
-    focusLock,
+    body = null,
+    trigger = null,
+    animation = null,
+    focusLock = null,
   } = {}) {
     this._container = document.querySelector(container);
+    this._trigger = trigger ? document.querySelector(trigger) : null;
+    this._body = body;
 
-    this._body = `${container ?? ''}__body`;
-
-    this._trigger = trigger ? document.querySelector(trigger) : false;
-
-    this._animation = animation || false;
-
-    this._focusLock = focusLock || false;
+    this._animation = animation;
+    this._focusLock = focusLock;
   }
 
   _isOpen = false;
 
+  isOpen() {
+    return this._isOpen;
+  }
+
   init() {
+    this._throwsError();
+
     this._addsEventListenersTrigger();
 
     this._closesWindowOnClickOutside();
 
     this._setsStyleHiding();
+  }
+
+  _throwsError() {
+    if (!this._body) {
+      throw new Error('Field body is required');
+    }
   }
 
   _addsEventListenersTrigger() {
@@ -40,22 +50,88 @@ export default class Alert {
     });
   }
 
-  _closesWindowOnClickOutside() {
-    this._container.addEventListener('pointerdown', (e) => {
-      if (e.target.closest(this._body)) return;
-
-      this.close();
-    });
-  }
-
   toggle() {
-    if (this._isOpen) {
-      this.close();
+    if (!this.isOpen()) {
+      this.open();
 
       return;
     }
 
-    this.open();
+    this.close();
+  }
+
+  close() {
+    this._isOpen = false;
+
+    this._setsStyleHiding();
+
+    this._switchesClassActiveTrigger();
+
+    this._changesClassActiviteAtWindow();
+
+    this._unblocksFocus();
+
+    this._container.addEventListener('transitionend', () => {
+      this._removesScrollPadding(document.body);
+
+      this._switchesBlockScroll();
+    }, {
+      once: true,
+    });
+  }
+
+  _setsStyleHiding() {
+    if (this._animation) {
+      this._animation.setStyleHiding(this._container);
+
+      return;
+    }
+
+    this._container.style.visibility = 'hidden';
+    this._container.style.opacity = 0;
+  }
+
+  _switchesClassActiveTrigger() {
+    if (!this._trigger) return;
+
+    if (this._isOpen) {
+      this._trigger.classList.add('active');
+
+      return;
+    }
+
+    this._trigger.classList.remove('active');
+  }
+
+  _changesClassActiviteAtWindow() {
+    if (this._isOpen) {
+      this._container.classList.add('active');
+
+      return;
+    }
+
+    this._container.classList.remove('active');
+  }
+
+  _unblocksFocus() {
+    if (!this._focusLock) return;
+
+    this._focusLock.unblocksFocus();
+  }
+
+  _switchesBlockScroll() {
+    if (this.isOpen()) {
+      document.body.classList.add('overflow-hidden');
+
+      return;
+    }
+
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  _removesScrollPadding(element) {
+    // eslint-disable-next-line no-param-reassign
+    element.style.paddingRight = 0;
   }
 
   open() {
@@ -69,7 +145,7 @@ export default class Alert {
 
     this._switchesClassActiveTrigger();
 
-    this._changesAttrDataOpenAtWindow();
+    this._changesClassActiviteAtWindow();
 
     this._blocksFocus();
   }
@@ -92,83 +168,17 @@ export default class Alert {
     this._container.style.opacity = 1;
   }
 
-  _switchesBlockScroll() {
-    if (this._isOpen) {
-      document.body.classList.add('overflow-hidden');
-
-      return;
-    }
-
-    document.body.classList.remove('overflow-hidden');
-  }
-
-  _switchesClassActiveTrigger() {
-    if (!this._trigger) return;
-
-    if (this._isOpen) {
-      this._trigger.classList.add('active');
-
-      return;
-    }
-
-    this._trigger.classList.remove('active');
-  }
-
-  _changesAttrDataOpenAtWindow() {
-    if (this._isOpen) {
-      this._container.dataset.open = true;
-
-      return;
-    }
-
-    this._container.dataset.open = false;
-  }
-
   _blocksFocus() {
     if (!this._focusLock) return;
 
     this._focusLock.blocksFocus();
   }
 
-  close() {
-    this._isOpen = false;
+  _closesWindowOnClickOutside() {
+    this._container.addEventListener('pointerdown', (e) => {
+      if (e.target.closest(this._body)) return;
 
-    this._setsStyleHiding();
-
-    this._switchesBlockScroll();
-
-    this._switchesClassActiveTrigger();
-
-    this._changesAttrDataOpenAtWindow();
-
-    this._unblocksFocus();
-
-    this._removesScrollPadding(document.body);
-  }
-
-  _setsStyleHiding() {
-    if (this._animation) {
-      this._animation.setStyleHiding(this._container);
-
-      return;
-    }
-
-    this._container.style.visibility = 'hidden';
-    this._container.style.opacity = 0;
-  }
-
-  _unblocksFocus() {
-    if (!this._focusLock) return;
-
-    this._focusLock.unblocksFocus();
-  }
-
-  _removesScrollPadding(element) {
-    // eslint-disable-next-line no-param-reassign
-    element.style.paddingRight = 0;
-  }
-
-  isOpen() {
-    return this._isOpen;
+      this.close();
+    });
   }
 }

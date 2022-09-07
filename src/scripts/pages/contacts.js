@@ -2,17 +2,20 @@ import Select from '../components/Select.js';
 import DropDownAnimation from '../components/DropDownAnimation.js';
 import { contactsUsFormValidation } from '../helpers/configuresFormsValidation.js';
 import _common from '../common/_common.js';
+import errorHandler from '../helpers/errorHandler.js';
 
-_common();
+errorHandler(() => {
+  _common();
 
-const interestedSelect = new Select('.interested-select', {
-  animation: new DropDownAnimation(),
+  const interestedSelect = new Select('.interested-select', {
+    animation: new DropDownAnimation(),
+  });
+  interestedSelect.init();
+
+  const locationSelect = new Select('.location-select', {
+    animation: new DropDownAnimation(),
+  });
+  locationSelect.init();
+
+  contactsUsFormValidation(locationSelect);
 });
-interestedSelect.init();
-
-const locationSelect = new Select('.location-select', {
-  animation: new DropDownAnimation(),
-});
-locationSelect.init();
-
-contactsUsFormValidation(locationSelect);

@@ -3,14 +3,16 @@ import Alert from './Alert.js';
 export default class BurgerMenu extends Alert {
   constructor({
     container = null,
+    body = null,
     trigger = false,
     breakpoints = false,
-    animation = false,
-    focusLock = false,
+    animation = null,
+    focusLock = null,
   }) {
     super({
-      container, trigger, animation, focusLock,
+      container, body, trigger, animation, focusLock,
     });
+
     this._breakpoints = breakpoints || false;
   }
 

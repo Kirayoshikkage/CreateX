@@ -1,0 +1,27 @@
+@import '../../styles/common/common';
+
+.alert {
+  @include alert;
+
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+
+  &__body {
+    border-radius: rem(4);
+    max-width: rem(486);
+    background-color: #800080;
+  }
+
+  &__content {
+    padding: 1rem 2rem;
+  }
+
+  &__text {
+    color: #fff;
+  }
+}

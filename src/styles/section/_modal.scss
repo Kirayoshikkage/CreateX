@@ -71,7 +71,7 @@
     @extend .mgb-xs-24;
   }
 
-  &[data-open='true'] {
+  &.active {
     .modal__body {
       opacity: 1;
       transform: translate(0);

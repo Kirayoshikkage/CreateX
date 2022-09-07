@@ -1,11 +1,14 @@
 import { projectSlider, projectsSlider } from '../helpers/configuresSliders.js';
 import addsCardsProjectRouting from '../helpers/addsCardsProjectRouting.js';
 import _common from '../common/_common.js';
+import errorHandler from '../helpers/errorHandler.js';
 
-_common();
+errorHandler(() => {
+  _common();
 
-projectSlider();
+  projectSlider();
 
-addsCardsProjectRouting();
+  addsCardsProjectRouting();
 
-projectsSlider('.similar-projects');
+  projectsSlider('.similar-projects');
+});

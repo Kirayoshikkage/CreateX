@@ -5,16 +5,19 @@ import {
 } from '../helpers/configuresSliders.js';
 import addsCardsProjectRouting from '../helpers/addsCardsProjectRouting.js';
 import _common from '../common/_common.js';
+import errorHandler from '../helpers/errorHandler.js';
 
-_common();
+errorHandler(() => {
+  _common();
 
-const weOfferAccordion = new Accordion('.we-offer__accordion', {
-  apiAnimation: new DropDownAnimation(),
+  const weOfferAccordion = new Accordion('.we-offer__accordion', {
+    apiAnimation: new DropDownAnimation(),
+  });
+  weOfferAccordion.init();
+
+  projectsSlider('.related-projects');
+
+  addsCardsProjectRouting();
+
+  pricingSlider();
 });
-weOfferAccordion.init();
-
-projectsSlider('.related-projects');
-
-addsCardsProjectRouting();
-
-pricingSlider();

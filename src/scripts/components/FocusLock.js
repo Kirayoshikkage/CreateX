@@ -41,8 +41,8 @@ export default class FocusLock {
   _throwsErrors() {
     if (
       this._exception
-       && !Array.isArray(this._exception)
-     && typeof this._exception !== 'string'
+      && !Array.isArray(this._exception)
+      && typeof this._exception !== 'string'
     ) {
       throw new Error('Exception wrong type');
     }

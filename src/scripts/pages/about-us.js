@@ -1,8 +1,11 @@
 import { ourHistorySlider, ourTeamSlider } from '../helpers/configuresSliders.js';
 import _common from '../common/_common.js';
+import errorHandler from '../helpers/errorHandler.js';
 
-_common();
+errorHandler(() => {
+  _common();
 
-ourHistorySlider();
+  ourHistorySlider();
 
-ourTeamSlider();
+  ourTeamSlider();
+});
