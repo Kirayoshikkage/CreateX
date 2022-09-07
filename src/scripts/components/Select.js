@@ -7,8 +7,11 @@ export default class Select {
     this._containerForChosenElement = this._select.querySelector('.select__chosen');
     this._body = this._select.querySelector('.select__body');
     this._content = this._select.querySelector('.select__content');
+
     this._animation = animation;
   }
+
+  _isOpen = false;
 
   _chosenElement = null;
 
@@ -20,7 +23,13 @@ export default class Select {
     return Boolean(this._chosenElement);
   }
 
+  isOpen() {
+    return this._isOpen;
+  }
+
   init() {
+    this._close();
+
     this._setsEventListenersTrigger();
 
     this._setsEventListenersElements();
@@ -37,23 +46,21 @@ export default class Select {
   }
 
   _toggle() {
-    if (!this.isOpen()) {
-      this._open();
+    if (this._isOpen) {
+      this._close();
 
       return;
     }
 
-    this._close();
-  }
-
-  isOpen() {
-    return this._select.dataset.open === 'true';
+    this._open();
   }
 
   _open() {
-    this._select.dataset.open = true;
+    this._isOpen = true;
 
     this._setsStyleVisibility();
+
+    this._addsClassActiviteSelect();
   }
 
   _setsStyleVisibility() {
@@ -66,10 +73,16 @@ export default class Select {
     this._body.style.display = 'block';
   }
 
+  _addsClassActiviteSelect() {
+    this._select.classList.add('select_active');
+  }
+
   _close() {
-    this._select.dataset.open = false;
+    this._isOpen = false;
 
     this._setsStyleHiding();
+
+    this._removesClassActiviteAtSelect();
   }
 
   _setsStyleHiding() {
@@ -80,6 +93,10 @@ export default class Select {
     }
 
     this._body.style.display = 'none';
+  }
+
+  _removesClassActiviteAtSelect() {
+    this._select.classList.remove('select_active');
   }
 
   _setsEventListenersElements() {

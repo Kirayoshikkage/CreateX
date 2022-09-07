@@ -2,10 +2,8 @@
   &__item {
     padding-left: rem(44);
 
-    &[data-open='true'] {
-      .accordion__trigger::after {
-        transform: rotate(0);
-      }
+    &_active .accordion__trigger::after {
+      transform: rotate(0);
     }
   }
 

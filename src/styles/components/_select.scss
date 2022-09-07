@@ -1,4 +1,8 @@
 .select {
+  &_active .select__icon {
+    transform: rotate(180deg);
+  }
+
   &__trigger {
     display: flex;
     align-items: center;
@@ -67,12 +71,6 @@
     width: 100%;
     text-align: start;
     color: var(--color-ebonyClay);
-  }
-
-  &[data-open='true'] {
-    .select__icon {
-      transform: rotate(180deg);
-    }
   }
 }
 

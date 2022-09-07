@@ -1,0 +1,10 @@
+@import '../../styles/common/common';
+@import '../../styles/components/select';
+
+.select {
+  max-width: 15rem;
+
+  &__trigger {
+    padding: 1rem 0.5rem;
+  }
+}

@@ -48,16 +48,19 @@ export default class Accordion {
   }
 
   _accordionIsOpen(accordion) {
-    return accordion.dataset?.open === 'true';
+    return accordion.classList.contains('accordion__item_active');
   }
 
   _open(accordion) {
     this._closesActiveAccordion();
 
-    // eslint-disable-next-line no-param-reassign
-    accordion.dataset.open = true;
+    this._addsClassActiviteAccordion(accordion);
 
     this._setsStyleVisibility(accordion);
+  }
+
+  _addsClassActiviteAccordion(accordion) {
+    accordion.classList.add('accordion__item_active');
   }
 
   _closesActiveAccordion() {
@@ -86,10 +89,13 @@ export default class Accordion {
   }
 
   _close(accordion) {
-    // eslint-disable-next-line no-param-reassign
-    accordion.dataset.open = false;
+    this._removesClassActiviteAccordion(accordion);
 
     this._setsStyleHiding(accordion);
+  }
+
+  _removesClassActiviteAccordion(accordion) {
+    accordion.classList.remove('accordion__item_active');
   }
 
   _setsStyleHiding(accordion) {
