@@ -1,84 +1,73 @@
 import Alert from './Alert.js';
+import debounce from '../helpers/debounce.js';
 
 export default class BurgerMenu extends Alert {
   constructor({
     container = null,
     body = null,
-    trigger = false,
-    breakpoints = false,
+    trigger = null,
+    breakpoints = null,
     animation = null,
     focusLock = null,
-  }) {
+  } = {}) {
     super({
       container, body, trigger, animation, focusLock,
     });
 
-    this._breakpoints = breakpoints || false;
+    this._breakpoints = breakpoints;
   }
 
-  _currentBreakpoint = new Proxy(
-    {
-      breakpoint: [],
-      bind: this,
-    },
-    {
-      set(target, prop, value, context) {
-        target.bind._causesFunctionsBreakpoint(value);
-
-        return Reflect.set(target, prop, value, context);
-      },
-    },
-  );
+  _currentBreakpoint;
 
   init() {
     super.init();
 
-    this._initCurrentBreakpoint();
+    this._initBreakpointUpdate();
   }
 
-  _initCurrentBreakpoint() {
+  _initBreakpointUpdate() {
     if (!this._breakpoints) return;
 
-    window.addEventListener('resize', () => {
-      setTimeout(this._setsCurrentBreakpoint.bind(this), 0);
-    });
+    this._updatesBreakpoint();
 
-    this._setsCurrentBreakpoint();
+    window.addEventListener('resize', debounce(this._updatesBreakpoint.bind(this), 400));
   }
 
-  _setsCurrentBreakpoint() {
-    const [newBreakpoint, listFunctions] = this._getCurrentBreakpoint();
-    const [oldBreakpoint] = this._currentBreakpoint.breakpoint;
+  _updatesBreakpoint() {
+    const breakpoint = this._getCurrentBreakpoint();
 
-    if (newBreakpoint === oldBreakpoint) return;
+    if (this._currentBreakpoint == breakpoint) return;
 
-    this._currentBreakpoint.breakpoint = newBreakpoint
-      ? [newBreakpoint, listFunctions]
-      : [];
+    this._currentBreakpoint = breakpoint;
+
+    this._callsFunctionsBreakpoint();
   }
 
   _getCurrentBreakpoint() {
-    const width = document.body.offsetWidth;
+    const width = window.innerWidth;
 
-    return Object.entries(this._breakpoints).reduce(
-      (acc, [breakpoint, listFunctions]) => {
-        if (width >= breakpoint) {
-          // eslint-disable-next-line no-param-reassign
-          acc = [breakpoint, listFunctions];
-        }
+    return Object.keys(this._breakpoints).reduce((acc, breakpoint) => {
+      if (width >= breakpoint) {
+        // eslint-disable-next-line no-param-reassign
+        acc = breakpoint;
+      }
 
-        return acc;
-      },
-      [],
-    );
+      return acc;
+    }, 0);
   }
 
-  _causesFunctionsBreakpoint(breakpoint) {
-    if (!breakpoint.length) return;
+  _callsFunctionsBreakpoint() {
+    const functionsBreakpoint = this._breakpoints[this._currentBreakpoint];
 
-    const [, listFunctions] = breakpoint;
+    if (!functionsBreakpoint) return;
 
-    listFunctions.forEach((func) => {
+    if (typeof functionsBreakpoint === 'function') {
+      functionsBreakpoint();
+
+      return;
+    }
+
+    functionsBreakpoint?.forEach((func) => {
       func();
     });
   }

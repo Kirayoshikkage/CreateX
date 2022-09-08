@@ -12,11 +12,11 @@ export default function _common() {
     trigger: '.header .burger-trigger',
     body: '.burger-menu__body',
     breakpoints: {
-      768: [() => {
+      768: () => {
         if (burgerMenu.isOpen()) {
           burgerMenu.close();
         }
-      }],
+      },
     },
   });
   burgerMenu.init();

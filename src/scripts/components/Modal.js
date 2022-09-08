@@ -7,7 +7,7 @@ export default class Modal extends Alert {
     trigger = null,
     animation = null,
     focusLock = null,
-  }) {
+  } = {}) {
     super({
       container, body, trigger, animation, focusLock,
     });
