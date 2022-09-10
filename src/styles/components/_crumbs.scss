@@ -23,10 +23,11 @@
   }
 
   &__link {
+    @include text-animation(1);
+
+    padding-bottom: rem(3);
     font-size: rem(14);
     line-height: lh(21, 14);
     color: var(--color-ebonyClay);
-
-    @include color-animation;
   }
 }

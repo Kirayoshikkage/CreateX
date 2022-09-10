@@ -7,8 +7,37 @@
 
     &_animation-style-primary {
       @include mouse-device {
-        &:hover,
+        &:focus,
+        &:hover {
+          .social__icon {
+            fill: var(--color-primary);
+          }
+        }
+      }
+
+      @include touch-device {
+        &:active {
+          .social__icon {
+            fill: var(--color-radicalRed);
+          }
+        }
+      }
+    }
+
+    &_animation-transform {
+      transition-property: transform;
+      transition-duration: $transitionDuration;
+
+      @include mouse-device {
         &:focus {
+          transform: translateY(rem(-10));
+
+          .social__icon {
+            fill: var(--color-primary);
+          }
+        }
+
+        &:hover {
           .social__icon {
             fill: var(--color-primary);
           }
@@ -29,6 +58,7 @@
     width: 100%;
     height: 100%;
     fill: var(--color-white);
-    transition: fill $transitionDuration;
+    transition-property: fill;
+    transition-duration: $transitionDuration;
   }
 }

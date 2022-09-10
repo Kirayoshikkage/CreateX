@@ -8,11 +8,21 @@
   }
 
   &__link {
+    display: block;
     outline: none;
+    border-bottom: rem(2) solid transparent;
+    transition: border-color $transitionDuration;
 
     @include mouse-device {
-      &:hover,
       &:focus {
+        border-bottom-color: #f4dcaa;
+
+        .partners-list__img {
+          filter: sepia(100%);
+        }
+      }
+
+      &:hover {
         .partners-list__img {
           filter: sepia(100%);
         }

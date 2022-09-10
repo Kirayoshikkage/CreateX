@@ -28,17 +28,25 @@
 
       @extend .text-size-xs;
 
-      /* stylelint-disable-next-line order/order */
-      &_active {
+      @mixin animation {
         border-color: var(--color-primary);
         color: var(--color-primary);
+
+        @include touch-device {
+          border-color: var(--color-radicalRed);
+          color: var(--color-radicalRed);
+        }
+      }
+
+      /* stylelint-disable-next-line order/order */
+      &_active {
+        @include animation;
       }
 
       @include mouse-device {
         &:hover,
         &:focus {
-          border-bottom-color: var(--color-primary);
-          color: var(--color-primary);
+          @include animation;
         }
       }
     }

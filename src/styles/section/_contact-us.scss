@@ -90,6 +90,7 @@
       .form__text {
         flex: 1 0 100%;
         margin: 0;
+        transition: color $transitionDuration;
       }
 
       .form__label {
@@ -98,6 +99,21 @@
         overflow: hidden;
         cursor: pointer;
         gap: rem(12);
+      }
+    }
+
+    &__radio {
+      @include mouse-device {
+        &:hover + .form__text,
+        &:focus + .form__text {
+          color: var(--color-primary);
+        }
+      }
+
+      @include touch-device {
+        &:active + .form__text {
+          color: var(--color-radicalRed);
+        }
       }
     }
 

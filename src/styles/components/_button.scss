@@ -44,19 +44,23 @@
     transition-property: border-color, color, background;
     transition-duration: $transitionDuration;
 
+    @mixin animation {
+      border-color: transparent;
+      color: var(--color-white);
+      background-color: var(--color-mako);
+    }
+
+    /* stylelint-disable-next-line order/order */
     @include mouse-device {
       &:hover,
       &:focus {
-        border-color: transparent;
-        color: var(--color-white);
-        background-color: var(--color-mako);
+        @include animation;
       }
     }
 
     @include touch-device {
       &:active {
-        color: var(--color-white);
-        background-color: var(--color-ebonyClay);
+        @include animation;
       }
     }
   }

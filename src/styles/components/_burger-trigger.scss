@@ -31,4 +31,12 @@
       }
     }
   }
+
+  @include touch-device {
+    &:active {
+      .burger-trigger__item {
+        background-color: var(--color-radicalRed);
+      }
+    }
+  }
 }

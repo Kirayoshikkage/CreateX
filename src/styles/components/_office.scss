@@ -19,7 +19,7 @@
     margin: 0 0 rem(20);
     outline: none;
     text-decoration: underline;
-    color: var(--color-primary);
+    color: var(--color-ebonyClay);
     transition: color $transitionDuration;
 
     @extend .text-size-xs;
@@ -28,11 +28,11 @@
     @include mouse-device {
       &:hover,
       &:focus {
-        color: var(--color-ebonyClay);
+        color: var(--color-primary);
       }
     }
 
-    @include mouse-device {
+    @include touch-device {
       &:active {
         color: var(--color-radicalRed);
       }

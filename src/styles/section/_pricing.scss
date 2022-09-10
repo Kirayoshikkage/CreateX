@@ -64,6 +64,7 @@
 
     /* stylelint-disable-next-line order/order */
     &:not(:first-child) {
+      text-align: center;
       text-transform: uppercase;
     }
 

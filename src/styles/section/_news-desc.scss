@@ -69,6 +69,10 @@
     &__icon {
       fill: var(--color-mako);
     }
+
+    &__link {
+      @extend .social__link_animation-transform;
+    }
   }
 
   @include small-tablet {

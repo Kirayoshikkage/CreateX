@@ -39,6 +39,10 @@
     &__icon {
       fill: var(--color-stormGray);
     }
+
+    &__link {
+      @extend .social__link_animation-transform;
+    }
   }
 
   @include small-tablet {

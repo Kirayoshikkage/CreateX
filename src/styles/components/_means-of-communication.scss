@@ -1,5 +1,9 @@
 .means-of-communication {
   outline: none;
+  border-bottom: rem(2) solid transparent;
+  padding-bottom: rem(4);
+  transition-property: border-color;
+  transition-duration: $transitionDuration;
 
   &__icon {
     width: rem(40);
@@ -27,8 +31,16 @@
   }
 
   @include mouse-device {
-    &:hover,
     &:focus {
+      border-bottom-color: var(--color-primary);
+
+      .means-of-communication__text,
+      .means-of-communication__contact {
+        color: var(--color-primary);
+      }
+    }
+
+    &:hover {
       .means-of-communication__text,
       .means-of-communication__contact {
         color: var(--color-primary);

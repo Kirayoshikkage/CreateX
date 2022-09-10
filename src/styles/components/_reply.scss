@@ -1,17 +1,61 @@
 .reply {
   display: flex;
   align-items: center;
+  border-bottom: rem(2) solid transparent;
+  padding-bottom: rem(2);
+  transition-property: border-color;
+  transition-duration: $transitionDuration;
   gap: rem(8);
 
   &__icon {
     width: rem(16);
     height: rem(16);
     fill: var(--color-stormGray);
+    transition-property: fill;
+    transition-duration: $transitionDuration;
   }
 
   &__text {
     color: var(--color-stormGray);
+    transition-property: color;
+    transition-duration: $transitionDuration;
 
     @extend .text-size-xxs;
+  }
+
+  @include mouse-device {
+    &:focus {
+      border-bottom-color: var(--color-primary);
+
+      .reply__icon {
+        fill: var(--color-primary);
+      }
+
+      .reply__text {
+        color: var(--color-primary);
+      }
+    }
+
+    &:hover {
+      .reply__icon {
+        fill: var(--color-primary);
+      }
+
+      .reply__text {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  @include touch-device {
+    &:active {
+      .reply__icon {
+        fill: var(--color-radicalRed);
+      }
+
+      .reply__text {
+        color: var(--color-radicalRed);
+      }
+    }
   }
 }

@@ -1,7 +1,6 @@
 import Swiper, {
   Navigation, Pagination, A11y, Keyboard, Grid, Thumbs,
 } from 'swiper';
-import changesFocusLockOnChildrenSlide from './changesFocusLockOnChildrenSlide.js';
 import SliderProgressbar from '../components/SliderProgressbar.js';
 import debounce from './debounce.js';
 
@@ -89,8 +88,6 @@ const projectsSlider = function (selector) {
       },
     },
   });
-
-  changesFocusLockOnChildrenSlide(swiper, selector);
 };
 
 const reviewsSlider = function () {
@@ -135,8 +132,6 @@ const pricingSlider = function () {
       },
     },
   });
-
-  changesFocusLockOnChildrenSlide(swiper, slider);
 };
 
 const ourWorkTabsSlider = function () {
@@ -307,8 +302,6 @@ const ourTeamSlider = function () {
       },
     },
   });
-
-  changesFocusLockOnChildrenSlide(swiper, slider);
 };
 
 function getMaxHeightContent(elements) {

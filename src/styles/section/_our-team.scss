@@ -34,8 +34,26 @@
   }
 
   &__link {
-    border-bottom: rem(2) solid var(--color-primary);
-    color: var(--color-primary);
+    outline: none;
+    border-bottom: rem(2) solid var(--color-stormGray);
+    color: var(--color-stormGray);
+    transition-property: color, border-color;
+    transition-duration: $transitionDuration;
+
+    @include mouse-device {
+      &:hover,
+      &:focus {
+        border-bottom-color: var(--color-primary);
+        color: var(--color-primary);
+      }
+    }
+
+    @include touch-device {
+      &:active {
+        border-bottom-color: var(--color-radicalRed);
+        color: var(--color-radicalRed);
+      }
+    }
   }
 
   @include small-tablet {

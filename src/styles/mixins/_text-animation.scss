@@ -1,0 +1,23 @@
+@mixin text-animation($border-width: 2) {
+  outline: none;
+  border-bottom: rem($border-width) solid transparent;
+  transition-property: border-color, color;
+  transition-duration: $transitionDuration;
+
+  @include mouse-device {
+    &:focus {
+      border-bottom-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  @include touch-device {
+    &:active {
+      color: var(--color-radicalRed);
+    }
+  }
+}
