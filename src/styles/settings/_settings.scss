@@ -6,7 +6,7 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: var(--ff-ubuntu);
+  font-family: var(--ff-ubuntu), 'Arial', 'Helvetica', sans-serif;
 }
 
 body {

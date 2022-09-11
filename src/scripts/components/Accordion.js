@@ -10,6 +10,12 @@ export default class Accordion {
     this._apiAnimation = apiAnimation;
   }
 
+  _activeAccordion = null;
+
+  getActiveAccordion() {
+    return this._activeAccordion;
+  }
+
   init() {
     this._setsEventListenersTriggers();
 
@@ -54,44 +60,27 @@ export default class Accordion {
   _open(accordion) {
     this._closesActiveAccordion();
 
+    this._activeAccordion = accordion;
+
     this._addsClassActiviteAccordion(accordion);
 
     this._setsStyleVisibility(accordion);
   }
 
-  _addsClassActiviteAccordion(accordion) {
-    accordion.classList.add('accordion__item_active');
-  }
-
   _closesActiveAccordion() {
-    const activeAccordion = this._getActiveAccordion();
+    const activeAccordion = this.getActiveAccordion();
 
     if (!activeAccordion) return;
 
     this._close(activeAccordion);
   }
 
-  _getActiveAccordion() {
-    return Array.from(this._accordions)
-      .find((accordion) => this._accordionIsOpen(accordion));
-  }
-
-  _setsStyleVisibility(accordion) {
-    if (this._apiAnimation) {
-      this._apiAnimation.setsStyleVisibility(accordion);
-
-      return;
-    }
-
-    const accordionBody = accordion.querySelector('.accordion__body');
-
-    accordionBody.style.display = 'block';
-  }
-
   _close(accordion) {
     this._removesClassActiviteAccordion(accordion);
 
     this._setsStyleHiding(accordion);
+
+    this._activeAccordion = null;
   }
 
   _removesClassActiviteAccordion(accordion) {
@@ -110,6 +99,22 @@ export default class Accordion {
     accordionBody.style.display = 'none';
   }
 
+  _addsClassActiviteAccordion(accordion) {
+    accordion.classList.add('accordion__item_active');
+  }
+
+  _setsStyleVisibility(accordion) {
+    if (this._apiAnimation) {
+      this._apiAnimation.setsStyleVisibility(accordion);
+
+      return;
+    }
+
+    const accordionBody = accordion.querySelector('.accordion__body');
+
+    accordionBody.style.display = 'block';
+  }
+
   _closesAllAccordions() {
     this._accordions.forEach((accordion) => this._close(accordion));
   }
@@ -123,10 +128,10 @@ export default class Accordion {
   }
 
   _update() {
-    const activeElement = this._getActiveAccordion();
+    const activeAccordion = this.getActiveAccordion();
 
-    if (!activeElement) return;
+    if (!activeAccordion) return;
 
-    this._setsStyleVisibility(activeElement);
+    this._setsStyleVisibility(activeAccordion);
   }
 }

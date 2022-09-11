@@ -49,10 +49,8 @@ describe('Тестирование аккордиона', () => {
       const sut = new Accordion('.accordion');
       const accordionItem = document.querySelector('.accordion__item_one');
       const lengthClassesAccordionItem = accordionItem.classList.length;
-      const trigger = accordionItem.querySelector('.accordion__trigger');
-      const event = new Event('pointerup');
       sut.init();
-      trigger.dispatchEvent(event);
+      sut._open(accordionItem);
 
       expect(accordionItem.classList.length).not.toBe(lengthClassesAccordionItem);
     });
@@ -60,14 +58,33 @@ describe('Тестирование аккордиона', () => {
     it('При закрытии элемента аккордиона у него убирается класс активности', () => {
       const sut = new Accordion('.accordion');
       const accordionItem = document.querySelector('.accordion__item_one');
-      const trigger = accordionItem.querySelector('.accordion__trigger');
-      const event = new Event('pointerup');
       sut.init();
-      trigger.dispatchEvent(event);
+      sut._open(accordionItem);
       const lengthClassesAccordionItem = accordionItem.classList.length;
-      trigger.dispatchEvent(event);
+      sut._close(accordionItem);
 
       expect(accordionItem.classList.length).not.toBe(lengthClassesAccordionItem);
+    });
+  });
+
+  describe('Тестирование открытых методов', () => {
+    it('Метод возвращает открытый элемент аккордиона', () => {
+      const sut = new Accordion('.accordion');
+      const accordionItem = document.querySelector('.accordion__item_one');
+      sut.init();
+      sut._open(accordionItem);
+
+      expect(sut.getActiveAccordion()).toBe(accordionItem);
+    });
+
+    it('Метод возвращает null, если все элементы аккордиона закрыты', () => {
+      const sut = new Accordion('.accordion');
+      const accordionItem = document.querySelector('.accordion__item_one');
+      sut.init();
+      sut._open(accordionItem);
+      sut._close(accordionItem);
+
+      expect(sut.getActiveAccordion()).toBeNull();
     });
   });
 });
