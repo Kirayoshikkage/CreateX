@@ -20,7 +20,10 @@ export default class FocusLock {
 
   _listHandlesMutationObserver = {
     childList: this._handlesMutationChildList,
+    attributes: this._handlesMutationAttributes,
   };
+
+  _mutationAttributesFlag = false;
 
   isBlockFocus() {
     return this._isBlockFocus;
@@ -53,16 +56,18 @@ export default class FocusLock {
   }
 
   _populatesTheListElementsToBlock(listElements) {
-    listElements.forEach((element) => this._addsElementToBlockList(element));
+    listElements.forEach((element) => {
+      if (this._checksOneElement(element)) {
+        this._addsElementToBlockList(element);
+      }
+    });
   }
 
   _addsElementToBlockList(element) {
-    if (this._checksOneElement(element)) {
-      this._listElementsToBlock.add(element);
+    this._listElementsToBlock.add(element);
 
-      if (this.isBlockFocus()) {
-        this._blocksFocusElement(element);
-      }
+    if (this.isBlockFocus()) {
+      this._blocksFocusElement(element);
     }
   }
 
@@ -98,18 +103,22 @@ export default class FocusLock {
   }
 
   blocksFocus() {
-    this._isBlockFocus = true;
-
     this._listElementsToBlock.forEach((element) => {
       this._blocksFocusElement(element);
     });
+
+    this._isBlockFocus = true;
+    this._mutationAttributesFlag = true;
   }
 
   unblocksFocus() {
-    this._isBlockFocus = false;
-
     this._listElementsToBlock.forEach((element) => {
       this._unblocksFocusElement(element);
+    });
+
+    this._isBlockFocus = false;
+    setTimeout(() => {
+      this._mutationAttributesFlag = false;
     });
   }
 
@@ -128,6 +137,8 @@ export default class FocusLock {
       childList: true,
       subtree: true,
       characterData: false,
+      attributes: true,
+      attributeFilter: ['tabindex'],
     });
   }
 
@@ -163,6 +174,20 @@ export default class FocusLock {
     if (this.isBlockFocus()) {
       this._unblocksFocusElement(element);
     }
+  }
+
+  _handlesMutationAttributes(mutation) {
+    if (this._mutationAttributesFlag) return;
+
+    const { target } = mutation;
+
+    if (this._checksOneElement(target)) {
+      this._addsElementToBlockList(target);
+
+      return;
+    }
+
+    this._removesElementFromBlockList(target);
   }
 
   disconnectsMutationObserver() {

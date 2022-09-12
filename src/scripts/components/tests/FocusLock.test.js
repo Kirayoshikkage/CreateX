@@ -14,6 +14,7 @@ describe('Тестирование блокировки фокуса', () => {
 
     const elements = `
       <a class="single-link" href="#">Link</a>
+      <a class="tabindex-link" tabindex="-1" href="#">Link</a>
 
       <div class="container">
         <a class="container__link" href="#">link</a>
@@ -130,7 +131,7 @@ describe('Тестирование блокировки фокуса', () => {
       expect(() => sut.init()).toThrow();
     });
 
-    it('Отслеживание мутаций, новый элемент на странице добавляется в список блокировок, если соответсвует критериям', async () => {
+    it('Новый элемент на странице добавляется в список блокировок, если соответсвует критериям', async () => {
       const sut = new FocusLock({
         mutationObserver: true,
         container: '.container',
@@ -153,10 +154,78 @@ describe('Тестирование блокировки фокуса', () => {
       expect(tabIndexAddedDiv).toBe(-1);
       sut.disconnectsMutationObserver();
     });
+
+    it('Элемент, у которого изменился атрибут tabindex на 0 добавляется в список блокировок', async () => {
+      const sut = new FocusLock({
+        mutationObserver: true,
+      });
+      const link = document.querySelector('.tabindex-link');
+      sut.init();
+      jest.runAllTimers();
+
+      link.setAttribute('tabindex', 0);
+      // Без этой конструкции обработчик MutationObserver будет выполняться позже, чем expect
+      await Promise.resolve();
+      sut.blocksFocus();
+
+      expect(link.tabIndex).toBe(-1);
+      sut.disconnectsMutationObserver();
+    });
+
+    it('Элемент, у которого изменился атрибут tabindex на -1 удаляется из списка блокировок', async () => {
+      const sut = new FocusLock({
+        mutationObserver: true,
+      });
+      const link = document.querySelector('.single-link');
+      sut.init();
+      jest.runAllTimers();
+
+      link.setAttribute('tabindex', -1);
+      // Без этой конструкции обработчик MutationObserver будет выполняться позже, чем expect
+      await Promise.resolve();
+      sut.blocksFocus();
+      sut.unblocksFocus();
+
+      expect(link.tabIndex).toBe(-1);
+      sut.disconnectsMutationObserver();
+    });
+
+    it('Обработчик мутации атрибута tabindex не должен выполняться при блокировке фокуса', async () => {
+      const sut = new FocusLock({
+        mutationObserver: true,
+      });
+      const link = document.querySelector('.single-link');
+      sut.init();
+      jest.runAllTimers();
+
+      sut.blocksFocus();
+      // Без этой конструкции обработчик MutationObserver будет выполняться позже, чем expect
+      await Promise.resolve();
+
+      expect(link.tabIndex).toBe(-1);
+      sut.disconnectsMutationObserver();
+    });
+
+    it('Обработчик мутации атрибута tabindex не должен выполняться при разблокировке фокуса', async () => {
+      const sut = new FocusLock({
+        mutationObserver: true,
+      });
+      sut.init();
+      jest.runAllTimers();
+      const spy = jest.spyOn(sut, '_checksOneElement');
+
+      sut.blocksFocus();
+      sut.unblocksFocus();
+      // Без этой конструкции обработчик MutationObserver будет выполняться позже, чем expect
+      await Promise.resolve();
+
+      expect(spy).not.toHaveBeenCalled();
+      sut.disconnectsMutationObserver();
+    });
   });
 
   describe('Тестирование открытых методов', () => {
-    it('Возвращает true, если фокус заблокирован', () => {
+    it('Возвращает true, если фокус заблокирован', async () => {
       const sut = new FocusLock();
       sut.init();
       jest.runAllTimers();

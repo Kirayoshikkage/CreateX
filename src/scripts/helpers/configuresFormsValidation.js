@@ -4,12 +4,13 @@ import FocusLock from '../components/FocusLock.js';
 
 const focusLock = new FocusLock({
   exception: '.modal-successful-sending',
+  mutationObserver: true,
 });
 focusLock.init();
 
 const modalSuccessfulSending = new Modal({
   container: '.modal-successful-sending',
-  body: '.modal__mody',
+  body: '.modal__body',
   focusLock,
 });
 modalSuccessfulSending.init();

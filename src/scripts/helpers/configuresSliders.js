@@ -2,6 +2,7 @@ import Swiper, {
   Navigation, Pagination, A11y, Keyboard, Grid, Thumbs,
 } from 'swiper';
 import SliderProgressbar from '../components/SliderProgressbar.js';
+import FocusLockSliders from '../components/FocusLockSliders.js';
 import debounce from './debounce.js';
 
 const heroSlider = function () {
@@ -62,6 +63,7 @@ const heroSlider = function () {
 
 const projectsSlider = function (selector) {
   const slider = `${selector} .swiper`;
+  const swiperWrapper = document.querySelector(`${slider} .swiper-wrapper`);
   const buttonNext = `${selector} .swiper-button-next`;
   const buttonPrev = `${selector} .swiper-button-prev`;
   // eslint-disable-next-line no-unused-vars
@@ -88,6 +90,21 @@ const projectsSlider = function (selector) {
       },
     },
   });
+  const focusLock = new FocusLockSliders({
+    container: swiperWrapper,
+    exception: '.swiper-slide-visible',
+  });
+  focusLock.init();
+
+  swiper.on('slideChange', () => {
+    focusLock.updatesFocusLock();
+  });
+
+  swiper.on('breakpoint', () => {
+    setTimeout(() => {
+      focusLock.updatesFocusLock();
+    }, 0);
+  });
 };
 
 const reviewsSlider = function () {
@@ -109,6 +126,7 @@ const reviewsSlider = function () {
 
 const pricingSlider = function () {
   const slider = '.pricing .swiper';
+  const swiperWrapper = document.querySelector(`${slider} .swiper-wrapper`);
   const buttonNext = '.pricing .swiper-button-next';
   const buttonPrev = '.pricing .swiper-button-prev';
   // eslint-disable-next-line no-unused-vars
@@ -131,6 +149,21 @@ const pricingSlider = function () {
         slidesPerView: 2,
       },
     },
+  });
+  const focusLock = new FocusLockSliders({
+    container: swiperWrapper,
+    exception: '.swiper-slide-visible',
+  });
+  focusLock.init();
+
+  swiper.on('slideChange', () => {
+    focusLock.updatesFocusLock();
+  });
+
+  swiper.on('breakpoint', () => {
+    setTimeout(() => {
+      focusLock.updatesFocusLock();
+    }, 0);
   });
 };
 
@@ -248,11 +281,8 @@ const ourHistorySlider = function () {
 
   // eslint-disable-next-line no-unused-vars
   const swiper = new Swiper(sliderSelector, {
-    modules: [A11y, Keyboard, Pagination],
+    modules: [A11y, Pagination],
     spaceBetween: 36,
-    keyboard: {
-      enabled: true,
-    },
     pagination: {
       el: paginationSelector,
       clickable: true,
@@ -273,6 +303,7 @@ const ourHistorySlider = function () {
 
 const ourTeamSlider = function () {
   const slider = '.our-team .swiper';
+  const swiperWrapper = document.querySelector(`${slider} .swiper-wrapper`);
   const buttonNext = '.our-team .swiper-button-next';
   const buttonPrev = '.our-team .swiper-button-prev';
   // eslint-disable-next-line no-unused-vars
@@ -301,6 +332,21 @@ const ourTeamSlider = function () {
         slidesPerView: 4,
       },
     },
+  });
+  const focusLock = new FocusLockSliders({
+    container: swiperWrapper,
+    exception: '.swiper-slide-visible',
+  });
+  focusLock.init();
+
+  swiper.on('slideChange', () => {
+    focusLock.updatesFocusLock();
+  });
+
+  swiper.on('breakpoint', () => {
+    setTimeout(() => {
+      focusLock.updatesFocusLock();
+    }, 0);
   });
 };
 
