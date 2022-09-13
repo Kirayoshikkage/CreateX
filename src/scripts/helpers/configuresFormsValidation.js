@@ -110,13 +110,15 @@ function emailFieldValidates(formValidation, selectorForm) {
 }
 
 function showsDeliveryStatusNotification() {
-  modalSuccessfulSending.open();
+  setTimeout(() => {
+    modalSuccessfulSending.open();
+  }, 0);
 
   setTimeout(() => {
     if (modalSuccessfulSending.isOpen()) {
       modalSuccessfulSending.close();
     }
-  }, 2500);
+  }, 1500);
 }
 
 /**

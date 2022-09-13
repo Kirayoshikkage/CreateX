@@ -15,6 +15,8 @@ export default class Modal extends Alert {
     this._closeBtn = this._container.querySelector('.modal__close');
   }
 
+  _activeElementBeforeOpen;
+
   init() {
     super.init();
 
@@ -31,5 +33,18 @@ export default class Modal extends Alert {
 
       this.close();
     });
+  }
+
+  open() {
+    super.open();
+
+    this._activeElementBeforeOpen = document.activeElement;
+  }
+
+  close() {
+    super.close();
+
+    this._activeElementBeforeOpen?.focus();
+    this._activeElementBeforeOpen = null;
   }
 }
