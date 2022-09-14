@@ -64,6 +64,30 @@ describe('Тестирование селекта', () => {
 
       expect(select.classList.length).not.toBe(lengthClassesSelect);
     });
+
+    it('При выборе элемента ему добавляется класс активности', () => {
+      const sut = new Select('.select');
+      const selectItem = document.querySelector('.select__item');
+      const lengthClassesSelectItem = selectItem.classList.length;
+      sut.init();
+
+      sut._makesElementChosen(selectItem);
+
+      expect(selectItem.classList.length).not.toBe(lengthClassesSelectItem);
+    });
+
+    it('При выборе элемента у активного элемента убирается класс активности', () => {
+      const sut = new Select('.select');
+      const initialActiveElement = document.querySelector('[data-value=interior-design]');
+      const futureActiveElement = document.querySelector('[data-value=system-programmer]');
+      sut.init();
+      sut._makesElementChosen(initialActiveElement);
+      const lengthClassesInitialActiveElement = initialActiveElement.classList.length;
+
+      sut._makesElementChosen(futureActiveElement);
+
+      expect(initialActiveElement.classList.length).not.toBe(lengthClassesInitialActiveElement);
+    });
   });
 
   describe('Тестирование открытых методов', () => {

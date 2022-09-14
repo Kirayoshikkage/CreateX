@@ -114,11 +114,11 @@ function showsDeliveryStatusNotification() {
     modalSuccessfulSending.open();
   }, 0);
 
-  setTimeout(() => {
-    if (modalSuccessfulSending.isOpen()) {
-      modalSuccessfulSending.close();
-    }
-  }, 1500);
+  /*   setTimeout(() => {
+      if (modalSuccessfulSending.isOpen()) {
+        modalSuccessfulSending.close();
+      }
+    }, 1500); */
 }
 
 /**

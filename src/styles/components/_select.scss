@@ -71,6 +71,14 @@
     width: 100%;
     text-align: start;
     color: var(--color-ebonyClay);
+
+    &_selected {
+      color: var(--color-primary);
+
+      @include touch-device {
+        color: var(--color-radicalRed);
+      }
+    }
   }
 }
 

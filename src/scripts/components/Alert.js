@@ -71,13 +71,11 @@ export default class Alert {
 
     this._unblocksFocus();
 
-    this._container.addEventListener('transitionend', () => {
-      this._removesScrollPadding(document.body);
+    this._removesScrollPadding(document.body);
 
-      this._switchesBlockScroll();
-    }, {
-      once: true,
-    });
+    this._removesScrollPadding(this._container);
+
+    this._switchesBlockScroll();
   }
 
   _setsStyleHiding() {
@@ -138,6 +136,8 @@ export default class Alert {
     this._isOpen = true;
 
     this._addsPaddingInsteadOfScroll(document.body);
+
+    this._addsPaddingInsteadOfScroll(this._container);
 
     this._setsStyleVisibility();
 
