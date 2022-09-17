@@ -6,7 +6,7 @@
   "attr-no-duplication": true,
   "attr-no-unnecessary-whitespace": true,
   "attr-sorted": true,
-  "attr-whitespace": true,
+  "attr-whitespace": false,
   "alt-require": true,
   "tag-pair": true,
   "tagname-lowercase": true,

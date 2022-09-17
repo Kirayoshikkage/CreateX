@@ -122,8 +122,25 @@
       .news[data-news='#{$news}']::before {
         background-image: url('../img/#{$news}__desctop.webp');
 
+        @media (min-width: 576px) and (min-resolution: 2dppx) {
+          background-image: url('../img/#{$news}__desctop@2x.webp');
+        }
+
+        @media (min-width: 576px) and (min-resolution: 3dppx) {
+          background-image: url('../img/#{$news}__desctop@3x.webp');
+        }
+
+        /* stylelint-disable-next-line order/order */
         @include mobile {
           background-image: url('../img/#{$news}__mobile.webp');
+        }
+
+        @media (max-width: 575.98px) and (min-resolution: 2dppx) {
+          background-image: url('../img/#{$news}__mobile@2x.webp');
+        }
+
+        @media (max-width: 575.98px) and (min-resolution: 3dppx) {
+          background-image: url('../img/#{$news}__mobile@3x.webp');
         }
       }
     }

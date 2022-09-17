@@ -110,6 +110,18 @@
     .hero {
       &::before {
         background-image: url('../img/#{$page}-hero-bg.webp');
+
+        @include extraLarge {
+          background-image: url('../img/#{$page}-hero-bg@2x.webp');
+        }
+
+        @media (min-resolution: 2dppx) {
+          background-image: url('../img/#{$page}-hero-bg@2x.webp');
+        }
+
+        @media (min-resolution: 3dppx) {
+          background-image: url('../img/#{$page}-hero-bg@3x.webp');
+        }
       }
     }
   }

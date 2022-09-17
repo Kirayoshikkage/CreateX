@@ -19,10 +19,7 @@
       min-width: rem(320);
 
       @include small-tablet {
-        flex: 1 1 100%;
-        margin-bottom: 0;
-        min-width: 100%;
-        max-height: rem(350);
+        display: none;
       }
     }
 
@@ -56,9 +53,5 @@
 
   @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
     padding: rem(40) 0 rem(60);
-
-    &__item_img {
-      margin-bottom: 0;
-    }
   }
 }

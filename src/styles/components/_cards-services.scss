@@ -6,6 +6,14 @@
       &_#{$service} {
         .cards-services__link::before {
           background-image: url('../img/#{$service}-hover.webp');
+
+          @media (min-resolution: 2dppx) {
+            background-image: url('../img/#{$service}-hover@2x.webp');
+          }
+
+          @media (min-resolution: 3dppx) {
+            background-image: url('../img/#{$service}-hover@3x.webp');
+          }
         }
       }
     }

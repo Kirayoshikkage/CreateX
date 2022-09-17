@@ -2,6 +2,10 @@
   padding: rem(80) 0 rem(120);
   background-color: var(--color-porcelain);
 
+  &__map {
+    width: 100%;
+  }
+
   @include small-tablet {
     padding: rem(40) 0 rem(60);
   }

@@ -135,12 +135,21 @@
             <picture>
               <source
                 type="image/webp"
-                srcset="img/contact-us-women__desctop.webp"
-                media="(min-width:768px)"
+                media="(min-width:1024px)"
+                srcset="
+                  img/contact-us-women.webp,
+                  img/contact-us-women@2x.webp 2x,
+                  img/contact-us-women@3x.webp 3x
+                "
+              />
+              <source
+                type="image/webp"
+                media="(max-width:1023.98px)"
+                srcset="img/stub.webp"
               />
               <img
                 class="contact-us__img"
-                src="img/contact-us-women__desctop.webp"
+                src="img/contact-us-women.webp"
                 alt=""
                 aria-hidden="true"
                 loading="lazy"

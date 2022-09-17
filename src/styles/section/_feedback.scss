@@ -73,11 +73,23 @@
     }
   }
 
+  @include extraLarge {
+    background-image: url('../img/feedback-bg__desctop@1.5x.webp');
+  }
+
   @include small-tablet {
     background-image: url('../img/feedback-bg__mobile.webp');
   }
 
   @include mobile {
     padding: rem(60) 0;
+  }
+
+  @media (min-width: 768px) and (min-resolution: 2dppx) {
+    background-image: url('../img/feedback-bg__desctop@2x.webp');
+  }
+
+  @media (min-width: 768px) and (min-resolution: 3dppx) {
+    background-image: url('../img/feedback-bg__desctop@3x.webp');
   }
 }

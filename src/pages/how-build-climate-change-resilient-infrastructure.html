@@ -190,13 +190,30 @@
         <picture>
           <source
             type="image/webp"
-            media="(max-width:1023.98px) and (min-width:576px)"
-            srcset="img/news-page-building-stable-loss__tablet.webp"
+            media="(min-width:1024px)"
+            srcset="
+              img/news-page-building-stable-loss__desctop.webp,
+              img/news-page-building-stable-loss__desctop@2x.webp 2x,
+              img/news-page-building-stable-loss__desctop@3x.webp 3x
+            "
           />
           <source
             type="image/webp"
-            media="(max-width:575.98px) and (min-width: 0)"
-            srcset="img/news-page-building-stable-loss__mobile.webp"
+            media="(max-width:1023.98px) and (min-width:576px)"
+            srcset="
+              img/news-page-building-stable-loss__tablet.webp,
+              img/news-page-building-stable-loss__tablet@2x.webp 2x,
+              img/news-page-building-stable-loss__tablet@3x.webp 3x
+            "
+          />
+          <source
+            type="image/webp"
+            media="(max-width:575.98px)"
+            srcset="
+              img/news-page-building-stable-loss__mobile.webp,
+              img/news-page-building-stable-loss__mobile@2x.webp 2x,
+              img/news-page-building-stable-loss__mobile@3x.webp 3x
+            "
           />
           <img
             class="news-desc__img"
