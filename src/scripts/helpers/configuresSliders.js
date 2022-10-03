@@ -4,6 +4,7 @@ import Swiper, {
 import SliderProgressbar from '../components/SliderProgressbar.js';
 import FocusLockSliders from '../components/FocusLockSliders.js';
 import debounce from './debounce.js';
+import getFontSizeBody from './getFontSizeBody.js';
 
 const heroSlider = function () {
   const slider = '.hero .swiper';
@@ -82,10 +83,12 @@ const projectsSlider = function (selector) {
       0: {
         slidesPerView: 1,
       },
-      576: {
+      // 36rem - 576px
+      [getFontSizeBody() * 36]: {
         slidesPerView: 2,
       },
-      1024: {
+      // 64rem - 1024px
+      [getFontSizeBody() * 64]: {
         slidesPerView: 3,
       },
     },
@@ -145,7 +148,8 @@ const pricingSlider = function () {
       0: {
         slidesPerView: 1,
       },
-      1440: {
+      // 90rem - 1440px
+      [getFontSizeBody() * 90]: {
         slidesPerView: 2,
       },
     },
@@ -207,7 +211,8 @@ const ourWorkTabsSlider = function () {
           enabled: true,
         },
       },
-      576: {
+      // 36rem - 576px
+      [getFontSizeBody() * 36]: {
         slidesPerView: 2,
         slidesPerGroup: 2,
         grid: {
@@ -220,7 +225,8 @@ const ourWorkTabsSlider = function () {
           enabled: false,
         },
       },
-      1024: {
+      // 64rem - 1024px
+      [getFontSizeBody() * 64]: {
         slidesPerView: 3,
         slidesPerGroup: 3,
         grid: {
@@ -294,7 +300,8 @@ const ourHistorySlider = function () {
       0: {
         direction: 'horizontal',
       },
-      768: {
+      // 48rem - 768px
+      [getFontSizeBody() * 48]: {
         direction: 'vertical',
       },
     },
@@ -322,13 +329,16 @@ const ourTeamSlider = function () {
       0: {
         slidesPerView: 1,
       },
-      425: {
+      // 26.57rem - 425px
+      [getFontSizeBody() * 26.57]: {
         slidesPerView: 2,
       },
-      768: {
+      // 48rem - 768px
+      [getFontSizeBody() * 48]: {
         slidesPerView: 3,
       },
-      1024: {
+      // 64rem - 1024px
+      [getFontSizeBody() * 64]: {
         slidesPerView: 4,
       },
     },
@@ -394,7 +404,8 @@ const categoriesTabsSlider = function () {
           rows: 2,
         },
       },
-      1024: {
+      // 64rem - 1024px
+      [getFontSizeBody() * 64]: {
         slidesPerView: 2,
         slidesPerGroup: 2,
         grid: {

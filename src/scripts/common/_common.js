@@ -5,6 +5,7 @@ import {
   newsletterSubscriptionFormValidation,
 } from '../helpers/configuresFormsValidation.js';
 import addsSmoothScroll from '../helpers/addsSmoothScroll.js';
+import getFontSizeBody from '../helpers/getFontSizeBody.js';
 
 export default function _common() {
   const burgerMenu = new BurgerMenu({
@@ -12,7 +13,8 @@ export default function _common() {
     trigger: '.header .burger-trigger',
     body: '.burger-menu__body',
     breakpoints: {
-      768: () => {
+      // 48rem - 768px
+      [getFontSizeBody() * 48]: () => {
         if (burgerMenu.isOpen()) {
           burgerMenu.close();
         }

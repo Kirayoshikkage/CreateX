@@ -52,7 +52,7 @@
     gap: rem(24);
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: rem(320)) {
     justify-items: center;
   }
 }

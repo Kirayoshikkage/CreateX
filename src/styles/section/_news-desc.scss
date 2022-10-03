@@ -8,7 +8,7 @@
       margin: 0 auto rem(24);
     }
 
-    @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
+    @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(768)) and (max-height: rem(500)) {
       margin: 0 auto rem(24);
     }
   }
@@ -26,7 +26,7 @@
     border-radius: rem(4);
     width: 100%;
 
-    @media (orientation: landscape) and (max-width: 575.98px) {
+    @media (orientation: landscape) and (max-width: rem(575.98)) {
       max-height: rem(280);
     }
   }
@@ -79,7 +79,7 @@
     padding-bottom: rem(20);
   }
 
-  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 600px) {
+  @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(768)) and (max-height: rem(600)) {
     padding-bottom: rem(20);
   }
 }

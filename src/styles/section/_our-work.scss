@@ -98,11 +98,11 @@
         height: rem(510);
       }
 
-      @media (orientation: landscape) and (max-width: 575.98px) {
+      @media (orientation: landscape) and (max-width: rem(575.98)) {
         height: rem(430);
       }
 
-      @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) {
+      @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(576)) {
         height: rem(1170);
       }
     }
@@ -193,7 +193,7 @@
     padding: 0 0 rem(50);
   }
 
-  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) and (max-height: 500px) {
+  @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(576)) and (max-height: rem(500)) {
     padding: 0 0 rem(50);
 
     .tabs {

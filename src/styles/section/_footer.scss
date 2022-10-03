@@ -32,6 +32,11 @@
     display: inline-block;
     margin-right: rem(60);
 
+    img {
+      width: rem(142);
+      height: rem(24);
+    }
+
     @include tablet {
       margin: 0 0 rem(16);
     }
@@ -143,7 +148,7 @@
       gap: rem(30);
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: rem(320)) {
       justify-content: center;
     }
   }

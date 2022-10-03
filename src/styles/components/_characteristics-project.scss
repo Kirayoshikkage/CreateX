@@ -16,7 +16,7 @@
     .characteristics-project__cell {
       padding-bottom: rem(16);
 
-      @media (max-width: 375px) {
+      @media (max-width: rem(375)) {
         padding-bottom: rem(8);
       }
     }
@@ -31,6 +31,7 @@
       width: 26.13%;
       font-weight: 700;
       text-transform: uppercase;
+      text-align: start;
       color: var(--color-ebonyClay);
     }
 
@@ -39,7 +40,11 @@
       color: var(--color-stormGray);
     }
 
-    @media (max-width: 375px) {
+    address {
+      font-style: normal;
+    }
+
+    @media (max-width: rem(375)) {
       display: block;
       padding: 0;
       width: 100%;

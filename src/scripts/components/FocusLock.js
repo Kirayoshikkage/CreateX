@@ -1,10 +1,11 @@
 export default class FocusLock {
   constructor({
-    exception = false, container = 'body', mutationObserver = false,
+    exception = false, container = 'body', mutationObserver = false, disableOnMobileDevice = false,
   } = {}) {
     this._exception = exception;
     this._container = container;
     this._mutationObserver = mutationObserver;
+    this._disableOnMobileDevice = disableOnMobileDevice;
   }
 
   _listElementsToBlock = new Set();
@@ -30,6 +31,10 @@ export default class FocusLock {
   }
 
   init() {
+    if (this._disableOnMobileDevice && this._userDeviceIsPhone()) {
+      return;
+    }
+
     this._throwsErrors();
 
     setTimeout(() => {
@@ -39,6 +44,11 @@ export default class FocusLock {
     }, 0);
 
     this._addsMutationObserver();
+  }
+
+  _userDeviceIsPhone() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i
+      .test(navigator.userAgent);
   }
 
   _throwsErrors() {
@@ -103,6 +113,8 @@ export default class FocusLock {
   }
 
   blocksFocus() {
+    if (this._disableOnMobileDevice && this._userDeviceIsPhone()) return;
+
     this._listElementsToBlock.forEach((element) => {
       this._blocksFocusElement(element);
     });
@@ -112,6 +124,8 @@ export default class FocusLock {
   }
 
   unblocksFocus() {
+    if (this._disableOnMobileDevice && this._userDeviceIsPhone()) return;
+
     this._listElementsToBlock.forEach((element) => {
       this._unblocksFocusElement(element);
     });

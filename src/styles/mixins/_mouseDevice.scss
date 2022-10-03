@@ -1,5 +1,5 @@
 @mixin mouse-device {
-  @media (any-hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     @content;
   }
 }

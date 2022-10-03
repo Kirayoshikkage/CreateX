@@ -47,11 +47,11 @@
 
       background-image: url('../img/recent-news-#{$news}__desctop.webp');
 
-      @media (min-width: 1024px) and (min-resolution: 2dppx) {
+      @media (min-width: rem(1024)) and (min-resolution: 2dppx) {
         background-image: url('../img/recent-news-#{$news}__desctop@2x.webp');
       }
 
-      @media (min-width: 1024px) and (min-resolution: 3dppx) {
+      @media (min-width: rem(1024)) and (min-resolution: 3dppx) {
         background-image: url('../img/recent-news-#{$news}__desctop@3x.webp');
       }
 
@@ -62,25 +62,25 @@
         background-image: url('../img/recent-news-#{$news}__tablet.webp');
       }
 
-      @media (max-width: 1023.98px) and (min-width: 425px) and (min-resolution: 2dppx) {
+      @media (max-width: rem(1023.98)) and (min-width: rem(425)) and (min-resolution: 2dppx) {
         background-image: url('../img/recent-news-#{$news}__tablet@2x.webp');
       }
 
-      @media (max-width: 1023.98px) and (min-width: 425px) and (min-resolution: 3dppx) {
+      @media (max-width: rem(1023.98)) and (min-width: rem(425)) and (min-resolution: 3dppx) {
         background-image: url('../img/recent-news-#{$news}__tablet@3x.webp');
       }
 
       /* Mobile media */
 
-      @media (max-width: 424.98px) {
+      @media (max-width: rem(424.98)) {
         background-image: url('../img/recent-news-#{$news}__mobile.webp');
       }
 
-      @media (max-width: 424.98px) and (min-resolution: 2dppx) {
+      @media (max-width: rem(424.98)) and (min-resolution: 2dppx) {
         background-image: url('../img/recent-news-#{$news}__mobile@2x.webp');
       }
 
-      @media (max-width: 424.98px) and (min-resolution: 3dppx) {
+      @media (max-width: rem(424.98)) and (min-resolution: 3dppx) {
         background-image: url('../img/recent-news-#{$news}__mobile@3x.webp');
       }
     }
@@ -90,7 +90,7 @@
     padding: rem(45) 0 rem(60);
   }
 
-  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+  @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(768)) {
     padding: rem(45) 0 rem(60);
   }
 }

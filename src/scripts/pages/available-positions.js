@@ -13,6 +13,7 @@ errorHandler(() => {
   const focusLock = new FocusLock({
     exception: ['.subscribe-modal', '.cv-modal'],
     mutationObserver: true,
+    disableOnMobileDevice: true,
   });
   focusLock.init();
 

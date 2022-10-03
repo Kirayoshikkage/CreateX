@@ -12,7 +12,7 @@
     max-height: rem(340);
     object-position: top;
 
-    @media (orientation: landscape) and (max-width: 767.98px) and (max-height: 420px) {
+    @media (orientation: landscape) and (max-width: rem(767.98)) and (max-height: rem(420)) {
       max-height: rem(240);
       object-position: top;
     }

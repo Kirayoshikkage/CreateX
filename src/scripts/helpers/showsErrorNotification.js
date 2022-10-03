@@ -7,6 +7,7 @@ export default function showsErrorNotification() {
 
   const focusLock = new FocusLock({
     exception: '.error-notification',
+    disableOnMobileDevice: true,
   });
   focusLock.init();
 

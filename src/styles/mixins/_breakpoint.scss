@@ -1,29 +1,29 @@
 @mixin extraLarge {
-  @media (min-width: (2048px)) {
+  @media (min-width: rem(2048)) {
     @content;
   }
 }
 
 @mixin laptop {
-  @media (max-width: (1439.98px)) {
+  @media (max-width: rem(1439.98)) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (max-width: (1023.98px)) {
+  @media (max-width: rem(1023.98)) {
     @content;
   }
 }
 
 @mixin small-tablet {
-  @media (max-width: (767.98px)) {
+  @media (max-width: rem(767.98)) {
     @content;
   }
 }
 
 @mixin mobile {
-  @media (max-width: (575.98px)) {
+  @media (max-width: rem(575.98)) {
     @content;
   }
 }
@@ -35,31 +35,31 @@
 }
 
 @mixin sm {
-  @media (min-width: 576px) {
+  @media (min-width: rem(576)) {
     @content;
   }
 }
 
 @mixin md {
-  @media (min-width: 768px) {
+  @media (min-width: rem(768)) {
     @content;
   }
 }
 
 @mixin lg {
-  @media (min-width: 1024px) {
+  @media (min-width: rem(1024)) {
     @content;
   }
 }
 
 @mixin xl {
-  @media (min-width: 1200px) {
+  @media (min-width: rem(1200)) {
     @content;
   }
 }
 
 @mixin xxl {
-  @media (min-width: 1400px) {
+  @media (min-width: rem(1400)) {
     @content;
   }
 }

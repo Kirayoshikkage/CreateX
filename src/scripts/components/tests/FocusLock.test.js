@@ -222,6 +222,27 @@ describe('Тестирование блокировки фокуса', () => {
       expect(spy).not.toHaveBeenCalled();
       sut.disconnectsMutationObserver();
     });
+
+    it('Отключение блокировки фокуса на мобильных устройствах', () => {
+      Object.defineProperty(navigator, 'userAgent', {
+        get() {
+          return 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1';
+        },
+        configurable: true,
+      });
+      const sut = new FocusLock({
+        disableOnMobileDevice: true,
+      });
+      const singleLink = document.querySelector('.single-link');
+      sut.init();
+      jest.runAllTimers();
+
+      sut.blocksFocus();
+      const tabIndexSingleLink = singleLink.tabIndex;
+
+      expect(tabIndexSingleLink).toBe(0);
+      expect(sut.isBlockFocus()).toBeFalsy();
+    });
   });
 
   describe('Тестирование открытых методов', () => {

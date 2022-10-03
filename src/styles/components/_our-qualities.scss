@@ -87,7 +87,7 @@
     gap: rem(60) rem(94);
   }
 
-  @media (orientation: landscape) and (max-width: 767.98px) {
+  @media (orientation: landscape) and (max-width: rem(767.98)) {
     gap: rem(30);
 
     &__item {

@@ -25,7 +25,7 @@
       padding: 1rem;
     }
 
-    @media (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+    @media (orientation: landscape) and (min-width: rem(768)) and (max-width: rem(1023.98)) and (max-height: rem(425)) {
       max-width: 100%;
     }
   }
@@ -55,8 +55,8 @@
       @extend .button_animation-dark-style;
     }
 
-    @media (orientation: landscape) and (max-width: 767.98px),
-      (orientation: landscape) and (min-width: 768px) and (max-width: 1023.98px) and (max-height: 425px) {
+    @media (orientation: landscape) and (max-width: rem(767.98)),
+      (orientation: landscape) and (min-width: rem(768)) and (max-width: rem(1023.98)) and (max-height: rem(425)) {
       flex-flow: row wrap;
 
       &__label {
@@ -85,11 +85,11 @@
     padding: rem(60) 0;
   }
 
-  @media (min-width: 768px) and (min-resolution: 2dppx) {
+  @media (min-width: rem(768)) and (min-resolution: 2dppx) {
     background-image: url('../img/feedback-bg__desctop@2x.webp');
   }
 
-  @media (min-width: 768px) and (min-resolution: 3dppx) {
+  @media (min-width: rem(768)) and (min-resolution: 3dppx) {
     background-image: url('../img/feedback-bg__desctop@3x.webp');
   }
 }

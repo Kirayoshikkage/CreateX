@@ -137,7 +137,7 @@
                 img/we-offer-img__desctop@2x.webp 2x,
                 img/we-offer-img__desctop@3x.webp 3x
               "
-              media="(min-width:1024px)"
+              media="(min-width: 1024px)"
             />
             <source
               type="image/webp"
@@ -160,7 +160,7 @@
             <img
               class="we-offer__img"
               src="img/we-offer-img__desctop.webp"
-              alt="Kitchen"
+              alt="Kitchen in bright colors"
               width="705"
               height="440"
             />
@@ -310,7 +310,7 @@
                 <img
                   class="card-project__img"
                   src="img/kids-bedroom.webp"
-                  alt="A room in yellow shades"
+                  alt="Room with bed and work area"
                   loading="lazy"
                   width="390"
                   height="345"
@@ -344,7 +344,7 @@
                 <img
                   class="card-project__img"
                   src="img/modern-double-bedroom.webp"
-                  alt="Bedroom with double bed"
+                  alt="Bedroom in light shades, with a double bed, air conditioning and a bedside table."
                   loading="lazy"
                   width="390"
                   height="345"
@@ -378,7 +378,7 @@
                 <img
                   class="card-project__img"
                   src="img/scandinavian-style-interior.webp"
-                  alt="Table with flowers, chairs, wardrobe"
+                  alt="A room in light colors, with a bedside table, a wardrobe, a chair and a table with flowers."
                   loading="lazy"
                   width="390"
                   height="345"
@@ -442,7 +442,7 @@
                 <img
                   class="card-project__img"
                   src="img/cubes-building.webp"
-                  alt="Blue high-rise building in the form of cubes"
+                  alt="Blue high-rise building"
                   loading="lazy"
                   width="390"
                   height="345"
@@ -474,7 +474,7 @@
                 <img
                   class="card-project__img"
                   src="img/pencil-building.webp"
-                  alt="Multi-storey building with a gabled roof"
+                  alt="Multi-storey building with a pointed roof"
                   loading="lazy"
                   width="390"
                   height="345"
@@ -535,9 +535,12 @@
           <ul class="list-reset swiper-wrapper">
             <li class="swiper-slide">
               <table class="pricing__table">
+                <caption class="visually-hidden">Basic fare terms</caption>
                 <tr>
-                  <th class="text-reset pricing__subtitle">Items</th>
-                  <th class="text-reset pricing__subtitle">
+                  <th class="text-reset pricing__subtitle" scope="col">
+                    Items
+                  </th>
+                  <th class="text-reset pricing__subtitle" scope="col">
                     BASIC
                     <span class="text-reset pricing__price-tag">
                       $20 per m2
@@ -547,13 +550,10 @@
                 <tr>
                   <td class="pricing__text pricing__cell">Installation plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -561,37 +561,28 @@
                     Planning solutions (2-3 options)
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Lighting plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Flooring plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -599,13 +590,10 @@
                     Heating floor laying scheme
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -613,13 +601,10 @@
                     Air conditioner zones layout
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -632,7 +617,12 @@
                   <td class="pricing__text pricing__cell">
                     Visualization of each room (3-4 angles)
                   </td>
-                  <td class="pricing__text pricing__cell">&mdash;</td>
+                  <td class="pricing__text pricing__cell">
+                    <span class="visually-hidden">no</span>
+                    <svg class="pricing__icon-no" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#line"></use>
+                    </svg>
+                  </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Terms</td>
@@ -647,9 +637,12 @@
             </li>
             <li class="swiper-slide">
               <table class="pricing__table">
+                <caption class="visually-hidden">Standard fare terms</caption>
                 <tr>
-                  <th class="text-reset pricing__subtitle">Items</th>
-                  <th class="text-reset pricing__subtitle">
+                  <th class="text-reset pricing__subtitle" scope="col">
+                    Items
+                  </th>
+                  <th class="text-reset pricing__subtitle" scope="col">
                     STANDARD
                     <span class="text-reset pricing__price-tag">
                       $30 per m2
@@ -659,13 +652,10 @@
                 <tr>
                   <td class="pricing__text pricing__cell">Installation plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -673,37 +663,28 @@
                     Planning solutions (2-3 options)
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Lighting plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Flooring plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -711,13 +692,10 @@
                     Heating floor laying scheme
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -725,13 +703,10 @@
                     Air conditioner zones layout
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -739,20 +714,22 @@
                     3D visualization of all rooms
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">
                     Visualization of each room (3-4 angles)
                   </td>
-                  <td class="pricing__text pricing__cell">&mdash;</td>
+                  <td class="pricing__text pricing__cell">
+                    <span class="visually-hidden">no</span>
+                    <svg class="pricing__icon-no" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#line"></use>
+                    </svg>
+                  </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Terms</td>
@@ -767,9 +744,12 @@
             </li>
             <li class="swiper-slide">
               <table class="pricing__table">
+                <caption class="visually-hidden">Business fare terms</caption>
                 <tr>
-                  <th class="text-reset pricing__subtitle">Items</th>
-                  <th class="text-reset pricing__subtitle">
+                  <th class="text-reset pricing__subtitle" scope="col">
+                    Items
+                  </th>
+                  <th class="text-reset pricing__subtitle" scope="col">
                     BUSINESS
                     <span class="text-reset pricing__price-tag">
                       $40 per m2
@@ -779,13 +759,10 @@
                 <tr>
                   <td class="pricing__text pricing__cell">Installation plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -793,37 +770,28 @@
                     Planning solutions (2-3 options)
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Lighting plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
                   <td class="pricing__text pricing__cell">Flooring plan</td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -831,13 +799,10 @@
                     Heating floor laying scheme
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -845,13 +810,10 @@
                     Air conditioner zones layout
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -859,13 +821,10 @@
                     3D visualization of all rooms
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>
@@ -873,13 +832,10 @@
                     Visualization of each room (3-4 angles)
                   </td>
                   <td class="pricing__cell">
-                    <img
-                      src="img/mark.svg"
-                      alt="mark"
-                      loading="lazy"
-                      width="24"
-                      height="16"
-                    />
+                    <span class="visually-hidden">yes</span>
+                    <svg class="pricing__icon-yes" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#mark"></use>
+                    </svg>
                   </td>
                 </tr>
                 <tr>

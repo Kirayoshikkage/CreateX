@@ -16,7 +16,7 @@
       grid-template-columns: 1fr;
     }
 
-    @media (orientation: landscape) and (max-width: 575.98px) {
+    @media (orientation: landscape) and (max-width: rem(575.98)) {
       grid-template-columns: repeat(auto-fit, minmax(rem(225), 1fr));
     }
   }
@@ -68,7 +68,7 @@
     padding: rem(45) 0 rem(60);
   }
 
-  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) {
+  @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(768)) {
     padding: rem(45) 0 rem(60);
   }
 }

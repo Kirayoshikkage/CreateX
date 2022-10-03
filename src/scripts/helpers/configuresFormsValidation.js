@@ -5,6 +5,7 @@ import FocusLock from '../components/FocusLock.js';
 const focusLock = new FocusLock({
   exception: '.modal-successful-sending',
   mutationObserver: true,
+  disableOnMobileDevice: true,
 });
 focusLock.init();
 
@@ -114,11 +115,11 @@ function showsDeliveryStatusNotification() {
     modalSuccessfulSending.open();
   }, 0);
 
-  /*   setTimeout(() => {
-      if (modalSuccessfulSending.isOpen()) {
-        modalSuccessfulSending.close();
-      }
-    }, 1500); */
+  setTimeout(() => {
+    if (modalSuccessfulSending.isOpen()) {
+      modalSuccessfulSending.close();
+    }
+  }, 1500);
 }
 
 /**

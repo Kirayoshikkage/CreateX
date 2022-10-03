@@ -6,7 +6,7 @@
     @extend .mgb-sm-60;
     @extend .mgb-xs-24;
 
-    @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 576px) and (max-height: 500px) {
+    @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(576)) and (max-height: rem(500)) {
       margin: 0 0 rem(24);
     }
   }
@@ -59,7 +59,7 @@
     padding: rem(42.5) 0 rem(60);
   }
 
-  @media (orientation: landscape) and (max-width: 1023.98px) and (min-width: 768px) and (max-height: 500px) {
+  @media (orientation: landscape) and (max-width: rem(1023.98)) and (min-width: rem(768)) and (max-height: rem(500)) {
     padding: rem(42.5) 0 rem(60);
   }
 }

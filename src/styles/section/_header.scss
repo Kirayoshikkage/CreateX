@@ -12,6 +12,11 @@
   .logo {
     position: relative;
 
+    img {
+      width: rem(130);
+      height: rem(22);
+    }
+
     @include small-tablet {
       position: absolute;
       left: 50%;

@@ -5,14 +5,16 @@
     width: rem(148);
     height: rem(148);
 
-    @each $color in seaBuckthorn, radicalRed, cornflowerBlue, caribbeanGreen {
-      &_#{$color} {
+    @each $strokeColor in seaBuckthorn, radicalRed, 'cornflowerBlue',
+      caribbeanGreen
+    {
+      &_#{$strokeColor} {
         .circle-progressbar__line {
-          stroke: var(--color-#{$color});
+          stroke: var(--color-#{$strokeColor});
         }
 
         .circle-progressbar__line-progress {
-          stroke: var(--color-#{$color});
+          stroke: var(--color-#{$strokeColor});
         }
       }
     }
