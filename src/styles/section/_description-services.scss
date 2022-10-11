@@ -42,10 +42,15 @@
     }
   }
 
-  &__img {
+  &__img-container {
     flex: 1 1 50%;
+  }
+
+  &__img {
+    display: block;
     border-radius: rem(4);
     width: 100%;
+    height: 100%;
 
     @include mobile {
       max-height: rem(250);

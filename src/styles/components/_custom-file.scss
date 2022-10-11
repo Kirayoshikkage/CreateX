@@ -33,14 +33,14 @@
 }
 
 @include mouse-device {
-  .custom-file__input:focus + .custom-file__label .custom-file__text,
-  .custom-file__input + .custom-file__label:hover .custom-file__text {
+  .custom-file__input:focus ~ .custom-file__label .custom-file__text,
+  .custom-file__input ~ .custom-file__label:hover .custom-file__text {
     color: var(--color-primary);
   }
 }
 
 @include touch-device {
-  .custom-file__input:active + .custom-file__label {
+  .custom-file__input:active ~ .custom-file__label {
     .custom-file__text {
       color: var(--color-radicalRed);
     }

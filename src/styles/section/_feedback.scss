@@ -54,23 +54,6 @@
       @extend .button_background-primary;
       @extend .button_animation-dark-style;
     }
-
-    @media (orientation: landscape) and (max-width: rem(767.98)),
-      (orientation: landscape) and (min-width: rem(768)) and (max-width: rem(1023.98)) and (max-height: rem(425)) {
-      flex-flow: row wrap;
-
-      &__label {
-        flex: 1 1 calc(50% - 1rem);
-
-        &_textarea {
-          flex: 1 1 100%;
-        }
-      }
-
-      &__button {
-        width: 100%;
-      }
-    }
   }
 
   @include extraLarge {

@@ -1,33 +1,58 @@
 .custom-checkbox {
-  @include custom-checkbox;
+  cursor: pointer;
 
-  .custom-checkbox__content {
+  &__input {
+    appearance: none;
+    position: absolute;
+    outline: none;
+  }
+
+  &__box {
+    position: absolute;
+    left: 0;
+    top: rem(2);
+    border: rem(1) solid var(--color-manatee);
+    border-radius: rem(3);
+    width: rem(15);
+    height: rem(15);
+    background-position: center center;
+    background-size: rem(10) rem(8);
+    background-repeat: no-repeat;
+    transition-property: background, border-color;
+    transition-duration: 0.3s;
+  }
+
+  &__text {
+    display: block;
+    padding-left: rem(28);
+    color: var(--color-stormGray);
     transition: color $transitionDuration;
+    cursor: pointer;
+
+    @extend .text-reset;
+    @extend .text-size-xxs;
+  }
+
+  &__input:checked + &__box {
+    border-color: var(--color-primary);
+    background-image: url('../img/check.svg');
+    background-color: var(--color-primary);
+  }
+
+  &__input:disabled + &__box,
+  &__input:disabled ~ &__text {
+    cursor: not-allowed;
   }
 
   @include mouse-device {
-    &:hover,
-    &:focus {
-      .custom-checkbox__content {
-        color: var(--color-primary);
-
-        &::before {
-          border-color: var(--color-primary);
-        }
-      }
+    &__input:focus ~ &__text,
+    &__input:hover ~ &__text {
+      color: var(--color-primary);
     }
-  }
 
-  @include touch-device {
-    &:hover,
-    &:focus {
-      .custom-checkbox__content {
-        color: var(--color-radicalRed);
-
-        &::before {
-          border-color: var(--color-radicalRed);
-        }
-      }
+    &__input:focus + &__box,
+    &__input:hover + &__box {
+      border-color: var(--color-primary);
     }
   }
 }

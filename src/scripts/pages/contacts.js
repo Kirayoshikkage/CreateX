@@ -1,11 +1,13 @@
 import Select from '../components/Select.js';
 import DropDownAnimation from '../components/DropDownAnimation.js';
-import { contactsUsFormValidation } from '../helpers/configuresFormsValidation.js';
 import _common from '../common/_common.js';
 import errorHandler from '../helpers/errorHandler.js';
+import { contactsUsFormValidation } from '../helpers/configuresFormValidation.js';
 
 errorHandler(() => {
   _common();
+
+  contactsUsFormValidation();
 
   const interestedSelect = new Select('.interested-select', {
     animation: new DropDownAnimation(),
@@ -16,6 +18,4 @@ errorHandler(() => {
     animation: new DropDownAnimation(),
   });
   locationSelect.init();
-
-  contactsUsFormValidation(locationSelect);
 });

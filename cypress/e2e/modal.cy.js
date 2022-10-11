@@ -12,7 +12,7 @@ describe('Tестирование модального окна', () => {
 
   it('Закрытие модального окна с помощью клавиши Enter', () => {
     cy.get('.trigger').click();
-    cy.get('.modal__close').trigger('keydown', { code: 'Enter' });
+    cy.get('.modal__close').trigger('keyup', { code: 'Enter' });
     cy.get('.modal').should('not.be.visible');
   });
 });

@@ -21,7 +21,7 @@
     @extend .form_primary-animation;
 
     /* stylelint-disable-next-line order/order */
-    &__label {
+    &__item {
       flex: 1 1 auto;
 
       &_message {
@@ -29,12 +29,20 @@
       }
     }
 
-    &__text {
+    &__label {
       text-align: start;
     }
 
+    &__button {
+      color: var(--color-white);
+
+      @extend .button_size-regular;
+      @extend .button_background-primary;
+      @extend .button_animation-dark-style;
+    }
+
     @include laptop {
-      &__label {
+      &__item {
         flex-grow: 1;
       }
 

@@ -25,7 +25,7 @@
     @extend .form_primary-animation;
 
     /* stylelint-disable-next-line order/order */
-    &__label_textarea {
+    &__item_textarea {
       grid-column: 1 / 3;
 
       @extend .mgb-xs-24;
@@ -45,7 +45,7 @@
       grid-template-columns: 1fr;
 
       &__button,
-      &__label_textarea {
+      &__item_textarea {
         grid-column: 1;
       }
     }
@@ -54,7 +54,7 @@
       grid-template-columns: 1fr 1fr;
 
       &__button,
-      &__label_textarea {
+      &__item_textarea {
         grid-column: 1 / 3;
       }
     }

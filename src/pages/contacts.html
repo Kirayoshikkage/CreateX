@@ -159,19 +159,22 @@
             </picture>
           </div>
           <div class="contact-us__item">
-            <form class="contacts-us-form form" action="#">
-              <label class="form__label">
-                <span class="form__text">Name*</span>
+            <form class="contacts-us-form form" novalidate>
+              <div class="form__item">
+                <label class="form__label" for="contacts-us-name">Name*</label>
                 <input
-                  class="input-reset form__input form__input_name"
+                  class="form__input"
+                  id="contacts-us-name"
                   name="name"
                   type="text"
                   placeholder="Your name"
+                  aria-required="true"
+                  aria-describedby="contacts-us-name-error"
                 />
-                <span class="validate-error-message"></span>
-              </label>
-              <div>
-                <span class="form__text">I am interested in</span>
+                <p class="form__error-message" id="contacts-us-name-error"></p>
+              </div>
+              <div class="form__item">
+                <span class="form__label">I am interested in</span>
                 <div class="select interested-select">
                   <button class="btn-reset select__trigger" type="button">
                     <span class="select__chosen">
@@ -225,18 +228,23 @@
                   </div>
                 </div>
               </div>
-              <label class="form__label">
-                <span class="form__text">Phone*</span>
+              <div class="form__item">
+                <label class="form__label" for="contacts-us-phone">
+                  Phone*
+                </label>
                 <input
-                  class="input-reset form__input form__input_phone"
+                  class="form__input"
+                  id="contacts-us-phone"
                   name="phone"
                   type="tel"
                   placeholder="Your phone"
+                  aria-required="true"
+                  aria-describedby="contacts-us-phone-error"
                 />
-                <span class="validate-error-message"></span>
-              </label>
-              <div style="position: relative">
-                <span class="form__text">Location*</span>
+                <p class="form__error-message" id="contacts-us-phone-error"></p>
+              </div>
+              <div class="form__item">
+                <span class="form__label">Location</span>
                 <div class="select location-select">
                   <button class="btn-reset select__trigger" type="button">
                     <span class="select__chosen">
@@ -307,69 +315,88 @@
                     </div>
                   </div>
                 </div>
-                <span class="validate-error-message"></span>
               </div>
-              <label class="form__label">
-                <span class="form__text">Email</span>
+              <div class="form__item">
+                <label class="form__label" for="contacts-us-email">
+                  Email*
+                </label>
                 <input
-                  class="input-reset form__input"
+                  class="form__input"
+                  id="contacts-us-email"
                   name="email"
-                  type="text"
+                  type="email"
                   placeholder="Your working email"
+                  aria-required="true"
+                  aria-describedby="contacts-us-email-error"
                 />
-              </label>
-              <div class="form__group-radio">
-                <span class="form__text">Preferred contact method</span>
+                <p class="form__error-message" id="contacts-us-email-error"></p>
+              </div>
+              <fieldset class="form__radios form__item">
+                <legend>Preferred contact method</legend>
                 <label class="form__label">
                   <input
                     class="form__radio"
-                    name="preferred-contact"
+                    name="contacts-us-method"
                     type="radio"
                     value="phone"
                     checked
                   />
-                  <span class="form__text">Phone</span>
+                  <span>Phone</span>
                 </label>
                 <label class="form__label">
                   <input
                     class="form__radio"
-                    name="preferred-contact"
+                    name="contacts-us-method"
                     type="radio"
                     value="email"
                   />
-                  <span class="form__text">Email</span>
+                  <span>Email</span>
                 </label>
                 <label class="form__label">
                   <input
                     class="form__radio"
-                    name="preferred-contact"
+                    name="contacts-us-method"
                     type="radio"
                     value="viber"
                   />
-                  <span class="form__text">Viber</span>
+                  <span>Viber</span>
                 </label>
-              </div>
-              <label class="form__label form__label_textarea">
-                <span class="form__text">Message*</span>
+              </fieldset>
+              <div class="form__item form__item_textarea">
+                <label class="form__label" for="contacts-us-message">
+                  Message*
+                </label>
                 <textarea
-                  class="input-reset form__input form__input_textarea form__input_message"
+                  class="form__input form__input_textarea"
+                  id="contacts-us-message"
                   name="message"
                   cols="30"
                   rows="4"
                   placeholder="Your message"
+                  aria-required="true"
+                  aria-describedby="contacts-us-message-error"
                 ></textarea>
-                <span class="validate-error-message"></span>
-              </label>
-              <label class="custom-checkbox" tabindex="0">
-                <input class="custom-checkbox__field" type="checkbox" />
-                <span class="custom-checkbox__content">
-                  I agree to receive communications from Createx Construction
-                  Bureau.
-                </span>
-                <span class="validate-error-message"></span>
-              </label>
+                <p
+                  class="form__error-message"
+                  id="contacts-us-message-error"
+                ></p>
+              </div>
+              <div class="form__item">
+                <label class="custom-checkbox">
+                  <input
+                    class="custom-checkbox__input"
+                    name="subscription"
+                    type="checkbox"
+                  />
+                  <span class="custom-checkbox__box"></span>
+                  <span class="custom-checkbox__text">
+                    I agree to receive communications from Createx Construction
+                    Bureau.
+                  </span>
+                </label>
+              </div>
               <button class="btn-reset button form__button" type="submit">
-                send request
+                Send request
               </button>
             </form>
           </div>
@@ -590,56 +617,74 @@
           <h3 class="text-reset feedback__subtitle">
             A quick way to discuss details
           </h3>
-          <form class="feedback-form form" action="#">
-            <label class="form__label">
-              <span class="form__text">Name*</span>
+          <form class="feedback-form form" novalidate>
+            <div class="form__item">
+              <label class="form__label" for="feedback-name">Name*</label>
               <input
-                class="input-reset form__input form__input_name"
+                class="form__input"
+                id="feedback-name"
                 name="name"
                 type="text"
                 placeholder="Your name"
+                aria-required="true"
+                aria-describedby="feedback-name-error"
               />
-              <span class="validate-error-message"></span>
-            </label>
-            <label class="form__label">
-              <span class="form__text">Phone*</span>
+              <p class="form__error-message" id="feedback-name-error"></p>
+            </div>
+            <div class="form__item">
+              <label class="form__label" for="feedback-phone">Phone*</label>
               <input
-                class="input-reset form__input form__input_phone"
+                class="form__input"
+                id="feedback-phone"
                 name="phone"
                 type="tel"
                 placeholder="Your phone"
+                aria-required="true"
+                aria-describedby="feedback-phone-error"
               />
-              <span class="validate-error-message"></span>
-            </label>
-            <label class="form__label">
-              <span class="form__text">Email*</span>
+              <p class="form__error-message" id="feedback-phone-error"></p>
+            </div>
+            <div class="form__item">
+              <label class="form__label" for="feedback-email">Email*</label>
               <input
-                class="input-reset form__input form__input_email"
+                class="form__input"
+                id="feedback-email"
                 name="email"
-                type="text"
+                type="email"
                 placeholder="Your working email"
+                aria-required="true"
+                aria-describedby="feedback-email-error"
               />
-              <span class="validate-error-message"></span>
-            </label>
-            <label class="form__label form__label_textarea">
-              <span class="form__text">Message*</span>
+              <p class="form__error-message" id="feedback-email-error"></p>
+            </div>
+            <div class="form__item form__item_textarea">
+              <label class="form__label" for="feedback-message">Message*</label>
               <textarea
-                class="input-reset form__input form__input_textarea form__input_message"
+                class="form__input form__input_textarea"
+                id="feedback-message"
                 name="message"
                 cols="30"
                 rows="2"
                 placeholder="Your message"
+                aria-required="true"
+                aria-describedby="feedback-message-error"
               ></textarea>
-              <span class="validate-error-message"></span>
-            </label>
-            <label class="custom-checkbox" tabindex="0">
-              <input class="custom-checkbox__field" type="checkbox" />
-              <span class="custom-checkbox__content">
-                I agree to receive communications from Createx Construction
-                Bureau.
-              </span>
-              <span class="validate-error-message"></span>
-            </label>
+              <p class="form__error-message" id="feedback-message-error"></p>
+            </div>
+            <div class="form__item">
+              <label class="custom-checkbox">
+                <input
+                  class="custom-checkbox__input"
+                  name="subscription"
+                  type="checkbox"
+                />
+                <span class="custom-checkbox__box"></span>
+                <span class="custom-checkbox__text">
+                  I agree to receive communications from Createx Construction
+                  Bureau.
+                </span>
+              </label>
+            </div>
             <button class="btn-reset button form__button" type="submit">
               Send request
             </button>
@@ -647,6 +692,23 @@
         </div>
       </div>
     </section>
+    <div class="modal form-status" role="alert">
+      <div class="modal__body form-status__body">
+        <div class="modal__content">
+          <h2 class="text-reset modal__subtitle modal__subtitle_success">
+            Successfully
+          </h2>
+          <h2 class="text-reset modal__subtitle modal__subtitle_error">
+            Check the correctness of the entered data
+          </h2>
+          <button class="btn-reset modal__close" type="button">
+            <svg class="modal__icon">
+              <use xlink:href="img/sprite.svg#close"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
     <footer class="footer">
       <div class="container">
         <div class="footer__grid">
@@ -733,16 +795,28 @@
             <h3 class="text-reset footer__subtitle mgb-xs-24">
               Let’s stay in touch
             </h3>
-            <form class="newsletter-subscription-form form" action="#">
-              <label class="form__label">
+            <form class="newsletter-sub form" novalidate>
+              <div class="form__item">
+                <label
+                  class="visually-hidden form__label"
+                  for="newsletter-sub-email"
+                >
+                  Email*
+                </label>
                 <input
-                  class="input-reset form__input form__input_email"
+                  class="form__input"
+                  id="newsletter-sub-email"
                   name="email"
-                  type="text"
+                  type="email"
                   placeholder="Your email addres"
+                  aria-required="true"
+                  aria-describedby="newsletter-sub-email-error"
                 />
-                <span class="validate-error-message"></span>
-              </label>
+                <p
+                  class="form__error-message"
+                  id="newsletter-sub-email-error"
+                ></p>
+              </div>
               <button class="btn-reset button form__button" type="submit">
                 subscribe
               </button>
@@ -868,28 +942,5 @@
         </div>
       </div>
     </footer>
-    <div
-      class="modal modal-successful-sending modal-successful-sending_success"
-    >
-      <div class="modal__body modal-successful-sending__body">
-        <div class="modal__content">
-          <p
-            class="text-reset modal-successful-sending__status modal-successful-sending__status_success"
-          >
-            Form submitted successfully!
-          </p>
-          <p
-            class="text-reset modal-successful-sending__status modal-successful-sending__status_error"
-          >
-            An error has occurred, try again!
-          </p>
-          <button class="btn-reset modal__close" type="button">
-            <svg class="modal__icon">
-              <use xlink:href="img/sprite.svg#close"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
   </body>
 </html>

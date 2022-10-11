@@ -84,7 +84,7 @@
     @extend .form_primary-animation;
 
     /* stylelint-disable-next-line order/order */
-    &__label {
+    &__item {
       flex: 1 1 rem(233);
     }
 
@@ -102,18 +102,15 @@
       @extend .button_animation-dark-style;
     }
 
-    @include mobile {
+    @include tablet {
       flex-direction: column;
-      gap: rem(20);
+      gap: rem(26);
 
-      &__label {
+      &__item {
         flex: 1 1 auto;
       }
 
-      &__input {
-        border-radius: rem(4);
-      }
-
+      &__input,
       &__button {
         border-radius: rem(4);
       }

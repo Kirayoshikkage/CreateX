@@ -3,13 +3,11 @@ import {
   projectsSlider,
   reviewsSlider,
 } from '../helpers/configuresSliders.js';
-import {
-  questionFormValidation,
-} from '../helpers/configuresFormsValidation.js';
 import CircularProgressbar from '../components/CircularProgressbar.js';
 import addsCardsProjectRouting from '../helpers/addsCardsProjectRouting.js';
 import _common from '../common/_common.js';
 import errorHandler from '../helpers/errorHandler.js';
+import { questionFormValidation } from '../helpers/configuresFormValidation.js';
 
 errorHandler(() => {
   _common();

@@ -28,7 +28,7 @@ export default class Modal extends Alert {
       this.close();
     });
 
-    this._closeBtn.addEventListener('keydown', (e) => {
+    this._closeBtn.addEventListener('keyup', (e) => {
       if (e.code !== 'Enter') return;
 
       this.close();

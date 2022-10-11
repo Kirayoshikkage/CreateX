@@ -1,17 +1,17 @@
 import Modal from '../components/Modal.js';
 import FocusLock from '../components/FocusLock.js';
-import { subscribeModalFormValidation, cvFormValidation } from '../helpers/configuresFormsValidation.js';
 import Select from '../components/Select.js';
 import DropDownAnimation from '../components/DropDownAnimation.js';
 import customFileInput from '../components/customFileInput.js';
 import _common from '../common/_common.js';
 import errorHandler from '../helpers/errorHandler.js';
+import { subscribeFormValidation, cvFormValidation } from '../helpers/configuresFormValidation.js';
 
 errorHandler(() => {
   _common();
 
   const focusLock = new FocusLock({
-    exception: ['.subscribe-modal', '.cv-modal'],
+    exception: ['.subscribe-modal', '.cv-modal', '.form-status'],
     mutationObserver: true,
     disableOnMobileDevice: true,
   });
@@ -24,9 +24,8 @@ errorHandler(() => {
     focusLock,
   });
   subscribeModal.init();
-  subscribeModalFormValidation(() => {
-    subscribeModal.close();
-  });
+
+  subscribeFormValidation();
 
   const cvModal = new Modal({
     container: '.cv-modal',
@@ -43,7 +42,5 @@ errorHandler(() => {
 
   customFileInput();
 
-  cvFormValidation(locationSelect, () => {
-    cvModal.close();
-  });
+  cvFormValidation();
 });

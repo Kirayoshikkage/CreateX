@@ -14,11 +14,11 @@
 }
 
 .form {
-  &__label {
+  &__item {
     position: relative;
   }
 
-  &__text {
+  &__label {
     display: block;
     margin: 0 0 rem(8);
     color: var(--color-mako);
@@ -41,52 +41,62 @@
     &_textarea {
       resize: none;
     }
+
+    @extend .input-reset;
   }
 
-  &__input.validate-error {
+  &__input.invalid {
     /* stylelint-disable-next-line declaration-no-important */
     border-color: var(--color-danger) !important;
     /* stylelint-disable-next-line declaration-no-important */
     background-size: rem(16) rem(16) !important;
   }
 
-  &__radio {
-    outline: none;
-    cursor: pointer;
+  &__error-message {
+    position: absolute;
+    left: 0;
+    bottom: rem(-5);
+    font-size: rem(12);
+    color: var(--color-danger);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity $transitionDuration;
+
+    @extend .text-reset;
   }
 
   &_size-xl {
     .form__input {
-      padding: rem(12) rem(16);
+      padding: rem(12) rem(48) rem(12) rem(16);
 
       @extend %form-text-xl;
     }
 
-    .form__text {
+    .form__label {
       @extend %form-text-xl;
     }
   }
 
   &_size-l {
     .form__input {
-      padding: rem(10.5) rem(16);
+      padding: rem(10.5) rem(48) rem(10.5) rem(16);
 
       @extend %form-text-l;
     }
 
-    .form__text {
+    .form__label {
       @extend %form-text-l;
     }
   }
 
   &_size-m {
     .form__input {
-      padding: rem(8) rem(12);
+      padding: rem(8) rem(48) rem(8) rem(12);
 
       @extend %form-text-m;
     }
 
-    .form__text {
+    .form__label {
       @extend %form-text-m;
     }
   }

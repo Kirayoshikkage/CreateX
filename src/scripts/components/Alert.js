@@ -117,14 +117,26 @@ export default class Alert {
     this._focusLock.unblocksFocus();
   }
 
+  _blockScrollWasAdded = false;
+
   _switchesBlockScroll() {
+    const { body } = document;
+
     if (this.isOpen()) {
-      document.body.classList.add('overflow-hidden');
+      if (body.classList.contains('overflow-hidden')) return;
+
+      body.classList.add('overflow-hidden');
+
+      this._blockScrollWasAdded = true;
 
       return;
     }
 
-    document.body.classList.remove('overflow-hidden');
+    if (!this._blockScrollWasAdded) return;
+
+    body.classList.remove('overflow-hidden');
+
+    this._blockScrollWasAdded = false;
   }
 
   _removesScrollPadding(element) {
